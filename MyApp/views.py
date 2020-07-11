@@ -83,7 +83,8 @@ def bind(request):
 
 # 登录
 def login(request):
-    phone_number = '12345678'
+    # phone_number = request.GET.get('phone_number')
+    phone_number = '2165546546'
     if User.objects.filter(phone_number=phone_number).exists():
         data = User.objects.filter(phone_number=phone_number).values()
         return JsonResponse({'data':list(data),'code':1})

@@ -179,7 +179,7 @@ def set_status(request):
     if request.POST:
         place = request.POST.get('place')
         state = request.POST.get('state')
-        id = request.POST.get('id')
+        id = request.POST.get('user_id')
         # id = '2'
         # place = '贤德书院'
         # state = 0
@@ -279,20 +279,24 @@ def appointment(request):
 
 # 完成预约，此时预约人数减一，状态变为 0
 def finish_appointment(request):
-    user_id = '1'
-    state = '0'
-    number = PlaceNumber.objects.filter(place='校医院').get()
-    # if SchoolHospitalAppointment.objects.aggregate(Max('time')).filter(user_id=user_id).exists():
-    # 判断当前用户是否预约
-    # 如果已经预约，则完成预约
-    if SchoolHospitalAppointment.objects.filter(user_id=user_id,time__gt=now_time).exists():
-        max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
-        user_appointment = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
-        # 更新信息，没必要将version+1
-        # user_appointment.version = str(int(hospital.version)+1)
-        user_appointment.state = state
-        user_appointment.save()
-        return JsonResponse({'data':'完成预约！','code':1})
-    else:
-        return JsonResponse({'data':'该用户没有预约信息，无法完成预约','code':0})
+    if request.POST:
+        user_id = request.POST.get('user_id')
+    # user_id = '1'
+        state = '0'
+        place = '校医院'
+        number = PlaceNumber.objects.filter(place=place).get()
+        # if SchoolHospitalAppointment.objects.aggregate(Max('time')).filter(user_id=user_id).exists():
+        # 判断当前用户是否预约
+        # 如果已经预约，则完成预约
+        if SchoolHospitalAppointment.objects.filter(user_id=user_id,time__gt=now_time).exists():
+            max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
+            user_appointment = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+            # 更新信息，没必要将version+1
+            # user_appointment.version = str(int(hospital.version)+1)
+            user_appointment.state = state
+            user_appointment.save()
+            return JsonResponse({'data':'完成预约！','code':1})
+        else:
+            return JsonResponse({'data':'该用户没有预约信息，无法完成预约','code':0})
+    return JsonResponse({'data':'请求方式错误','code':0})
 

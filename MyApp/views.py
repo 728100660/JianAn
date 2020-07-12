@@ -38,21 +38,24 @@ def register(request):
         return HttpResponse('error')
     return HttpResponse('success!')
 
-# 绑定微信手机号码
+# 绑定学号对应的学生信息
 def bind(request):
-    phone_number = '12345672'
-    student_number = '12345672'
-    if User.objects.filter(phone_number=phone_number).exists():
-        # data = User.objects.filter(phone_number=phone_number).values()
-        return JsonResponse({'error':'该微信账号已被注册','code':0})
-    else:
-        data = User.objects.filter(student_number=student_number).get()
-        if data.phone_number:
-            return JsonResponse({'error':'该学号已被绑定','code':0})
+    if request.POST:
+        phone_number = request.POST.get('phone_number')
+        student_number = request.POST.get('student_number')
+        # phone_number = '12345672'
+        # student_number = '12345672'
+        if User.objects.filter(phone_number=phone_number).exists():
+            # data = User.objects.filter(phone_number=phone_number).values()
+            return JsonResponse({'data':'该微信账号已被注册','code':0})
         else:
-            data.phone_number = phone_number
-            data.save()
-            return JsonResponse({'code':1})
+            data = User.objects.filter(student_number=student_number).get()
+            if data.phone_number:
+                return JsonResponse({'data':'该学号已被绑定','code':0})
+            else:
+                data.phone_number = phone_number
+                data.save()
+                return JsonResponse({'data':'绑定成功','code':1})
 
 
 # 登录
@@ -106,7 +109,7 @@ def get_number(request):
 # get请求方式id
 def get_user_info(request):
     if request.GET:
-        id = request.GET.get('id')
+        id = request.GET.get('user_id')
         # id = '1'
         user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes')
         # 返回格式 
@@ -124,7 +127,7 @@ def sent_notify(request):
     if request.POST:
         title = request.POST.get('title')
         content = request.POST.get('content')
-        id = request.POST.get('id')
+        id = request.POST.get('user_id')
         # title = 'title'
         # content = 'content'
         # id = '1'

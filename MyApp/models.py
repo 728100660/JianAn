@@ -36,6 +36,7 @@ class PlaceNumber(models.Model):
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)
     state = models.BooleanField(default=True)
+    administrators = models.CharField(max_length=10,blank=True,null=True)
 
 # test
 class test(models.Model):

@@ -111,7 +111,7 @@ def get_user_info(request):
     if request.GET:
         id = request.GET.get('user_id')
         # id = '1'
-        user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes')
+        user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes','academy')
         # 返回格式 
         # {user：[{}{}{}{}]}
         return JsonResponse({'user':list(user),'code':1})
@@ -128,59 +128,83 @@ def sent_notify(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         id = request.POST.get('user_id')
+        place = request.POST.get('place')
         # title = 'title'
         # content = 'content'
         # id = '1'
-        temp_user = User.objects.filter(pk=id).values('authority')
-        user = temp_user[0]['authority']
-        release_time = time.time()
-        if id == '1':
-            return JsonResponse({'code':0})
-        elif id == '2':
-            place = '图书馆'
+        # temp_user = User.objects.filter(pk=id).values('authority')
+        # user = temp_user[0]['authority']
+        user = User.objects.filter(pk=id).get()
+        authority = user.authority
+        release_time = datetime.datetime.now()
+        temp_place = PlaceNumber.objects.filter(place=place).get()
+        if authority == '0':
+            # print(temp_place.state)
             notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
             try:
                 notify.save()
             except Exception as e:
                 print(e)
-                return JsonResponse({'code':0})
-            return JsonResponse({'code':1})
-        elif id == '3':
-            place = '食堂'
+                return JsonResponse({'data':'发布通知失败!','code':0})
+            return JsonResponse({'data':'发布通知成功!','code':1})
+        elif temp_place.administrators == authority:
             notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
             try:
                 notify.save()
             except Exception as e:
                 print(e)
-                return JsonResponse({'code':0})
-            return JsonResponse({'code':1})
-        elif id == '4':
-            place = '书院'
-            notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
-            try:
-                notify.save()
-            except Exception as e:
-                print(e)
-                return JsonResponse({'code':0})
-            return JsonResponse({'code':1})
-        elif id == '0':
-            # 此处place为学校，需要动态获取
-            place = User.objects.filter(pk=id).valuse('school')
-            notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
-            try:
-                notify.save()
-            except Exception as e:
-                print(e)
-                return JsonResponse({'code':0}) 
-            return JsonResponse({'code':1}) 
-        return JsonResponse({'code':1})
+                return JsonResponse({'data':'发布通知失败!','code':0})
+            return JsonResponse({'data':'发布通知成功!','code':1})
+        else:
+            return JsonResponse({'data':'没有权限!','code':0})
+        # if id == '1':
+        #     return JsonResponse({'code':0})
+
+        # elif id == '2':
+        #     place = '图书馆'
+        #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        #     try:
+        #         notify.save()
+        #     except Exception as e:
+        #         print(e)
+        #         return JsonResponse({'code':0})
+        #     return JsonResponse({'code':1})
+        # elif id == '3':
+        #     place = '食堂'
+        #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        #     try:
+        #         notify.save()
+        #     except Exception as e:
+        #         print(e)
+        #         return JsonResponse({'code':0})
+        #     return JsonResponse({'code':1})
+        # elif id == '4':
+        #     place = '书院'
+        #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        #     try:
+        #         notify.save()
+        #     except Exception as e:
+        #         print(e)
+        #         return JsonResponse({'code':0})
+        #     return JsonResponse({'code':1})
+        # elif id == '0':
+        #     # 此处place为学校，需要动态获取
+        #     place = User.objects.filter(pk=id).valuse('school')
+        #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        #     try:
+        #         notify.save()
+        #     except Exception as e:
+        #         print(e)
+        #         return JsonResponse({'code':0}) 
+        #     return JsonResponse({'code':1}) 
+        # return JsonResponse({'code':1})
     return JsonResponse({'data':'请用POST方式传值','code':0})
 
 # 设置场所状态
 # 没做权限，数据库需要新增一张表，表记录权限id对应的地区
 def set_status(request):
     if request.POST:
-        place = request.POST.get('place')
+        places = request.POST.get('place')
         state = request.POST.get('state')
         id = request.POST.get('user_id')
         # id = '2'
@@ -189,27 +213,31 @@ def set_status(request):
         user = User.objects.filter(pk=id).get()
         authority = user.authority
         # print(type(authority))
-        temp_place = PlaceNumber.objects.filter(place=place).get()
-        # print('state',state==temp_place.state)
-        if authority == '0':
-            # print(temp_place.state)
-            temp_place.state=state
-            temp_place.save()
-        elif temp_place.administrators == authority:
-            # print(temp_place.state)
-            temp_place.state=state
-            temp_place.save()
-        else:
-            return JsonResponse({'data':'没有权限!','code':0})
-        # try:
-        #     temp_place = PlaceNumber.objects.filter(place=place).get()
-        #     print(temp_place.state)
-        #     temp_place.state=state
-        #     temp_place.save()
-        # except Exception as e:
-        #     print(e)
-        #     return JsonResponse({'code':0})
-        return JsonResponse({'data':'成功','code':1})
+        for place in places:
+            temp_place = PlaceNumber.objects.filter(place=place).get()
+            # print('state',state==temp_place.state)
+            if authority == '0':
+                # print(temp_place.state)
+                temp_place.state=state
+                temp_place.save()
+            elif temp_place.administrators == authority:
+                # print(temp_place.state)
+                temp_place.state=state
+                temp_place.save()
+            else:
+                return JsonResponse({'data':'没有权限!','code':0})
+            # try:
+            #     temp_place = PlaceNumber.objects.filter(place=place).get()
+            #     print(temp_place.state)
+            #     temp_place.state=state
+            #     temp_place.save()
+            # except Exception as e:
+            #     print(e)
+            #     return JsonResponse({'code':0})
+            return JsonResponse({'data':'成功','code':1})
+        return JsonResponse({'data':'失败，未接收到place数据','code':0})
+    return JsonResponse({'data':'失败，请求方式失败或未接受到任何传值，请用get方法传值','code':0})
+    
 
 
 # 医院预约功能
@@ -302,4 +330,14 @@ def finish_appointment(request):
         else:
             return JsonResponse({'data':'该用户没有预约信息，无法完成预约','code':0})
     return JsonResponse({'data':'请求方式错误','code':0})
+
+
+# 获取校医院当前 未完成的 预约信息
+# def get_appointment_info(request):
+#     if request.method == 'GET':
+#         now_time = datetime.datetime.now()
+#         appointment_infos = SchoolHospitalAppointment.objects.filter(time__gt=now_time).values('symptom','user_id')
+#         data = []
+#         for appointment_info in appointment_infos:
+#             user = User..objects.filter(pk=appointment_info['user_id']).values()
 

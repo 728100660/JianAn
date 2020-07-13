@@ -9,6 +9,7 @@ urlpatterns = {
     url(r'^get_number/',views.get_number,name='get_number'),
     url(r'^get_user_info/',views.get_user_info,name='get_user_info'),
     url(r'^modify_information/',views.modify_information,name='modify_information'),
+    url(r'^sent_notify/',views.sent_notify,name='sent_notify'),
     url(r'^set_status/',views.set_status,name='set_status'),
     url(r'^appointment/',views.appointment,name='appointment'),
     

@@ -293,14 +293,18 @@ def appointment(request):
         else:
             # 没有预约的话就预约
             # 预约
-            # 如果用户是以前就有预约信息在数据库，获取最大版本号且将其＋1
+            # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
             if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
                 max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
                 print(max_v)
-                # max_v['version__max'] = int(max_v['version__max'])+1
-                hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
-                hospital.version = str(int(hospital.version)+1)
+                user = User.objects.filter(pk=user_id).get()
+                max_version = int(max_v['version__max'])
+                hospital = SchoolHospitalAppointment(user_id=user,symptom=symptom,state=state,time=now_time,version=str(max_version+1))
                 hospital.save()
+                # max_v['version__max'] = int(max_v['version__max'])+1
+                # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+                # hospital.version = str(int(hospital.version)+1)
+                # hospital.save()
             else:
                 # 如果有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()

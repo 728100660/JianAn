@@ -87,8 +87,7 @@ class SchoolHospitalAppointment(models.Model):
     #                          primary_key=True)
     user_id = models.ForeignKey('User',
                              models.DO_NOTHING,
-                             db_column='user_id',
-                             unique=True)
+                             db_column='user_id')
     symptom = models.CharField(max_length=15, blank=True, null=True)
     time = models.DateField(blank=True, null=True)
     state = models.CharField(max_length=2, blank=True, null=True)

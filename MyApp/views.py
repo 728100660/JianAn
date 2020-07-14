@@ -130,24 +130,27 @@ def modify_information(request):
 
 # 发布通知
 def sent_notify(request):
-    if request.POST:
-        title = request.POST.get('title')
-        content = request.POST.get('content')
-        id = request.POST.get('user_id')
+    if request.GET:
+        # title = request.POST.get('title')
+        # content = request.POST.get('content')
+        # id = request.POST.get('user_id')
+
         # place = request.POST.get('place')
 
-        # title = 'title'
-        # content = 'content'
-        # id = '1'
+        title = 'title'
+        content = 'content'
+        id = '1'
         # temp_user = User.objects.filter(pk=id).values('authority')
         # user = temp_user[0]['authority']
         user = User.objects.filter(pk=id).get()
-        authority = user.authority
+        print(user.pk)
+        # authority = user.authority
         release_time = datetime.datetime.now()
-        temp_place = PlaceNumber.objects.filter(place=place).get()
-        # if authority == '0':
+        # temp_place = PlaceNumber.objects.filter(place=place).get()
+        # if authority == '0'::
         #     # print(temp_place.state)
-        notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        '''publisher关联了user，这里赋值要注意'''
+        notify = Notify(title=title,publisher=user,release_time=release_time)
         try:
             notify.save()
         except Exception as e:
@@ -208,7 +211,7 @@ def sent_notify(request):
         #         return JsonResponse({'code':0}) 
         #     return JsonResponse({'code':1}) 
         # return JsonResponse({'code':1})
-    return JsonResponse({'data':'请用POST方式传值','code':0})
+    return JsonResponse({'data':'未使用POST方式传值，或者未传输数据到后台','code':0})
 
 # 设置场所状态
 # 没做权限，数据库需要新增一张表，表记录权限id对应的地区
@@ -344,7 +347,7 @@ def finish_appointment(request):
 
 # 获取指定用户的预约信息
 def get_appointment_info(request):
-    if request.method == 'GET':
+    if request.GET:
         user_id = request.GET.get('user_id')
         now_time = datetime.datetime.now()
         # appointment_infos = SchoolHospitalAppointment.objects.filter(time__gt=now_time).values('symptom','user_id')
@@ -362,7 +365,7 @@ def get_appointment_info(request):
             data += merge_dict_list(listmerge)
         return JsonResponse({'data':data,'code':1})
     else:
-        return JsonResponse({'data':'请求方式错误','code':0})
+        return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
 
 
 # 获取所有通知内容

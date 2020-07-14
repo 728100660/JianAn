@@ -130,16 +130,16 @@ def modify_information(request):
 
 # 发布通知
 def sent_notify(request):
-    if request.GET:
-        # title = request.POST.get('title')
-        # content = request.POST.get('content')
-        # id = request.POST.get('user_id')
+    if request.POST:
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
 
-        title = 'title'
-        content = 'content'
-        id = '1'
+        # title = 'title'
+        # content = 'content'
+        # id = '1'
         # temp_user = User.objects.filter(pk=id).values('authority')
         # user = temp_user[0]['authority']
         user = User.objects.filter(pk=id).get()
@@ -318,7 +318,7 @@ def appointment(request):
             #     print(e,2)  
             #     return JsonResponse({'code':0})
             return JsonResponse({'data':'预约成功！','code':1})
-    return JsonResponse({'data':'请求方式错误','code':0})
+    return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
 
 
 # 完成预约，此时预约人数减一，状态变为 0

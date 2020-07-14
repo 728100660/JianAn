@@ -13,5 +13,6 @@ urlpatterns = {
     url(r'^set_status/',views.set_status,name='set_status'),
     url(r'^appointment/',views.appointment,name='appointment'),
     url(r'^get_appointment_info/',views.get_appointment_info,name='get_appointment_info'),
-    
+    url(r'^get_notify/',views.get_notify,name='get_notify'),
+    url(r'^get_place/',views.get_place,name='get_place'),
 }

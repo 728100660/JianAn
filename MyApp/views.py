@@ -12,8 +12,13 @@ def test(request):
     data = User.objects.filter(name='pxz').aggregate(Max('id'))
     # user_infor = User.objects.filter(name='pxz').values()
     # return JsonResponse({'user_info':list(user_infor)})
-    print(data)
+    # print(data)
     return HttpResponse('ksdflajsfjklasjdlkfjlsajdflkjdsljf')
+    places = ['校医院']
+    for place in places:
+        place = PlaceNumber(place=place,real_time_number=11,max_people=100,state=1,administrators=1)
+        place.save()
+    return HttpResponse('添加成功')
 
 # 注册账户信息
 def register(request):
@@ -129,7 +134,8 @@ def sent_notify(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         id = request.POST.get('user_id')
-        place = request.POST.get('place')
+        # place = request.POST.get('place')
+
         # title = 'title'
         # content = 'content'
         # id = '1'
@@ -139,25 +145,28 @@ def sent_notify(request):
         authority = user.authority
         release_time = datetime.datetime.now()
         temp_place = PlaceNumber.objects.filter(place=place).get()
-        if authority == '0':
-            # print(temp_place.state)
-            notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
-            try:
-                notify.save()
-            except Exception as e:
-                print(e)
-                return JsonResponse({'data':'发布通知失败!','code':0})
-            return JsonResponse({'data':'发布通知成功!','code':1})
-        elif temp_place.administrators == authority:
-            notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
-            try:
-                notify.save()
-            except Exception as e:
-                print(e)
-                return JsonResponse({'data':'发布通知失败!','code':0})
-            return JsonResponse({'data':'发布通知成功!','code':1})
-        else:
-            return JsonResponse({'data':'没有权限!','code':0})
+        # if authority == '0':
+        #     # print(temp_place.state)
+        notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        try:
+            notify.save()
+        except Exception as e:
+            print(e)
+            return JsonResponse({'data':'发布通知失败!','code':0})
+        return JsonResponse({'data':'发布通知成功!','code':1})
+
+        # elif temp_place.administrators == authority:
+        #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
+        #     try:
+        #         notify.save()
+        #     except Exception as e:
+        #         print(e)
+        #         return JsonResponse({'data':'发布通知失败!','code':0})
+        #     return JsonResponse({'data':'发布通知成功!','code':1})
+        # else:
+        #     return JsonResponse({'data':'没有权限!','code':0})
+
+
         # if id == '1':
         #     return JsonResponse({'code':0})
 
@@ -368,3 +377,17 @@ def get_notify(request):
         return JsonResponse({'data':data,'code':1})
     else:
         return JsonResponse({'data':'请求方式错误','code':0})
+
+
+# 获取当前用户所管理的区域
+def get_place(request):
+    if request.GET:
+        # user_id = request.GET.get('user_id')
+        authority = request.GET.get('authority')
+        if authority=='0':
+            places = PlaceNumber.objects.all().values()
+        else:
+            places = PlaceNumber.objects.filter(administrators=authority).values('place')
+        return JsonResponse({'data':list(places),'code':1})
+    else:
+        return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})

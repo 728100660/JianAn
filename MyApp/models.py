@@ -31,7 +31,7 @@ class User(models.Model):
 # 场所人数表
 class PlaceNumber(models.Model):
     id = models.AutoField(db_column='ID',
-                          primary_key=True,default=1)
+                          primary_key=True)
     place = models.CharField(max_length=10,blank=True, null=True)
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment
 import time,datetime
+from .common import merge_dict_list
 
 from django.db.models import Sum,Max
 # Create your views here.
@@ -332,12 +333,38 @@ def finish_appointment(request):
     return JsonResponse({'data':'请求方式错误','code':0})
 
 
-# 获取校医院当前 未完成的 预约信息
-# def get_appointment_info(request):
-#     if request.method == 'GET':
-#         now_time = datetime.datetime.now()
-#         appointment_infos = SchoolHospitalAppointment.objects.filter(time__gt=now_time).values('symptom','user_id')
-#         data = []
-#         for appointment_info in appointment_infos:
-#             user = User..objects.filter(pk=appointment_info['user_id']).values()
+# 获取指定用户的预约信息
+def get_appointment_info(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('user_id')
+        now_time = datetime.datetime.now()
+        # appointment_infos = SchoolHospitalAppointment.objects.filter(time__gt=now_time).values('symptom','user_id')
+        # appointment_infos = SchoolHospitalAppointment.objects.filter(time__lt=now_time).values('symptom','user_id','state')
+        appointment_infos = SchoolHospitalAppointment.objects.filter(user_id=user_id).values('symptom','user_id','state')
+        # print(appointment_infos)
+        data = []
+        for appointment_info in appointment_infos:
+            user = User.objects.filter(pk=appointment_info['user_id']).values('id','student_number','name')
+            # print(user,appointment_info)
+            # user是queryset，要转换成列表
+            # 将两个[{}]合并成一个[{}]，并添加到返回列表中
+            listmerge = list(user) + [appointment_info]
+            print(listmerge)
+            data += merge_dict_list(listmerge)
+        return JsonResponse({'data':data,'code':1})
+    else:
+        return JsonResponse({'data':'请求方式错误','code':0})
 
+
+# 获取所有通知内容
+def get_notify(request):
+    if request.method == 'GET':
+        data = []
+        notifys = Notify.objects.all().values()
+        for notify in notifys:
+            user = User.objects.filter(pk=notify['publisher']).values('id','student_number','name')
+            listmerge = list(user) + [notify]
+            data += merge_dict_list(listmerge)
+        return JsonResponse({'data':data,'code':1})
+    else:
+        return JsonResponse({'data':'请求方式错误','code':0})

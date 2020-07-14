@@ -12,5 +12,6 @@ urlpatterns = {
     url(r'^sent_notify/',views.sent_notify,name='sent_notify'),
     url(r'^set_status/',views.set_status,name='set_status'),
     url(r'^appointment/',views.appointment,name='appointment'),
+    url(r'^get_appointment_info/',views.get_appointment_info,name='get_appointment_info'),
     
 }

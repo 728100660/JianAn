@@ -14,6 +14,15 @@ def test(request):
     # return JsonResponse({'user_info':list(user_infor)})
     # print(data)
     return HttpResponse('ksdflajsfjklasjdlkfjlsajdflkjdsljf')
+    rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
+    for room in rooms:
+        for i in range(10):
+            temp_room = room+str(i+1)
+            print(temp_room)
+            place = PlaceNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1,administrators=7)
+            place.save()
+    return HttpResponse('成功')
+
     places = ['校医院']
     for place in places:
         place = PlaceNumber(place=place,real_time_number=11,max_people=100,state=1,administrators=1)
@@ -106,13 +115,17 @@ def login(request):
 def get_number(request):
     if request.GET:
         place = request.GET.get('place')
-        placenumber = PlaceNumber.objects.filter(place__contains=place).values()
+        flag = request.GET.get('flag')
+        if flag:
+            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
+        else:
+            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
         return JsonResponse({'placeMessage':list(placenumber),'code':1})
         
 
 # 获取用户信息
 # 后期完善 
-# get请求方式id
+# get请求方式id 
 def get_user_info(request):
     if request.GET:
         id = request.GET.get('user_id')
@@ -218,6 +231,7 @@ def sent_notify(request):
 def set_status(request):
     if request.POST:
         places = request.POST.get('place')
+        places = places.split(',')
         state = request.POST.get('state')
         id = request.POST.get('user_id')
         # id = '2'
@@ -376,9 +390,12 @@ def get_appointment_info(request):
 def get_notify(request):
     if request.method == 'GET':
         data = []
+        user_id = request.GET.get('user_id')
+
         notifys = Notify.objects.all().values()
         for notify in notifys:
-            user = User.objects.filter(pk=notify['publisher']).values('id','student_number','name')
+            print(notify)
+            user = User.objects.filter(pk=notify['publisher_id']).values('id','student_number','name')
             listmerge = list(user) + [notify]
             data += merge_dict_list(listmerge)
         return JsonResponse({'data':data,'code':1})

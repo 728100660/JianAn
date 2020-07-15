@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment
+from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment,BuildInfo,ClassroomNumber
 import time,datetime
 from .common import merge_dict_list
 
@@ -17,7 +17,10 @@ def test(request):
     rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
     for room in rooms:
         for i in range(10):
-            temp_room = room+str(i+1)
+            if i < 10:
+                temp_room = room+'0'+str(i+1)
+            else:
+                temp_room = room+str(i+1)
             print(temp_room)
             place = PlaceNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1,administrators=7)
             place.save()
@@ -117,7 +120,7 @@ def get_number(request):
         place = request.GET.get('place')
         flag = request.GET.get('flag')
         if flag:
-            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
+            placenumber = PlaceNumber.objects.all().values()
         else:
             placenumber = PlaceNumber.objects.filter(place__contains=place).values()
         return JsonResponse({'placeMessage':list(placenumber),'code':1})

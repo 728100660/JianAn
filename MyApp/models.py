@@ -94,7 +94,7 @@ class SchoolHospitalAppointment(models.Model):
     
 
 # 建筑信息表
-class build_info(models.Model):
+class BuildInfo(models.Model):
     # id = models.ForeignKey('User',
     #                          models.DO_NOTHING,
     #                          db_column='ID',
@@ -103,3 +103,12 @@ class build_info(models.Model):
     src = models.CharField(max_length=100, blank=True, null=True)
     floor = models.CharField(max_length=3, blank=True, null=True)
     index = models.CharField(max_length=4, blank=True, null=True)
+
+
+
+# 教室人数表
+class ClassroomNumber(models.Model):
+    place = models.CharField(max_length=10,blank=True, null=True)
+    real_time_number = models.IntegerField(blank=True, null=True)
+    max_people = models.IntegerField(blank=True, null=True)
+    state = models.BooleanField(default=True)

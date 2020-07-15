@@ -14,6 +14,15 @@ def test(request):
     # return JsonResponse({'user_info':list(user_infor)})
     # print(data)
     return HttpResponse('ksdflajsfjklasjdlkfjlsajdflkjdsljf')
+    rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
+    for room in rooms:
+        for i in range(10):
+            temp_room = room+str(i+1)
+            print(temp_room)
+            place = PlaceNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1,administrators=7)
+            place.save()
+    return HttpResponse('成功')
+
     places = ['校医院']
     for place in places:
         place = PlaceNumber(place=place,real_time_number=11,max_people=100,state=1,administrators=1)
@@ -106,13 +115,17 @@ def login(request):
 def get_number(request):
     if request.GET:
         place = request.GET.get('place')
-        placenumber = PlaceNumber.objects.filter(place__contains=place).values()
+        flag = request.GET.get('flag')
+        if flag:
+            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
+        else:
+            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
         return JsonResponse({'placeMessage':list(placenumber),'code':1})
         
 
 # 获取用户信息
 # 后期完善 
-# get请求方式id
+# get请求方式id 
 def get_user_info(request):
     if request.GET:
         id = request.GET.get('user_id')
@@ -136,10 +149,12 @@ def sent_notify(request):
         id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
-
         #title = 'title'
         #content = 'content'
         #id = '1'
+        # title = 'title'
+        # content = 'content'
+        # id = '1'
         # temp_user = User.objects.filter(pk=id).values('authority')
         # user = temp_user[0]['authority']
         user = User.objects.filter(pk=id).get()
@@ -300,14 +315,18 @@ def appointment(request):
         else:
             # 没有预约的话就预约
             # 预约
-            # 如果用户是以前就有预约信息在数据库，获取最大版本号且将其＋1
+            # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
             if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
                 max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
                 print(max_v)
-                # max_v['version__max'] = int(max_v['version__max'])+1
-                hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
-                hospital.version = str(int(hospital.version)+1)
+                user = User.objects.filter(pk=user_id).get()
+                max_version = int(max_v['version__max'])
+                hospital = SchoolHospitalAppointment(user_id=user,symptom=symptom,state=state,time=now_time,version=str(max_version+1))
                 hospital.save()
+                # max_v['version__max'] = int(max_v['version__max'])+1
+                # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+                # hospital.version = str(int(hospital.version)+1)
+                # hospital.save()
             else:
                 # 如果有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()
@@ -325,7 +344,7 @@ def appointment(request):
             #     print(e,2)  
             #     return JsonResponse({'code':0})
             return JsonResponse({'data':'预约成功！','code':1})
-    return JsonResponse({'data':'请求方式错误','code':0})
+    return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
 
 
 # 完成预约，此时预约人数减一，状态变为 0
@@ -379,6 +398,8 @@ def get_appointment_info(request):
 def get_notify(request):
     if request.method == 'GET':
         data = []
+        user_id = request.GET.get('user_id')
+
         notifys = Notify.objects.all().values()
         for notify in notifys:
             user = User.objects.filter(pk=notify['publisher_id']).values('id','student_number','name')

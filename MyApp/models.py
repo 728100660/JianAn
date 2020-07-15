@@ -55,7 +55,6 @@ class Notify(models.Model):
     publisher = models.ForeignKey('User',
                              models.DO_NOTHING,
                              db_column='publisher',
-                             unique=True,
                              primary_key=True)
 
     # place = models.ForeignKey('PlaceInfo',
@@ -87,9 +86,20 @@ class SchoolHospitalAppointment(models.Model):
     #                          primary_key=True)
     user_id = models.ForeignKey('User',
                              models.DO_NOTHING,
-                             db_column='user_id',
-                             unique=True)
+                             db_column='user_id')
     symptom = models.CharField(max_length=15, blank=True, null=True)
     time = models.DateField(blank=True, null=True)
     state = models.CharField(max_length=2, blank=True, null=True)
     version = models.CharField(max_length=4, blank=True, null=True)
+    
+
+# 建筑信息表
+class build_info(models.Model):
+    # id = models.ForeignKey('User',
+    #                          models.DO_NOTHING,
+    #                          db_column='ID',
+    #                          primary_key=True)
+    name = models.CharField(max_length=15, blank=True, null=True)
+    src = models.CharField(max_length=100, blank=True, null=True)
+    floor = models.CharField(max_length=3, blank=True, null=True)
+    index = models.CharField(max_length=4, blank=True, null=True)

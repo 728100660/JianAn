@@ -491,3 +491,4 @@ def get_latest_notify(request):
         latest_notify = LatestNotify.objects.all().values()
         return JsonResponse({'data':list(latest_notify),'code':1})
     else:
+        return JsonResponse({'data':'请求方式错误','code':0})

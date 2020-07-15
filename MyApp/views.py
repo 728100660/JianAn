@@ -168,7 +168,7 @@ def get_user_info(request):
     if request.GET:
         id = request.GET.get('user_id')
         # id = '1'
-        user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes','academy')
+        user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes','academy','sex')
         # 返回格式 
         # {user：[{}{}{}{}]}
         return JsonResponse({'data':list(user),'code':1})
@@ -482,8 +482,12 @@ def get_ab_info(request):
 # 获取最新通知信息
 def get_latest_notify(request):
     if request.method == 'GET':
-        latest_notify = LatestNotify.objects.all().values()
-        user = User.objects.filter(administrators=authority).values('place')
-        return JsonResponse({'data':list(latest_notify),'code':1})
+        latest_notifys = LatestNotify.objects.all().values()
+        data = []
+        for latest_notify in latest_notifys:
+            user = User.objects.filter(pk=latest_notify['id']).values('name')
+            listmerge = list(user)+[latest_notify]
+            data += merge_dict_list(listmerge)
+        return JsonResponse({'data':list(data),'code':1})
     else:
         return JsonResponse({'data':'请求方式错误','code':0})

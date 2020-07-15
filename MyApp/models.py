@@ -53,8 +53,7 @@ class PlaceInfo(models.Model):
 class Notify(models.Model):
     # publisher = models.CharField(max_length=10, blank=True, null=True)
     id = models.AutoField(db_column='id',
-                          primary_key=True,
-                          default = 1)
+                          primary_key=True)
     publisher = models.ForeignKey('User',
                              models.DO_NOTHING,
                              db_column='publisher')
@@ -119,9 +118,7 @@ class ClassroomNumber(models.Model):
 # 各个管理员的最新版本的通知表
 class LatestNotify(models.Model):
     id = models.AutoField(db_column='id',
-                          primary_key=True,
-                          unique=True,
-                          default=1)
+                          primary_key=True)
     publisher = models.ForeignKey('User',
                              models.DO_NOTHING,
                              db_column='publisher')

@@ -99,7 +99,7 @@ class BuildInfo(models.Model):
     #                          models.DO_NOTHING,
     #                          db_column='ID',
     #                          primary_key=True)
-    name = models.CharField(max_length=15, blank=True, null=True)
+    place = models.CharField(max_length=15, blank=True, null=True)
     src = models.CharField(max_length=100, blank=True, null=True)
     floor = models.CharField(max_length=3, blank=True, null=True)
     index = models.CharField(max_length=4, blank=True, null=True)

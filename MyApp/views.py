@@ -42,8 +42,8 @@ def test(request):
 def register(request):
     password = '123456'
     authority = '1'
-    phone_number = '123456721'
-    student_number = '123456712'
+    phone_number = '1234526721'
+    student_number = '1234526712'
     name = 'pxz'
     academy = '计算机与信息工程学院'
     classes = '1'
@@ -187,10 +187,9 @@ def sent_notify(request):
         id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
-
         # title = 'title'
         # content = 'contentyyy'
-        # id = '1'
+        # id = '2'
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
@@ -208,7 +207,7 @@ def sent_notify(request):
         # 如果该用户之前发过通知，则将其在LatestNotify表中的信息更新
         # 否则在LatestNotify表中新建一条数据
         if LatestNotify.objects.filter(publisher=user).exists():
-            notify = Notify.objects.filter(publisher=user).get()
+            notify = LatestNotify.objects.filter(publisher=user).get()
             notify.title = title
             notify.release_time = release_time
             notify.content = content
@@ -480,9 +479,11 @@ def get_ab_info(request):
         return JsonResponse({'data':'请求方式错误','code':0})
 
 
+# 获取最新通知信息
 def get_latest_notify(request):
     if request.method == 'GET':
         latest_notify = LatestNotify.objects.all().values()
+        user = User.objects.filter(administrators=authority).values('place')
         return JsonResponse({'data':list(latest_notify),'code':1})
     else:
         return JsonResponse({'data':'请求方式错误','code':0})

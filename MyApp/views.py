@@ -459,7 +459,6 @@ def get_notify(request):
     if request.method == 'GET':
         data = []
         user_id = request.GET.get('user_id')
-
         notifys = Notify.objects.all().values()
         for notify in notifys:
             print(notify)

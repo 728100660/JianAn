@@ -17,4 +17,5 @@ urlpatterns = {
     url(r'^get_place/',views.get_place,name='get_place'),
     url(r'^get_ab_info/',views.get_ab_info,name='get_ab_info'),
     url(r'^get_latest_notify/',views.get_latest_notify,name='get_latest_notify'),
+    url(r'^bind/',views.bind,name='bind'),
 }

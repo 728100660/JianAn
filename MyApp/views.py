@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment,BuildInfo,ClassroomNumber
+from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment,BuildInfo,ClassroomNumber,LatestNotify
 import time,datetime
 from .common import merge_dict_list
 
@@ -15,21 +15,24 @@ def test(request):
     # print(data)
     # data = User.objects.filter(name='pxz').get()
     # result = [data]
-    return JsonResponse(list(result),safe=False)
-    rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
-    for room in rooms:
-        for i in range(10):
-            i+=1
-            if i < 10:
-                temp_room = room+'0'+str(i)
-            else:
-                temp_room = room+str(i)
-            print(temp_room)
-            place = ClassroomNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1)
-            place.save()
-    return HttpResponse('成功')
+    # return JsonResponse(list(result),safe=False)
+    return HttpResponse('asdf')
 
-    places = ['校医院']
+
+    # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
+    # for room in rooms:
+    #     for i in range(10):
+    #         i+=1
+    #         if i < 10:
+    #             temp_room = room+'0'+str(i)
+    #         else:
+    #             temp_room = room+str(i)
+    #         print(temp_room)
+    #         place = ClassroomNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1)
+    #         place.save()
+    # return HttpResponse('成功')
+
+    places = ['校医院','贤德书院','萃雅书院','陌陌书院','贤德食堂','萃雅食堂','楚枫轩食堂','岭南咸嘉食堂','至诚楼','日新楼','乐知楼','博学楼','图书馆']
     for place in places:
         place = PlaceNumber(place=place,real_time_number=11,max_people=100,state=1,administrators=1)
         place.save()
@@ -168,7 +171,7 @@ def get_user_info(request):
         user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes','academy')
         # 返回格式 
         # {user：[{}{}{}{}]}
-        return JsonResponse({'user':list(user),'code':1})
+        return JsonResponse({'data':list(user),'code':1})
 
 # 修改个人信息
 # 后期完善 
@@ -178,18 +181,16 @@ def modify_information(request):
 
 # 发布通知
 def sent_notify(request):
-    if request.POST:
-        title = request.POST.get('title')
-        content = request.POST.get('content')
-        id = request.POST.get('user_id')
+    if request.GET:
+        # title = request.POST.get('title')
+        # content = request.POST.get('content')
+        # id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
 
-        # title = 'title'
-        # content = 'content'
-        # id = '1'
-        # temp_user = User.objects.filter(pk=id).values('authority')
-        # user = temp_user[0]['authority']
+        title = 'title'
+        content = 'contentyyy'
+        id = '1'
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
@@ -198,12 +199,31 @@ def sent_notify(request):
         # if authority == '0'::
         #     # print(temp_place.state)
         '''publisher关联了user，这里赋值要注意'''
-        notify = Notify(title=title,publisher=user,release_time=release_time)
+        notify = Notify(title=title,publisher=user,release_time=release_time,content=content)
         try:
             notify.save()
         except Exception as e:
             print(e)
             return JsonResponse({'data':'发布通知失败!','code':0})
+        # 如果该用户之前发过通知，则将其在LatestNotify表中的信息更新
+        # 否则在LatestNotify表中新建一条数据
+        if LatestNotify.objects.filter(publisher=user).exists():
+            notify = Notify.objects.filter(publisher=user).get()
+            notify.title = title
+            notify.release_time = release_time
+            notify.content = content
+            try:
+                notify.save()
+            except Exception as e:
+                print(e)
+                return({'data':'发布通知成功，但是更新信息失败','code':1})
+        else:
+            notify = LatestNotify(title=title,publisher=user,release_time=release_time,content=content)
+            try:
+                notify.save()
+            except Exception as e:
+                print(e)
+                return({'data':'发布通知成功，但是更新信息失败','code':1})
         return JsonResponse({'data':'发布通知成功!','code':1})
 
         # elif temp_place.administrators == authority:
@@ -451,10 +471,18 @@ def get_place(request):
     else:
         return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
 
-# 获取教学楼信息
-def get_AcademyB_info(request):
+# 获取教学楼信息ab=academybuild
+def get_ab_info(request):
     if request.method == 'GET':
         places = BuildInfo.objects.all().values()
         return JsonResponse({'data':list(places),'code':1})
+    else:
+        return JsonResponse({'data':'请求方式错误','code':0})
+
+
+def get_latest_notify(request):
+    if request.method == 'GET':
+        latest_notify = LatestNotify.objects.all().values()
+        return JsonResponse({'data':list(latest_notify),'code':1})
     else:
         return JsonResponse({'data':'请求方式错误','code':0})

@@ -52,10 +52,12 @@ class PlaceInfo(models.Model):
 # 通知表
 class Notify(models.Model):
     # publisher = models.CharField(max_length=10, blank=True, null=True)
+    id = models.AutoField(db_column='id',
+                          primary_key=True,
+                          default = 1)
     publisher = models.ForeignKey('User',
                              models.DO_NOTHING,
-                             db_column='publisher',
-                             primary_key=True)
+                             db_column='publisher')
 
     # place = models.ForeignKey('PlaceInfo',
     #                          models.DO_NOTHING,
@@ -112,3 +114,23 @@ class ClassroomNumber(models.Model):
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)
     state = models.BooleanField(default=True)
+
+
+# 各个管理员的最新版本的通知表
+class LatestNotify(models.Model):
+    id = models.AutoField(db_column='id',
+                          primary_key=True,
+                          unique=True,
+                          default=1)
+    publisher = models.ForeignKey('User',
+                             models.DO_NOTHING,
+                             db_column='publisher')
+
+    # place = models.ForeignKey('PlaceInfo',
+    #                          models.DO_NOTHING,
+    #                          db_column='Place',
+    #                          primary_key=True)
+    place = models.CharField(max_length=10,blank=True, null=True)
+    title = models.CharField(max_length=10,blank=True, null=True)
+    release_time = models.DateField(blank=True, null=True)
+    content = models.CharField(max_length=200, blank=True, null=True)

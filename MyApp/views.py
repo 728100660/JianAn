@@ -43,17 +43,17 @@ def register(request):
     password = '123456'
     authority = '1'
     phone_number = '1234526721'
-    student_number = '1234526712'
+    identity_id = '1234526712'
     name = 'pxz'
     academy = '计算机与信息工程学院'
     classes = '1'
     sex = '0'
     major = '物联'
     user = User(password=password, authority=authority,
-                phone_number=phone_number, student_number=student_number, name=name, academy=academy, classes=classes, sex=sex, major=major)
+                phone_number=phone_number, identity_id=identity_id, name=name, academy=academy, classes=classes, sex=sex, major=major)
     if User.objects.filter(phone_number=phone_number).exists():
         return HttpResponse('该手机号码已经注册过账户了')
-    elif User.objects.filter(student_number=student_number).exists():
+    elif User.objects.filter(identity_id=identity_id).exists():
         return HttpResponse('该学号已经注册过账户了！')
     try:
         user.save()
@@ -68,20 +68,20 @@ def bind(request):
         phone_number = request.POST.get('phone_number')
         school = request.POST.get('school')
         name = request.POST.get('name')
-        student_number = request.POST.get('student_number')
+        identity_id = request.POST.get('identity_id')
         src = request.POST.get('src')
         openid = request.POST.get('openid')
         # phone_number = '12345672'
-        # student_number = '12345672'
+        # identity_id = '12345672'
         if User.objects.filter(openid=openid).exists():
             # data = User.objects.filter(phone_number=phone_number).values()
             return JsonResponse({'data':'该微信账号已被注册','code':0})
         else:
             try:
-                data = User.objects.filter(student_number=student_number,school=school,name=name).get()
+                data = User.objects.filter(identity_id=identity_id,school=school,name=name).get()
             except Exception as e:
                 print(e)
-                return JsonResponse({'data':'学生信息有误'','code':0})
+                return JsonResponse({'data':'学生信息有误','code':0})
             if data.openid:
                 return JsonResponse({'data':'该学生已被绑定','code':0})
             else:
@@ -91,11 +91,14 @@ def bind(request):
                 data.save()
                 return JsonResponse({'data':'绑定成功','code':1})
 
-
+# 登录
+def login(request):
+    openid = request.POST.get('openid')
+    if User.objects.filter(openid=openid).exists():
 # 登录
 # def login(request):
 #     phone_number = '12345678'
-#     student_number = '1234567'
+#     identity_id = '1234567'
 #     password = '123456'
 #     if User.objects.filter(phone_number=phone_number).exists():
 #         users = User.objects.filter(phone_number=phone_number)
@@ -107,8 +110,8 @@ def bind(request):
 #                 return HttpResponse('登录成功')
 #             else:
 #                 return HttpResponse('defeat')
-#     elif User.objects.filter(student_number=student_number).exists():
-#         users = User.objects.filter(student_number=student_number)
+#     elif User.objects.filter(identity_id=identity_id).exists():
+#         users = User.objects.filter(identity_id=identity_id)
 #         for user in users:
 #             if user.password == password:
 #                 return HttpResponse('登录成功')
@@ -119,29 +122,30 @@ def bind(request):
 
 
 # 登录
-def login(request):
-    if request.POST:
-        phone_number = request.POST.get('phone_number')
-        school = request.POST.get('school')
-        student_number = request.POST.get('student_number')
-        # phone_number = '12345672'
-        if User.objects.filter(phone_number=phone_number).exists():
-            data = User.objects.filter(phone_number=phone_number).values()
-            if data[0]['student_number']==student_number:
-                return JsonResponse({'data':list(data),'code':1})
-            else:
-                return JsonResponse({'data':'手机号码与学号不一致','code':0})
-        else:
-            data = User.objects.filter(student_number=student_number).get()
-            if data.phone_number:
-                return JsonResponse({'data':'手机号码与学号不一致','code':0})
-            else:
-                data.phone_number = phone_number
-                data.save()
-            data = User.objects.filter(phone_number=phone_number).values()
-            return JsonResponse({'data':list(data),'code':1})
+# def login(request):
+#     if request.POST:
+#         phone_number = request.POST.get('phone_number')
+#         school = request.POST.get('school')
+#         identity_id = request.POST.get('identity_id')
+#         # phone_number = '12345672'
+#         if User.objects.filter(phone_number=phone_number).exists():
+#             data = User.objects.filter(phone_number=phone_number).values()
+#             if data[0]['identity_id']==identity_id:
+#                 return JsonResponse({'data':list(data),'code':1})
+#             else:
+#                 return JsonResponse({'data':'手机号码与学号不一致','code':0})
+#         else:
+#             data = User.objects.filter(identity_id=identity_id).get()
+#             if data.phone_number:
+#                 return JsonResponse({'data':'手机号码与学号不一致','code':0})
+#             else:
+#                 data.phone_number = phone_number
+#                 data.save()
+#             data = User.objects.filter(phone_number=phone_number).values()
+#             return JsonResponse({'data':list(data),'code':1})
             #     return JsonResponse({'data':data,'code':1})
             # return JsonResponse({'data':'请先绑定学生信息','code':0})
+
 
 
 # 获取场所人数
@@ -438,7 +442,7 @@ def get_appointment_info(request):
         # print(appointment_infos)
         data = []
         for appointment_info in appointment_infos:
-            user = User.objects.filter(pk=appointment_info['user_id']).values('id','student_number','name')
+            user = User.objects.filter(pk=appointment_info['user_id']).values('id','identity_id','name')
             # print(user,appointment_info)
             # user是queryset，要转换成列表
             # 将两个[{}]合并成一个[{}]，并添加到返回列表中
@@ -459,7 +463,7 @@ def get_notify(request):
         notifys = Notify.objects.all().values()
         for notify in notifys:
             print(notify)
-            user = User.objects.filter(pk=notify['publisher_id']).values('id','student_number','name')
+            user = User.objects.filter(pk=notify['publisher_id']).values('id','identity_id','name')
             listmerge = list(user) + [notify]
             data += merge_dict_list(listmerge)
         return JsonResponse({'data':data,'code':1})

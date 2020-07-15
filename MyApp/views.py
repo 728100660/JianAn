@@ -181,22 +181,16 @@ def modify_information(request):
 
 # 发布通知
 def sent_notify(request):
-    if request.GET:
-        # title = request.POST.get('title')
-        # content = request.POST.get('content')
-        # id = request.POST.get('user_id')
+    if request.POST:
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
-<<<<<<< HEAD
-        #title = 'title'
-        #content = 'content'
-        #id = '1'
+
         # title = 'title'
-        # content = 'content'
+        # content = 'contentyyy'
         # id = '1'
-        # temp_user = User.objects.filter(pk=id).values('authority')
-        # user = temp_user[0]['authority']
->>>>>>> 0db8f59dd9ca33824f1e692139fb582e158ef30e
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
@@ -482,19 +476,14 @@ def get_place(request):
     else:
         return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
 
-<<<<<<< HEAD
-# 获取教学楼信息
-=======
+
 # 获取教学楼信息ab=academybuild
->>>>>>> 0db8f59dd9ca33824f1e692139fb582e158ef30e
 def get_ab_info(request):
     if request.method == 'GET':
         places = BuildInfo.objects.all().values()
         return JsonResponse({'data':list(places),'code':1})
     else:
         return JsonResponse({'data':'请求方式错误','code':0})
-<<<<<<< HEAD
-=======
 
 
 def get_latest_notify(request):
@@ -502,5 +491,3 @@ def get_latest_notify(request):
         latest_notify = LatestNotify.objects.all().values()
         return JsonResponse({'data':list(latest_notify),'code':1})
     else:
-        return JsonResponse({'data':'请求方式错误','code':0})
->>>>>>> 0db8f59dd9ca33824f1e692139fb582e158ef30e

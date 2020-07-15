@@ -181,16 +181,16 @@ def modify_information(request):
 
 # 发布通知
 def sent_notify(request):
-    if request.GET:
-        # title = request.POST.get('title')
-        # content = request.POST.get('content')
-        # id = request.POST.get('user_id')
+    if request.POST:
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        id = request.POST.get('user_id')
 
         # place = request.POST.get('place')
 
-        title = 'title'
-        content = 'contentyyy'
-        id = '1'
+        # title = 'title'
+        # content = 'contentyyy'
+        # id = '1'
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority

@@ -9,20 +9,23 @@ from django.db.models import Sum,Max
 
 
 def test(request):
-    data = User.objects.filter(name='pxz').aggregate(Max('id'))
+    # data = User.objects.filter(name='pxz').aggregate(Max('id'))
     # user_infor = User.objects.filter(name='pxz').values()
     # return JsonResponse({'user_info':list(user_infor)})
     # print(data)
-    return HttpResponse('ksdflajsfjklasjdlkfjlsajdflkjdsljf')
+    # data = User.objects.filter(name='pxz').get()
+    # result = [data]
+    return JsonResponse(list(result),safe=False)
     rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
     for room in rooms:
         for i in range(10):
+            i+=1
             if i < 10:
-                temp_room = room+'0'+str(i+1)
+                temp_room = room+'0'+str(i)
             else:
-                temp_room = room+str(i+1)
+                temp_room = room+str(i)
             print(temp_room)
-            place = PlaceNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1,administrators=7)
+            place = ClassroomNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1)
             place.save()
     return HttpResponse('成功')
 
@@ -106,12 +109,26 @@ def bind(request):
 def login(request):
     if request.POST:
         phone_number = request.POST.get('phone_number')
+        school = request.POST.get('school')
+        student_number = request.POST.get('student_number')
         # phone_number = '12345672'
         if User.objects.filter(phone_number=phone_number).exists():
             data = User.objects.filter(phone_number=phone_number).values()
-            return JsonResponse({'data':list(data),'code':1})
+            if data[0]['student_number']==student_number:
+                return JsonResponse({'data':list(data),'code':1})
+            else:
+                return JsonResponse({'data':'手机号码与学号不一致','code':0})
         else:
-            return JsonResponse({'data':'该微信号还没有绑定学生信息呢','code':0})
+            data = User.objects.filter(student_number=student_number).get()
+            if data.phone_number:
+                return JsonResponse({'data':'手机号码与学号不一致','code':0})
+            else:
+                data.phone_number = phone_number
+                data.save()
+            data = User.objects.filter(phone_number=phone_number).values()
+            return JsonResponse({'data':list(data),'code':1})
+            #     return JsonResponse({'data':data,'code':1})
+            # return JsonResponse({'data':'请先绑定学生信息','code':0})
 
 
 # 获取场所人数
@@ -119,11 +136,26 @@ def get_number(request):
     if request.GET:
         place = request.GET.get('place')
         flag = request.GET.get('flag')
+        floor = request.GET.get('floor')
+        # 如果有flag就将placenumber表中所有数据返回
         if flag:
             placenumber = PlaceNumber.objects.all().values()
+        elif floor:
+            # 如果有floor的数据就是请求教学楼中具体的层数，当前层所有教室，的人数
+            indexs = BuildInfo.objects.filter(place=place).values('index')
+            print(indexs)
+            indexs = indexs[0]['index'].split('_')
+            result = []
+            print(indexs)
+            for index in indexs:
+                # temp=A1,A2,B2之类的
+                temp_index = index+floor
+                data = ClassroomNumber.objects.filter(place__contains=temp_index).values()
+                result += data
+            return JsonResponse({'data':result,'code':1})
         else:
             placenumber = PlaceNumber.objects.filter(place__contains=place).values()
-        return JsonResponse({'placeMessage':list(placenumber),'code':1})
+        return JsonResponse({'data':list(placenumber),'code':1})
         
 
 # 获取用户信息
@@ -418,3 +450,11 @@ def get_place(request):
         return JsonResponse({'data':list(places),'code':1})
     else:
         return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
+
+# 获取教学楼信息
+def get_AcademyB_info(request):
+    if request.method == 'GET':
+        places = BuildInfo.objects.all().values()
+        return JsonResponse({'data':list(places),'code':1})
+    else:
+        return JsonResponse({'data':'请求方式错误','code':0})

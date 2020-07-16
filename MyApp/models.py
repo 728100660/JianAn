@@ -15,7 +15,7 @@ class User(models.Model):
     academy = models.CharField(max_length=20, blank=True, null=True)
     major = models.CharField(max_length=10, blank=True, null=True)
     school = models.CharField(max_length=15, blank=True, null=True)
-    src = models.CharField(max_length=100, blank=True, null=True)
+    src = models.CharField(max_length=200, blank=True, null=True)
     openid = models.CharField(max_length=20, blank=True, null=True)
 
 # 用户信息表

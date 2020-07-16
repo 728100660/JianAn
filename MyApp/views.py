@@ -70,10 +70,10 @@ def bind(request):
         name = request.POST.get('name')
         identity_id = request.POST.get('identity_id')
         src = request.POST.get('src')
-        openid = request.POST.get('openid')
+        openid = request.POST.get('openid') 
         # phone_number = '12345672'
         # identity_id = '12345672'
-        if User.objects.filter(openid=openid).exists():
+        if User.objects.filter(phone_number=phone_number).exists():
             # data = User.objects.filter(phone_number=phone_number).values()
             return JsonResponse({'data':'该微信账号已被注册','code':0})
         else:
@@ -82,7 +82,7 @@ def bind(request):
             except Exception as e:
                 print(e)
                 return JsonResponse({'data':'学生信息有误','code':0})
-            if data.openid:
+            if data.phone_number:
                 return JsonResponse({'data':'该学生已被绑定','code':0})
             else:
                 data.openid = openid
@@ -95,6 +95,7 @@ def bind(request):
 def login(request):
     openid = request.POST.get('openid')
     if User.objects.filter(openid=openid).exists():
+        pass
 # 登录
 # def login(request):
 #     phone_number = '12345678'

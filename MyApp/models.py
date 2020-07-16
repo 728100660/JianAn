@@ -6,7 +6,7 @@ class User(models.Model):
     id = models.AutoField(db_column='ID',
                           primary_key=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    student_number = models.CharField(max_length=15, blank=True, null=True)
+    identity_id = models.CharField(max_length=15, blank=True, null=True)
     password = models.CharField(max_length=15, blank=True, null=True)
     authority = models.CharField(max_length=1, blank=True, null=True, default=1)
     name = models.CharField(max_length=5, blank=True, null=True)

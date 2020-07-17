@@ -5,6 +5,7 @@ import time
 import datetime
 from .common import merge_dict_list
 
+import os
 from django.db.models import Sum, Max
 # Create your views here.
 
@@ -17,6 +18,13 @@ def test(request):
     # data = User.objects.filter(name='pxz').get()
     # result = [data]
     # return JsonResponse(list(result),safe=False)
+    pwd = os.getcwd()
+    pwd =  os.getcwd()+'/static/'+'55664'+'.png'
+    print(type(pwd),pwd)
+    pwd = pwd.split('\\')
+    print(type(pwd),pwd)
+    pwd = '/'.join(pwd)
+    print(type(pwd),pwd)
     return HttpResponse('asdf')
 
     # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
@@ -108,7 +116,7 @@ def login(request):
         identity_id = request.POST.get('identity_id')
         password = request.POST.get('password')
         if User.objects.filter(school=school,identity_id=identity_id).exists():
-            user = User.objects.filter(school=school,identity_id=identity_idatad).get()
+            user = User.objects.filter(school=school,identity_id=identity_id).get()
             if user.password==password:
                 data = [{'user_id': user.pk}]
                 return JsonResponse({'data': data, 'code': 1})
@@ -523,6 +531,8 @@ def get_place(request):
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 
+
+
 # 获取教学楼信息ab=academybuild
 
 
@@ -546,3 +556,25 @@ def get_latest_notify(request):
         return JsonResponse({'data': list(data), 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误', 'code': 0})
+
+
+
+# 上传文件
+def upload_file(request):
+    if reques.POST:
+        rec_file = request.FILES.get('icon')
+        identity_id = request.POST.get('identity_id')
+        # print(rec_file)
+        # 获取当前工作路径
+        pwd =  os.getcwd()+'/static/'+identity_id+'.png'
+        pwd = pwd.split('\\')
+        pwd = '/'.join(pwd)
+        # print(pwd)
+        # with 在读取完毕后，自动关闭
+        with open("D:/python_code/django_study/static/img/test.docx",'wb') as save_file:
+            for part in rec_file.chunks():
+                save_file.write(part)
+                save_file.flush()
+        return HttpResponse("文件上传成功")
+    else:
+        return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

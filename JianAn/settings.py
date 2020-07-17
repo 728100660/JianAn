@@ -87,6 +87,20 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ccio',
+#         'PORT': 3306,
+#         "HOST": '172.23.13.23',
+#         'USER': 'yjf',
+#         'PASSWORD': 'admin',
+#         'OPTIONS': {
+#             'autocommit': True,
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         }
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

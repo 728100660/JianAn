@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment,BuildInfo,ClassroomNumber,LatestNotify
-import time,datetime
+from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment, BuildInfo, ClassroomNumber, LatestNotify
+import time
+import datetime
 from .common import merge_dict_list
 
-from django.db.models import Sum,Max
+from django.db.models import Sum, Max
 # Create your views here.
 
 
@@ -17,7 +18,6 @@ def test(request):
     # result = [data]
     # return JsonResponse(list(result),safe=False)
     return HttpResponse('asdf')
-
 
     # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
     # for room in rooms:
@@ -32,25 +32,30 @@ def test(request):
     #         place.save()
     # return HttpResponse('成功')
 
-    places = ['校医院','贤德书院','萃雅书院','陌陌书院','贤德食堂','萃雅食堂','楚枫轩食堂','岭南咸嘉食堂','至诚楼','日新楼','乐知楼','博学楼','图书馆']
+    places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
     for place in places:
-        place = PlaceNumber(place=place,real_time_number=11,max_people=100,state=1,administrators=1)
+        place = PlaceNumber(place=place, real_time_number=11,
+                            max_people=100, state=1, administrators=1)
         place.save()
     return HttpResponse('添加成功')
 
 # 注册账户信息
+
+
 def register(request):
     password = '123456'
     authority = '1'
-    phone_number = '1234526721'
-    identity_id = '1234526712'
+    phone_number = '234526721'
+    identity_id = '123526712'
     name = 'pxz'
     academy = '计算机与信息工程学院'
     classes = '1'
     sex = '0'
     major = '物联'
+    school = '湖南工商大学'
     user = User(password=password, authority=authority,
-                phone_number=phone_number, identity_id=identity_id, name=name, academy=academy, classes=classes, sex=sex, major=major)
+                phone_number=phone_number, identity_id=identity_id, name=name, academy=academy, classes=classes, sex=sex, major=major, shcool=school)
     if User.objects.filter(phone_number=phone_number).exists():
         return HttpResponse('该手机号码已经注册过账户了')
     elif User.objects.filter(identity_id=identity_id).exists():
@@ -63,6 +68,8 @@ def register(request):
     return HttpResponse('success!')
 
 # 绑定学号对应的学生信息
+
+
 def bind(request):
     if request.POST:
         phone_number = request.POST.get('phone_number')
@@ -70,36 +77,45 @@ def bind(request):
         name = request.POST.get('name')
         identity_id = request.POST.get('identity_id')
         src = request.POST.get('src')
-        openid = request.POST.get('openid') 
+        openid = request.POST.get('openid')
         # phone_number = '12345672'
         # identity_id = '12345672'
         if User.objects.filter(phone_number=phone_number).exists():
             # data = User.objects.filter(phone_number=phone_number).values()
-            return JsonResponse({'data':'该微信账号已被注册','code':0})
+            return JsonResponse({'data': '该微信账号已被绑定', 'code': 0})
         else:
             try:
-                data = User.objects.filter(identity_id=identity_id,school=school,name=name).get()
+                data = User.objects.filter(
+                    identity_id=identity_id, school=school, name=name).get()
             except Exception as e:
                 print(e)
-                return JsonResponse({'data':'学生信息有误','code':0})
+                return JsonResponse({'data': '学生信息有误', 'code': 0})
             if data.phone_number:
-                return JsonResponse({'data':'该学生已被绑定','code':0})
+                return JsonResponse({'data': '该学生已被绑定', 'code': 0})
             else:
                 data.openid = openid
                 data.phone_number = phone_number
                 data.src = src
                 data.save()
-                return JsonResponse({'data':[{'user_id':data.pk}],'code':1})
+                return JsonResponse({'data': [{'user_id': data.pk}], 'code': 1})
 
 # 登录
+
+
 def login(request):
-    phone_number = request.POST.get('phone_number')
-    if User.objects.filter(phone_number=phone_number).exists():
-        user = User.objects.filter(phone_number=phone_number).get()
-        data = [{'user_id':user.pk}]
-        return JsonResponse({'data':data,'code':1})
-    else:
-        return JsonResponse({'data':'该用户未绑定学生信息！','code':1})
+    if request.POST:
+        school = request.POST.get('phone_number')
+        identity_id = request.POST.get('identity_id')
+        password = request.POST.get('password')
+        if User.objects.filter(school=school,identity_id=identity_id).exists():
+            user = User.objects.filter(school=school,identity_id=identity_idatad).get()
+            if user.password==password:
+                data = [{'user_id': user.pk}]
+                return JsonResponse({'data': data, 'code': 1})
+            return JsonResponse({'data': '用户密码输入错误 ', 'code': 0})
+        else:
+            return JsonResponse({'data': '学校或学工号信息有误', 'code': 0})
+    return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 # 登录
 # def login(request):
 #     phone_number = '12345678'
@@ -148,9 +164,8 @@ def login(request):
 #                 data.save()
 #             data = User.objects.filter(phone_number=phone_number).values()
 #             return JsonResponse({'data':list(data),'code':1})
-            #     return JsonResponse({'data':data,'code':1})
-            # return JsonResponse({'data':'请先绑定学生信息','code':0})
-
+        #     return JsonResponse({'data':data,'code':1})
+        # return JsonResponse({'data':'请先绑定学生信息','code':0})
 
 
 # 获取场所人数
@@ -172,33 +187,40 @@ def get_number(request):
             for index in indexs:
                 # temp=A1,A2,B2之类的
                 temp_index = index+floor
-                data = ClassroomNumber.objects.filter(place__contains=temp_index).values()
+                data = ClassroomNumber.objects.filter(
+                    place__contains=temp_index).values()
                 result += data
-            return JsonResponse({'data':result,'code':1})
+            return JsonResponse({'data': result, 'code': 1})
         else:
-            placenumber = PlaceNumber.objects.filter(place__contains=place).values()
-        return JsonResponse({'data':list(placenumber),'code':1})
-        
+            placenumber = PlaceNumber.objects.filter(
+                place__contains=place).values()
+        return JsonResponse({'data': list(placenumber), 'code': 1})
+
 
 # 获取用户信息
-# 后期完善 
-# get请求方式id 
+# 后期完善
+# get请求方式id
 def get_user_info(request):
     if request.GET:
         id = request.GET.get('user_id')
         # id = '1'
-        user = User.objects.filter(pk=id).values('name','school','authority','src','major','classes','academy','sex')
-        # 返回格式 
+        user = User.objects.filter(pk=id).values(
+            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex','identify_id')
+        # 返回格式
         # {user：[{}{}{}{}]}
-        return JsonResponse({'data':list(user),'code':1})
+        return JsonResponse({'data': list(user), 'code': 1})
 
 # 修改个人信息
-# 后期完善 
+# 后期完善
 # change（忘记专业术语了）请求方式
+
+
 def modify_information(request):
-    return JsonResponse({'code':1})
+    return JsonResponse({'code': 1})
 
 # 发布通知
+
+
 def sent_notify(request):
     if request.POST:
         title = request.POST.get('title')
@@ -212,17 +234,18 @@ def sent_notify(request):
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
-        release_time = datetime.datetime.now()
+        release_time = time.time()
         # temp_place = PlaceNumber.objects.filter(place=place).get()
         # if authority == '0'::
         #     # print(temp_place.state)
         '''publisher关联了user，这里赋值要注意'''
-        notify = Notify(title=title,publisher=user,release_time=release_time,content=content)
+        notify = Notify(title=title, publisher=user,
+                        release_time=release_time, content=content)
         try:
             notify.save()
         except Exception as e:
             print(e)
-            return JsonResponse({'data':'发布通知失败!','code':0})
+            return JsonResponse({'data': '发布通知失败!', 'code': 0})
         # 如果该用户之前发过通知，则将其在LatestNotify表中的信息更新
         # 否则在LatestNotify表中新建一条数据
         if LatestNotify.objects.filter(publisher=user).exists():
@@ -234,15 +257,16 @@ def sent_notify(request):
                 notify.save()
             except Exception as e:
                 print(e)
-                return({'data':'发布通知成功，但是更新信息失败','code':1})
+                return({'data': '发布通知成功，但是更新信息失败', 'code': 1})
         else:
-            notify = LatestNotify(title=title,publisher=user,release_time=release_time,content=content)
+            notify = LatestNotify(
+                title=title, publisher=user, release_time=release_time, content=content)
             try:
                 notify.save()
             except Exception as e:
                 print(e)
-                return({'data':'发布通知成功，但是更新信息失败','code':1})
-        return JsonResponse({'data':'发布通知成功!','code':1})
+                return({'data': '发布通知成功，但是更新信息失败', 'code': 1})
+        return JsonResponse({'data': '发布通知成功!', 'code': 1})
 
         # elif temp_place.administrators == authority:
         #     notify = Notify(place=place,title=title,publisher=id,release_time=release_time)
@@ -254,7 +278,6 @@ def sent_notify(request):
         #     return JsonResponse({'data':'发布通知成功!','code':1})
         # else:
         #     return JsonResponse({'data':'没有权限!','code':0})
-
 
         # if id == '1':
         #     return JsonResponse({'code':0})
@@ -294,13 +317,15 @@ def sent_notify(request):
         #         notify.save()
         #     except Exception as e:
         #         print(e)
-        #         return JsonResponse({'code':0}) 
-        #     return JsonResponse({'code':1}) 
+        #         return JsonResponse({'code':0})
+        #     return JsonResponse({'code':1})
         # return JsonResponse({'code':1})
-    return JsonResponse({'data':'未使用POST方式传值，或者未传输数据到后台','code':0})
+    return JsonResponse({'data': '未使用POST方式传值，或者未传输数据到后台', 'code': 0})
 
 # 设置场所状态
 # 没做权限，数据库需要新增一张表，表记录权限id对应的地区
+
+
 def set_status(request):
     if request.POST:
         places = request.POST.get('place')
@@ -318,14 +343,14 @@ def set_status(request):
             # print('state',state==temp_place.state)
             if authority == '0':
                 # print(temp_place.state)
-                temp_place.state=state
+                temp_place.state = state
                 temp_place.save()
             elif temp_place.administrators == authority:
                 # print(temp_place.state)
-                temp_place.state=state
+                temp_place.state = state
                 temp_place.save()
             else:
-                return JsonResponse({'data':'没有权限!','code':0})
+                return JsonResponse({'data': '没有权限!', 'code': 0})
             # try:
             #     temp_place = PlaceNumber.objects.filter(place=place).get()
             #     print(temp_place.state)
@@ -334,10 +359,9 @@ def set_status(request):
             # except Exception as e:
             #     print(e)
             #     return JsonResponse({'code':0})
-            return JsonResponse({'data':'成功','code':1})
-        return JsonResponse({'data':'失败，未接收到place数据','code':0})
-    return JsonResponse({'data':'失败，请求方式失败或未接受到任何传值，请用get方法传值','code':0})
-    
+            return JsonResponse({'data': '成功', 'code': 1})
+        return JsonResponse({'data': '失败，未接收到place数据', 'code': 0})
+    return JsonResponse({'data': '失败，请求方式失败或未接受到任何传值，请用get方法传值', 'code': 0})
 
 
 # 医院预约功能
@@ -353,40 +377,44 @@ def appointment(request):
         # time 是预约时间，不是当前时间
         # time = datetime.datetime.now()
         # 当前时间
-        now_time = datetime.datetime.now()
+        now_time = time.time()
         # user = User.objects.filter(pk=id).get()
         # 判断当前用户是否预约
-        if SchoolHospitalAppointment.objects.filter(user_id=user_id,time__gt=now_time).exists():
+        if SchoolHospitalAppointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
             if state == '1':
-            # 如果是预约请求的话
-            # 您已经预约过一次了，请先取消预约
-                return JsonResponse({'data':'你已经预约过一次了','code':0})
+                # 如果是预约请求的话
+                # 您已经预约过一次了，请先取消预约
+                return JsonResponse({'data': '你已经预约过一次了', 'code': 0})
             elif state == '3':
                 # 如果是取消预约请求的话
                 # 取消预约，预约人数减一
                 try:
                     # 取消预约
-                    hospital = SchoolHospitalAppointment.objects.filter(user_id=user_id,time__gt=time).get()
+                    hospital = SchoolHospitalAppointment.objects.filter(
+                        user_id=user_id, time__gt=time).get()
                     hospital.state = '3'
                     hospital.save()
                     # 人数减一
                     number = PlaceNumber.objects.filter(place='校医院').get()
-                    placenumber = PlaceNumber(real_time_number=number.real_time_number-1)
+                    placenumber = PlaceNumber(
+                        real_time_number=number.real_time_number-1)
                     placenumber.save()
                 except Exception as e:
-                    print(e,1)
-                    return JsonResponse({'code':0})
-                return JsonResponse({'data':'取消预约成功！','code':0})
+                    print(e, 1)
+                    return JsonResponse({'code': 0})
+                return JsonResponse({'data': '取消预约成功！', 'code': 0})
         else:
             # 没有预约的话就预约
             # 预约
             # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
             if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
-                max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
+                max_v = SchoolHospitalAppointment.objects.filter(
+                    user_id=user_id).aggregate(Max('version'))
                 print(max_v)
                 user = User.objects.filter(pk=user_id).get()
                 max_version = int(max_v['version__max'])
-                hospital = SchoolHospitalAppointment(user_id=user,symptom=symptom,state=state,time=now_time,version=str(max_version+1))
+                hospital = SchoolHospitalAppointment(
+                    user_id=user, symptom=symptom, state=state, time=now_time, version=str(max_version+1))
                 hospital.save()
                 # max_v['version__max'] = int(max_v['version__max'])+1
                 # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
@@ -395,7 +423,8 @@ def appointment(request):
             else:
                 # 如果有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()
-                hospital = SchoolHospitalAppointment(user_id=user,symptom=symptom,state=state,time=now_time,version='1')
+                hospital = SchoolHospitalAppointment(
+                    user_id=user, symptom=symptom, state=state, time=now_time, version='1')
                 print(1)
                 hospital.save()
                 print(2)
@@ -406,10 +435,10 @@ def appointment(request):
                 number.real_time_number = str(number.real_time_number+1)
                 number.save()
             # except Exception as e:
-            #     print(e,2)  
+            #     print(e,2)
             #     return JsonResponse({'code':0})
-            return JsonResponse({'data':'预约成功！','code':1})
-    return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
+            return JsonResponse({'data': '预约成功！', 'code': 1})
+    return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 
 
 # 完成预约，此时预约人数减一，状态变为 0
@@ -423,40 +452,44 @@ def finish_appointment(request):
         # if SchoolHospitalAppointment.objects.aggregate(Max('time')).filter(user_id=user_id).exists():
         # 判断当前用户是否预约
         # 如果已经预约，则完成预约
-        if SchoolHospitalAppointment.objects.filter(user_id=user_id,time__gt=now_time).exists():
-            max_v = SchoolHospitalAppointment.objects.filter(user_id=user_id).aggregate(Max('version'))
-            user_appointment = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+        if SchoolHospitalAppointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
+            max_v = SchoolHospitalAppointment.objects.filter(
+                user_id=user_id).aggregate(Max('version'))
+            user_appointment = SchoolHospitalAppointment.objects.filter(
+                version=max_v['version__max'], user_id=user_id).get()
             # 更新信息，没必要将version+1
             # user_appointment.version = str(int(hospital.version)+1)
             user_appointment.state = state
             user_appointment.save()
-            return JsonResponse({'data':'完成预约！','code':1})
+            return JsonResponse({'data': '完成预约！', 'code': 1})
         else:
-            return JsonResponse({'data':'该用户没有预约信息，无法完成预约','code':0})
-    return JsonResponse({'data':'请求方式错误','code':0})
+            return JsonResponse({'data': '该用户没有预约信息，无法完成预约', 'code': 0})
+    return JsonResponse({'data': '请求方式错误', 'code': 0})
 
 
 # 获取指定用户的预约信息
 def get_appointment_info(request):
     if request.GET:
         user_id = request.GET.get('user_id')
-        now_time = datetime.datetime.now()
+        # now_time = time.time()
         # appointment_infos = SchoolHospitalAppointment.objects.filter(time__gt=now_time).values('symptom','user_id')
         # appointment_infos = SchoolHospitalAppointment.objects.filter(time__lt=now_time).values('symptom','user_id','state')
-        appointment_infos = SchoolHospitalAppointment.objects.filter(user_id=user_id).values('symptom','user_id','state')
+        appointment_infos = SchoolHospitalAppointment.objects.filter(
+            user_id=user_id).values('symptom', 'user_id', 'state')
         # print(appointment_infos)
         data = []
         for appointment_info in appointment_infos:
-            user = User.objects.filter(pk=appointment_info['user_id']).values('id','identity_id','name')
+            user = User.objects.filter(pk=appointment_info['user_id']).values(
+                'id', 'identity_id', 'name')
             # print(user,appointment_info)
             # user是queryset，要转换成列表
             # 将两个[{}]合并成一个[{}]，并添加到返回列表中
             listmerge = list(user) + [appointment_info]
             print(listmerge)
             data += merge_dict_list(listmerge)
-        return JsonResponse({'data':data,'code':1})
+        return JsonResponse({'data': data, 'code': 1})
     else:
-        return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
+        return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 
 
 # 获取所有通知内容
@@ -467,12 +500,13 @@ def get_notify(request):
         notifys = Notify.objects.all().values()
         for notify in notifys:
             print(notify)
-            user = User.objects.filter(pk=notify['publisher_id']).values('id','identity_id','name')
+            user = User.objects.filter(pk=notify['publisher_id']).values(
+                'id', 'identity_id', 'name')
             listmerge = list(user) + [notify]
             data += merge_dict_list(listmerge)
-        return JsonResponse({'data':data,'code':1})
+        return JsonResponse({'data': data, 'code': 1})
     else:
-        return JsonResponse({'data':'请求方式错误','code':0})
+        return JsonResponse({'data': '请求方式错误', 'code': 0})
 
 
 # 获取当前用户所管理的区域
@@ -480,21 +514,24 @@ def get_place(request):
     if request.GET:
         # user_id = request.GET.get('user_id')
         authority = request.GET.get('authority')
-        if authority=='0':
+        if authority == '0':
             places = PlaceNumber.objects.all().values()
         else:
-            places = PlaceNumber.objects.filter(administrators=authority).values('place')
-        return JsonResponse({'data':list(places),'code':1})
+            places = PlaceNumber.objects.filter(
+                administrators=authority).values('place')
+        return JsonResponse({'data': list(places), 'code': 1})
     else:
-        return JsonResponse({'data':'请求方式错误,或未传输数据','code':0})
+        return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 
 # 获取教学楼信息ab=academybuild
+
+
 def get_ab_info(request):
     if request.method == 'GET':
         places = BuildInfo.objects.all().values()
-        return JsonResponse({'data':list(places),'code':1})
+        return JsonResponse({'data': list(places), 'code': 1})
     else:
-        return JsonResponse({'data':'请求方式错误','code':0})
+        return JsonResponse({'data': '请求方式错误', 'code': 0})
 
 
 # 获取最新通知信息
@@ -506,6 +543,6 @@ def get_latest_notify(request):
             user = User.objects.filter(pk=latest_notify['id']).values('name')
             listmerge = list(user)+[latest_notify]
             data += merge_dict_list(listmerge)
-        return JsonResponse({'data':list(data),'code':1})
+        return JsonResponse({'data': list(data), 'code': 1})
     else:
-        return JsonResponse({'data':'请求方式错误','code':0})
+        return JsonResponse({'data': '请求方式错误', 'code': 0})

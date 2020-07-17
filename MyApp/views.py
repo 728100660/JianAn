@@ -205,7 +205,7 @@ def get_user_info(request):
         id = request.GET.get('user_id')
         # id = '1'
         user = User.objects.filter(pk=id).values(
-            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex','identify_id')
+            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex','identity_id')
         # 返回格式
         # {user：[{}{}{}{}]}
         return JsonResponse({'data': list(user), 'code': 1})

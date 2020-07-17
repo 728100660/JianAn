@@ -93,9 +93,13 @@ def bind(request):
 
 # 登录
 def login(request):
-    openid = request.POST.get('openid')
-    if User.objects.filter(openid=openid).exists():
-        pass
+    phone_number = request.POST.get('phone_number')
+    if User.objects.filter(phone_number=phone_number).exists():
+        user = User.objects.filter(phone_number=phone_number).get()
+        data = [{'user_id':user.pk}]
+        return JsonResponse({'data':data,'code':1})
+    else:
+        return JsonResponse({'data':'该用户未绑定学生信息！','code':1})
 # 登录
 # def login(request):
 #     phone_number = '12345678'

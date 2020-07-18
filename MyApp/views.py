@@ -143,7 +143,7 @@ def bind(request):
 
 def login(request):
     if request.POST:
-        school = request.POST.get('phone_number')
+        school = request.POST.get('school')
         identity_id = request.POST.get('identity_id')
         password = request.POST.get('password')
         if User.objects.filter(school=school,identity_id=identity_id).exists():
@@ -273,7 +273,7 @@ def sent_notify(request):
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
-        release_time = time.time()
+        release_time = datetime.datetime.now()
         # temp_place = Placenumber.objects.filter(place=place).get()
         # if authority == '0'::
         #     # print(temp_place.state)
@@ -605,7 +605,7 @@ def upload_file(request):
         pwd = '/'.join(pwd)
         # print(pwd)
         # with 在读取完毕后，自动关闭
-        with open("D:/python_code/django_study/static/img/test.docx",'wb') as save_file:
+        with open("pwd",'wb') as save_file:
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()

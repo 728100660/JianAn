@@ -6,6 +6,7 @@ import datetime
 from .common import merge_dict_list
 
 from django.db.models import Sum, Max
+import os
 # Create your views here.
 
 
@@ -17,6 +18,8 @@ def test(request):
     # data = User.objects.filter(name='pxz').get()
     # result = [data]
     # return JsonResponse(list(result),safe=False)
+    a = os.getcwd()
+    print(type(a),a)
     return HttpResponse('asdf')
 
     # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
@@ -104,11 +107,11 @@ def bind(request):
 
 def login(request):
     if request.POST:
-        school = request.POST.get('phone_number')
+        school = request.POST.get('school')
         identity_id = request.POST.get('identity_id')
         password = request.POST.get('password')
         if User.objects.filter(school=school,identity_id=identity_id).exists():
-            user = User.objects.filter(school=school,identity_id=identity_idatad).get()
+            user = User.objects.filter(school=school,identity_id=identity_id).get()
             if user.password==password:
                 data = [{'user_id': user.pk}]
                 return JsonResponse({'data': data, 'code': 1})

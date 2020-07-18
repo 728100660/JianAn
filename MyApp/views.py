@@ -590,9 +590,11 @@ def upload_file(request):
                 save_file.write(part)
                 save_file.flush()
         # 更新存储头像url的src
+        src = 'http://jianan.site:8080/static/'+identity_id+'.png'
         user = User.objects.filter(identity_id=identity_id).get()
-        user.src = 'http://jianan.site:8080/static/'+identity_id+'.png'
+        user.src = src
         user.save()
-        return HttpResponse("文件上传成功")
+        data = [{'src',src}]
+        return JsonResponse({'data': data, 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

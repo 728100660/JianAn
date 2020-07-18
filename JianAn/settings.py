@@ -76,31 +76,31 @@ WSGI_APPLICATION = 'JianAn.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'NAME': 'JianAn',
-        'PASSWORD': '123456',
-        'HOST': '112.74.103.14',
-        'port': '3306'
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'ccio',
-#         'PORT': 3306,
-#         "HOST": '172.23.13.23',
-#         'USER': 'yjf',
-#         'PASSWORD': 'admin',
-#         'OPTIONS': {
-#             'autocommit': True,
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         }
+#         'USER': 'root',
+#         'NAME': 'JianAn',
+#         'PASSWORD': '123456',
+#         'HOST': '112.74.103.14',
+#         'port': '3306'
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ccio',
+        'PORT': 3306,
+        "HOST": '172.23.13.23',
+        'USER': 'yjf',
+        'PASSWORD': 'admin',
+        'OPTIONS': {
+            'autocommit': True,
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

@@ -19,17 +19,18 @@ def test(request):
     # data = User.objects.filter(name='pxz').get()
     # result = [data]
     # return JsonResponse(list(result),safe=False)
-    a = os.getcwd()
-    print(type(a),a)
-    pwd = os.getcwd()
-    pwd =  os.getcwd()+'/static/'+'55664'+'.png'
-    print(type(pwd),pwd)
-    pwd = pwd.split('\\')
-    print(type(pwd),pwd)
-    pwd = '/'.join(pwd)
-    print(type(pwd),pwd)
+    # 获取当前工作路径
+    # pwd = os.getcwd()
+    # pwd =  os.getcwd()+'/static/'+'55664'+'.png'
+    # print(type(pwd),pwd)
+    # pwd = pwd.split('\\')
+    # print(type(pwd),pwd)
+    # pwd = '/'.join(pwd)
+    # print(type(pwd),pwd)
     return HttpResponse('asdf')
 
+
+    # 初始化教室人数表
     # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
     # for room in rooms:
     #     for i in range(10):
@@ -38,17 +39,17 @@ def test(request):
     #             temp_room = room+'0'+str(i)
     #         else:
     #             temp_room = room+str(i)
-    #         print(temp_room)
     #         place = ClassroomNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1)
     #         place.save()
     # return HttpResponse('成功')
 
-    places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
-              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
-    for place in places:
-        place = PlaceNumber(place=place, real_time_number=11,
-                            max_people=100, state=1, administrators=1)
-        place.save()
+    # 初始化区域人数表
+    # places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+    #           '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
+    # for place in places:
+    #     place = PlaceNumber(place=place, real_time_number=11,
+    #                         max_people=100, state=1, administrators=1)
+    #     place.save()
     return HttpResponse('添加成功')
 
 # 注册账户信息
@@ -381,23 +382,26 @@ def set_status(request):
     return JsonResponse({'data': '失败，请求方式失败或未接受到任何传值，请用get方法传值', 'code': 0})
 
 
-# 医院预约功能
+# 医院预约功能,预约时间不允许选择，预约完之后必须在15分钟之内到达校医院（即预约有效时间只有15分钟）
 def appointment(request):
     if request.POST:
         user_id = request.POST.get('user_id')
         symptom = request.POST.get('symptom')
         state = request.POST.get('state')
-        time = request.POST.get('time')
+        valid_period = 15
+        now_time = datetime.datetime.now()
+        time = now_time + datetime.timedelta(minutes=valid_period)
+        print(time)
         # user_id = '1'
         # symptom = 'symptom'
         # state = '1'
         # time 是预约时间，不是当前时间
         # time = datetime.datetime.now()
         # 当前时间
-        now_time = time.time()
+        now_time = datetime.datetime.now()
         # user = User.objects.filter(pk=id).get()
         # 判断当前用户是否预约
-        if SchoolHospitalAppointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
+        if Schoolhospitalappointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
             if state == '1':
                 # 如果是预约请求的话
                 # 您已经预约过一次了，请先取消预约
@@ -407,15 +411,15 @@ def appointment(request):
                 # 取消预约，预约人数减一
                 try:
                     # 取消预约
-                    hospital = SchoolHospitalAppointment.objects.filter(
-                        user_id=user_id, time__gt=time).get()
+                    hospital = Schoolhospitalappointment.objects.filter(
+                        user_id=user_id, time__gt=now_time, state='1').get()
                     hospital.state = '3'
                     hospital.save()
                     # 人数减一
-                    number = PlaceNumber.objects.filter(place='校医院').get()
-                    placenumber = PlaceNumber(
+                    number = Placenumber.objects.filter(place='校医院').get()
+                    Placenumber = Placenumber(
                         real_time_number=number.real_time_number-1)
-                    placenumber.save()
+                    Placenumber.save()
                 except Exception as e:
                     print(e, 1)
                     return JsonResponse({'code': 0})
@@ -424,29 +428,29 @@ def appointment(request):
             # 没有预约的话就预约
             # 预约
             # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
-            if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
-                max_v = SchoolHospitalAppointment.objects.filter(
+            if Schoolhospitalappointment.objects.filter(user_id=user_id).exists():
+                max_v = Schoolhospitalappointment.objects.filter(
                     user_id=user_id).aggregate(Max('version'))
                 print(max_v)
                 user = User.objects.filter(pk=user_id).get()
                 max_version = int(max_v['version__max'])
-                hospital = SchoolHospitalAppointment(
-                    user_id=user, symptom=symptom, state=state, time=now_time, version=str(max_version+1))
+                hospital = Schoolhospitalappointment(
+                    user_id=user, symptom=symptom, state=state, time=time, version=str(max_version+1))
                 hospital.save()
                 # max_v['version__max'] = int(max_v['version__max'])+1
-                # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+                # hospital = Schoolhospitalappointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
                 # hospital.version = str(int(hospital.version)+1)
                 # hospital.save()
             else:
                 # 如果有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()
-                hospital = SchoolHospitalAppointment(
-                    user_id=user, symptom=symptom, state=state, time=now_time, version='1')
+                hospital = Schoolhospitalappointment(
+                    user_id=user, symptom=symptom, state=state, time=time, version='1')
                 print(1)
                 hospital.save()
                 print(2)
                 # 人数加一
-                number = PlaceNumber.objects.filter(place='校医院').get()
+                number = Placenumber.objects.filter(place='校医院').get()
                 print(number.real_time_number)
                 print(type(number.real_time_number))
                 number.real_time_number = str(number.real_time_number+1)
@@ -456,6 +460,7 @@ def appointment(request):
             #     return JsonResponse({'code':0})
             return JsonResponse({'data': '预约成功！', 'code': 1})
     return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
+
 
 
 # 完成预约，此时预约人数减一，状态变为 0
@@ -577,9 +582,9 @@ def upload_file(request):
         pwd =  os.getcwd()+'/static/'+identity_id+'.png'
         pwd = pwd.split('\\')
         pwd = '/'.join(pwd)
-        # print(pwd)
+        print(pwd)
         # with 在读取完毕后，自动关闭
-        with open("D:/python_code/django_study/static/img/test.docx",'wb') as save_file:
+        with open(pwd,'wb') as save_file:
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()

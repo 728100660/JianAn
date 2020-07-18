@@ -427,7 +427,7 @@ def appointment(request):
         else:
             # 没有预约的话就预约
             # 预约
-            # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
+            # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本号＋1，将医院预约人数+1
             if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
                 max_v = SchoolHospitalAppointment.objects.filter(
                     user_id=user_id).aggregate(Max('version'))
@@ -436,23 +436,27 @@ def appointment(request):
                 max_version = int(max_v['version__max'])
                 hospital = SchoolHospitalAppointment(
                     user_id=user, symptom=symptom, state=state, time=time, version=str(max_version+1))
+                number = Placenumber.objects.filter(place='校医院').get()
+                # 人数+1
+                number.real_time_number = str(number.real_time_number+1)
+                number.save()
                 hospital.save()
                 # max_v['version__max'] = int(max_v['version__max'])+1
                 # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
                 # hospital.version = str(int(hospital.version)+1)
                 # hospital.save()
             else:
-                # 如果有预约信息，将其版本号置为1
+                # 如果以前没有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()
                 hospital = SchoolHospitalAppointment(
                     user_id=user, symptom=symptom, state=state, time=time, version='1')
-                print(1)
+                # print(1)
                 hospital.save()
-                print(2)
+                # print(2)
                 # 人数加一
                 number = Placenumber.objects.filter(place='校医院').get()
-                print(number.real_time_number)
-                print(type(number.real_time_number))
+                # print(number.real_time_number)
+                # print(type(number.real_time_number))
                 number.real_time_number = str(number.real_time_number+1)
                 number.save()
             # except Exception as e:

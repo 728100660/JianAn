@@ -186,7 +186,7 @@ def get_number(request):
         place = request.GET.get('place')
         flag = request.GET.get('flag')
         floor = request.GET.get('floor')
-        # 如果有flag就将placenumber表中所有数据返回
+        # 如果有flag就将PlaceNumber表中所有数据返回
         if flag:
             placenumber = PlaceNumber.objects.all().values()
         elif floor:
@@ -411,7 +411,7 @@ def appointment(request):
                     hospital.save()
                     # 人数减一
                     number = Placenumber.objects.filter(place='校医院').get()
-                    Placenumber = Placenumber(
+                    Placenumber = PlaceNumber(
                         real_time_number=number.real_time_number-1)
                     Placenumber.save()
                 except Exception as e:
@@ -430,7 +430,7 @@ def appointment(request):
                 max_version = int(max_v['version__max'])
                 hospital = SchoolHospitalAppointment(
                     user_id=user, symptom=symptom, state=state, time=time, version=str(max_version+1))
-                number = Placenumber.objects.filter(place='校医院').get()
+                number = PlaceNumber.objects.filter(place='校医院').get()
                 # 人数+1
                 number.real_time_number = str(number.real_time_number+1)
                 number.save()
@@ -448,7 +448,7 @@ def appointment(request):
                 hospital.save()
                 # print(2)
                 # 人数加一
-                number = Placenumber.objects.filter(place='校医院').get()
+                number = PlaceNumber.objects.filter(place='校医院').get()
                 # print(number.real_time_number)
                 # print(type(number.real_time_number))
                 number.real_time_number = str(number.real_time_number+1)

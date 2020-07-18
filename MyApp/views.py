@@ -573,12 +573,14 @@ def get_latest_notify(request):
 
 # 上传文件
 def upload_file(request):
-    if reques.POST:
+    if request.POST:
         rec_file = request.FILES.get('icon')
         identity_id = request.POST.get('identity_id')
         # print(rec_file)
         # 获取当前工作路径
-        pwd =  os.getcwd()+'/static/'+identity_id+'.png'
+        # pwd =  os.getcwd()+'/static/'+identity_id+'.png'
+        # linux路径和windows路径获取有点不一样
+        pwd =  os.getcwd()+'/package/static/'+identity_id+'.png'
         pwd = pwd.split('\\')
         pwd = '/'.join(pwd)
         print(pwd)
@@ -587,6 +589,10 @@ def upload_file(request):
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()
+        # 更新存储头像url的src
+        user = User.objects.filter(identity_id=identity_id).get()
+        user.src = 'http://jianan.site:8080/static/'+identity_id+'.png'
+        user.save()
         return HttpResponse("文件上传成功")
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

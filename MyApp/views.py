@@ -237,7 +237,7 @@ def sent_notify(request):
         user = User.objects.filter(pk=id).get()
         print(user.pk)
         # authority = user.authority
-        release_time = time.time()
+        release_time = datetime.datetime.now()
         # temp_place = PlaceNumber.objects.filter(place=place).get()
         # if authority == '0'::
         #     # print(temp_place.state)

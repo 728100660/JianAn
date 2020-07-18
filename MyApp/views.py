@@ -395,7 +395,7 @@ def appointment(request):
         now_time = datetime.datetime.now()
         # user = User.objects.filter(pk=id).get()
         # 判断当前用户是否预约
-        if Schoolhospitalappointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
+        if SchoolHospitalAppointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
             if state == '1':
                 # 如果是预约请求的话
                 # 您已经预约过一次了，请先取消预约
@@ -405,7 +405,7 @@ def appointment(request):
                 # 取消预约，预约人数减一
                 try:
                     # 取消预约
-                    hospital = Schoolhospitalappointment.objects.filter(
+                    hospital = SchoolHospitalAppointment.objects.filter(
                         user_id=user_id, time__gt=now_time, state='1').get()
                     hospital.state = '3'
                     hospital.save()
@@ -422,23 +422,23 @@ def appointment(request):
             # 没有预约的话就预约
             # 预约
             # 如果用户是以前就有预约信息在数据库，获取最大版本号且新建一条预约信息将版本呢号＋1
-            if Schoolhospitalappointment.objects.filter(user_id=user_id).exists():
-                max_v = Schoolhospitalappointment.objects.filter(
+            if SchoolHospitalAppointment.objects.filter(user_id=user_id).exists():
+                max_v = SchoolHospitalAppointment.objects.filter(
                     user_id=user_id).aggregate(Max('version'))
                 print(max_v)
                 user = User.objects.filter(pk=user_id).get()
                 max_version = int(max_v['version__max'])
-                hospital = Schoolhospitalappointment(
+                hospital = SchoolHospitalAppointment(
                     user_id=user, symptom=symptom, state=state, time=time, version=str(max_version+1))
                 hospital.save()
                 # max_v['version__max'] = int(max_v['version__max'])+1
-                # hospital = Schoolhospitalappointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
+                # hospital = SchoolHospitalAppointment.objects.filter(version=max_v['version__max'],user_id=user_id).get()
                 # hospital.version = str(int(hospital.version)+1)
                 # hospital.save()
             else:
                 # 如果有预约信息，将其版本号置为1
                 user = User.objects.filter(pk=user_id).get()
-                hospital = Schoolhospitalappointment(
+                hospital = SchoolHospitalAppointment(
                     user_id=user, symptom=symptom, state=state, time=time, version='1')
                 print(1)
                 hospital.save()

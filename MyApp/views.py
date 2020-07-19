@@ -589,8 +589,10 @@ def upload_file(request):
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()
+        # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
+        suffix = str(int(time.time()))
         # 更新存储头像url的src
-        src = 'http://jianan.site:8080/static/'+identity_id+'.png'
+        src = 'http://jianan.site:8080/static/'+identity_id+suffix+'.png'
         user = User.objects.filter(identity_id=identity_id).get()
         user.src = src
         user.save()

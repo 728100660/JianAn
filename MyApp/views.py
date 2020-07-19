@@ -599,7 +599,7 @@ def upload_file(request):
         user = User.objects.filter(identity_id=identity_id).get()
         user.src = src
         user.save()
-        data = [{'src',src}]
+        data = [{'src':src}]
         return JsonResponse({'data': data, 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

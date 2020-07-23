@@ -388,9 +388,9 @@ def appointment(request):
         user_id = request.POST.get('user_id')
         symptom = request.POST.get('symptom')
         state = request.POST.get('state')
-        valid_period = 15
+        valid_period = 1
         now_time = datetime.datetime.now()
-        time = now_time + datetime.timedelta(minutes=valid_period)
+        time = now_time + datetime.timedelta(days=valid_period)
         print(time)
         # user_id = '1'
         # symptom = 'symptom'
@@ -585,7 +585,8 @@ def upload_file(request):
         # 获取当前工作路径
         # pwd =  os.getcwd()+'/static/'+identity_id+'.png'
         # linux路径和windows路径获取有点不一样
-        pwd =  os.getcwd()+'/package/static/'+identity_id+'.png'
+        suffix = str(int(time.time()))
+        pwd =  os.getcwd()+'/static/'+identity_id+suffix+'.png'
         pwd = pwd.split('\\')
         pwd = '/'.join(pwd)
         print(pwd)
@@ -595,9 +596,9 @@ def upload_file(request):
                 save_file.write(part)
                 save_file.flush()
         # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
-        suffix = str(int(time.time()))
+        # suffix = str(int(time.time()))
         # 更新存储头像url的src
-        src = 'http://jianan.site:8080/static/'+identity_id+suffix+'.png'
+        src = 'https://www.jianan.site/static/'+identity_id+suffix+'.png'
         user = User.objects.filter(identity_id=identity_id).get()
         user.src = src
         user.save()

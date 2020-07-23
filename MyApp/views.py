@@ -378,13 +378,17 @@ def set_status(request):
 
 # 医院预约功能,预约时间不允许选择，预约完之后必须在15分钟之内到达校医院（即预约有效时间只有15分钟）
 def appointment(request):
-    if request.POST:
-        user_id = request.POST.get('user_id')
-        symptom = request.POST.get('symptom')
-        state = request.POST.get('state')
-        valid_period = 15
+    if request:
+        print(1)
+        # user_id = request.POST.get('user_id')
+        # symptom = request.POST.get('symptom')
+        # state = request.POST.get('state')
+        user_id = 3
+        symptom = 'symptom'
+        state = '1'
+        valid_period = 1
         now_time = datetime.datetime.now()
-        time = now_time + datetime.timedelta(minutes=valid_period)
+        time = now_time + datetime.timedelta(days=1)
         print(time)
         # user_id = '1'
         # symptom = 'symptom'
@@ -394,7 +398,7 @@ def appointment(request):
         # 当前时间
         now_time = datetime.datetime.now()
         # user = User.objects.filter(pk=id).get()
-        # 判断当前用户是否预约
+        # 判断当前用户是否有有效预约在进行
         if SchoolHospitalAppointment.objects.filter(user_id=user_id, time__gt=now_time).exists():
             if state == '1':
                 # 如果是预约请求的话
@@ -580,7 +584,10 @@ def upload_file(request):
         # 获取当前工作路径
         # pwd =  os.getcwd()+'/static/'+identity_id+'.png'
         # linux路径和windows路径获取有点不一样
-        pwd =  os.getcwd()+'/package/static/'+identity_id+'.png'
+
+        # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
+        suffix = str(int(time.time()))
+        pwd =  os.getcwd()+'/package/static/'+identity_id + suffix + '.png'
         pwd = pwd.split('\\')
         pwd = '/'.join(pwd)
         print(pwd)
@@ -589,8 +596,6 @@ def upload_file(request):
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()
-        # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
-        suffix = str(int(time.time()))
         # 更新存储头像url的src
         src = 'http://jianan.site:8080/static/'+identity_id+suffix+'.png'
         user = User.objects.filter(identity_id=identity_id).get()

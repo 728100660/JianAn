@@ -132,3 +132,27 @@ class LatestNotify(models.Model):
     title = models.CharField(max_length=10,blank=True, null=True)
     release_time = models.DateField(blank=True, null=True)
     content = models.CharField(max_length=200, blank=True, null=True)
+
+
+# 各个场所人流量表
+class Stream_of_people(models.Model):
+    place = models.CharField(max_length=10,blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+    max_number = models.IntegerField(blank=True, null=True)
+    max_stage = models.IntegerField(blank=True, null=True)
+    six = models.IntegerField(blank=True, null=True, default=0)
+    seven = models.IntegerField(blank=True, null=True, default=0)
+    eight = models.IntegerField(blank=True, null=True, default=0)
+    nine = models.IntegerField(blank=True, null=True, default=0)
+    ten = models.IntegerField(blank=True, null=True, default=0)
+    eleven = models.IntegerField(blank=True, null=True, default=0)
+    twelve = models.IntegerField(blank=True, null=True, default=0)
+    thirteen = models.IntegerField(blank=True, null=True, default=0)
+    fourteen = models.IntegerField(blank=True, null=True, default=0)
+    fifteen = models.IntegerField(blank=True, null=True, default=0)
+    sixteen = models.IntegerField(blank=True, null=True, default=0)
+    seventeen = models.IntegerField(blank=True, null=True, default=0)
+    eighteen = models.IntegerField(blank=True, null=True, default=0)
+    nineteen = models.IntegerField(blank=True, null=True, default=0)
+    twenty = models.IntegerField(blank=True, null=True, default=0)
+    twenty_one = models.IntegerField(blank=True, null=True, default=0)

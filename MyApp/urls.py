@@ -19,4 +19,5 @@ urlpatterns = {
     url(r'^get_latest_notify/',views.get_latest_notify,name='get_latest_notify'),
     url(r'^bind/',views.bind,name='bind'),
     url(r'^upload_file/',views.upload_file,name='upload_file'),
+    url(r'^get_stream_people/',views.get_stream_people,name='get_stream_people'),
 }

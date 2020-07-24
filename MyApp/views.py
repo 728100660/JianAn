@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment, BuildInfo, ClassroomNumber, LatestNotify
+from .models import Stream_of_people
 import time
 import datetime
 from .common import merge_dict_list
 
+import random,re
 import os
 from django.db.models import Sum, Max
+import os
 # Create your views here.
 
 
@@ -26,9 +29,36 @@ def test(request):
     # print(type(pwd),pwd)
     # pwd = '/'.join(pwd)
     # print(type(pwd),pwd)
-    return HttpResponse('asdf')
+    # return HttpResponse('asdf')
 
-
+    # 初始化各个场所人流量
+    rooms = {'A1', 'B1', 'C1', 'D1', 'A2', 'B2',
+             'C2', 'D2', 'A3', 'B3', 'C3', 'D3'}
+    date = datetime.datetime.now()
+    date = date + datetime.timedelta(days=-1)
+    for room in rooms:
+        for i in range(10):
+            i += 1
+            if i < 10:
+                temp_room = room+'0'+str(i)
+            else:
+                temp_room = room+str(i)
+            place = Stream_of_people(place=temp_room, date=date, real_number=random.randint(0,80), max_number=100,
+                                    max_stage=10,seven=random.randint(0,80),nine=random.randint(0,80),
+                                    eleven=random.randint(0,80), thirteen=random.randint(0,80),
+                                    fifteen=random.randint(0,80), seventeen=random.randint(0,80),
+                                    nineteen=random.randint(0,80), twenty_one=random.randint(0,80))
+            place.save()
+    places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
+    for place in places:
+        place = Stream_of_people(place=place, date=date, real_number=random.randint(0,800), max_number=1000,
+                                max_stage=10,seven=random.randint(0,800),nine=random.randint(0,800),
+                                eleven=random.randint(0,800), thirteen=random.randint(0,800),
+                                fifteen=random.randint(0,800), seventeen=random.randint(0,800),
+                                nineteen=random.randint(0,800), twenty_one=random.randint(0,800))
+        place.save()
+    return HttpResponse('成功')
     # 初始化教室人数表
     # rooms = {'A1','B1','C1','D1','A2','B2','C2','D2','A3','B3','C3','D3'}
     # for room in rooms:
@@ -38,7 +68,6 @@ def test(request):
     #             temp_room = room+'0'+str(i)
     #         else:
     #             temp_room = room+str(i)
-    #         print(temp_room)
     #         place = ClassroomNumber(place=temp_room,real_time_number=i*5,max_people=i*10,state=1)
     #         place.save()
     # return HttpResponse('成功')
@@ -116,12 +145,13 @@ def bind(request):
 
 def login(request):
     if request.POST:
-        school = request.POST.get('phone_number')
+        school = request.POST.get('school')
         identity_id = request.POST.get('identity_id')
         password = request.POST.get('password')
-        if User.objects.filter(school=school,identity_id=identity_id).exists():
-            user = User.objects.filter(school=school,identity_id=identity_id).get()
-            if user.password==password:
+        if User.objects.filter(school=school, identity_id=identity_id).exists():
+            user = User.objects.filter(
+                school=school, identity_id=identity_id).get()
+            if user.password == password:
                 data = [{'user_id': user.pk}]
                 return JsonResponse({'data': data, 'code': 1})
             return JsonResponse({'data': '用户密码输入错误 ', 'code': 0})
@@ -176,8 +206,8 @@ def login(request):
 #                 data.save()
 #             data = User.objects.filter(phone_number=phone_number).values()
 #             return JsonResponse({'data':list(data),'code':1})
-        #     return JsonResponse({'data':data,'code':1})
-        # return JsonResponse({'data':'请先绑定学生信息','code':0})
+    #     return JsonResponse({'data':data,'code':1})
+    # return JsonResponse({'data':'请先绑定学生信息','code':0})
 
 
 # 获取场所人数
@@ -217,7 +247,7 @@ def get_user_info(request):
         id = request.GET.get('user_id')
         # id = '1'
         user = User.objects.filter(pk=id).values(
-            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex','identity_id')
+            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex', 'identity_id')
         # 返回格式
         # {user：[{}{}{}{}]}
         return JsonResponse({'data': list(user), 'code': 1})
@@ -341,7 +371,11 @@ def sent_notify(request):
 def set_status(request):
     if request.POST:
         places = request.POST.get('place')
+        # print(places)
+        # print(type(places))
         places = places.split(',')
+        # print(type(places))
+        # print(places)
         state = request.POST.get('state')
         id = request.POST.get('user_id')
         # id = '2'
@@ -351,6 +385,8 @@ def set_status(request):
         authority = user.authority
         # print(type(authority))
         for place in places:
+            print(place)
+            print(type(place), place)
             temp_place = PlaceNumber.objects.filter(place=place).get()
             # print('state',state==temp_place.state)
             if authority == '0':
@@ -378,17 +414,13 @@ def set_status(request):
 
 # 医院预约功能,预约时间不允许选择，预约完之后必须在15分钟之内到达校医院（即预约有效时间只有15分钟）
 def appointment(request):
-    if request:
-        print(1)
-        # user_id = request.POST.get('user_id')
-        # symptom = request.POST.get('symptom')
-        # state = request.POST.get('state')
-        user_id = 3
-        symptom = 'symptom'
-        state = '1'
+    if request.POST:
+        user_id = request.POST.get('user_id')
+        symptom = request.POST.get('symptom')
+        state = request.POST.get('state')
         valid_period = 1
         now_time = datetime.datetime.now()
-        time = now_time + datetime.timedelta(days=1)
+        time = now_time + datetime.timedelta(days=valid_period)
         print(time)
         # user_id = '1'
         # symptom = 'symptom'
@@ -462,7 +494,6 @@ def appointment(request):
             #     return JsonResponse({'code':0})
             return JsonResponse({'data': '预约成功！', 'code': 1})
     return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
-
 
 
 # 完成预约，此时预约人数减一，状态变为 0
@@ -548,7 +579,6 @@ def get_place(request):
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 
 
-
 # 获取教学楼信息ab=academybuild
 
 
@@ -574,7 +604,6 @@ def get_latest_notify(request):
         return JsonResponse({'data': '请求方式错误', 'code': 0})
 
 
-
 # 上传文件
 def upload_file(request):
     if request.POST:
@@ -584,24 +613,49 @@ def upload_file(request):
         # 获取当前工作路径
         # pwd =  os.getcwd()+'/static/'+identity_id+'.png'
         # linux路径和windows路径获取有点不一样
-
-        # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
         suffix = str(int(time.time()))
-        pwd =  os.getcwd()+'/package/static/'+identity_id + suffix + '.png'
+        pwd = os.getcwd()+'/static/'+identity_id+suffix+'.png'
         pwd = pwd.split('\\')
         pwd = '/'.join(pwd)
         print(pwd)
         # with 在读取完毕后，自动关闭
-        with open(pwd,'wb') as save_file:
+        with open(pwd, 'wb') as save_file:
             for part in rec_file.chunks():
                 save_file.write(part)
                 save_file.flush()
+
+        # 添加后缀,time.time是float类型的（精确到秒数下的小数点，把小数点后面的去掉），先转为int再转为str
+        # suffix = str(int(time.time()))
         # 更新存储头像url的src
-        src = 'http://jianan.site:8080/static/'+identity_id+suffix+'.png'
+        src = 'https://www.jianan.site/static/'+identity_id+suffix+'.png'
         user = User.objects.filter(identity_id=identity_id).get()
         user.src = src
         user.save()
-        data = [{'src':src}]
+        data = [{'src': src}]
         return JsonResponse({'data': data, 'code': 1})
+    else:
+        return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
+
+
+# 获取各个地方的人流量数据
+def get_stream_people(request):
+    if request.GET:
+        place =  request.GET.get('place')
+        date = datetime.datetime.now()
+        yesterday = date+datetime.timedelta(days=-1)
+        date = date.strftime('%Y-%m-%d')
+        yesterday = yesterday.strftime('%Y-%m-%d')
+        print(date)
+        indexs = ['书院','食堂','楼','馆']
+        for index in indexs:
+            if re.search(index,place):
+                # 查询昨天的数据，进行对比
+                yesterday_info=Stream_of_people.objects.filter(place__contains=index,date=yesterday).values('max_number')
+                place_info = Stream_of_people.objects.filter(place=place,date=date).values()
+                return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'code': 1})
+        # 如果传过来的place都没有包含indexs里面的数据，说明就是查询教室里面的人数
+        yesterday_info=Stream_of_people.objects.filter(place=place,date=yesterday).values('max_number')
+        place_info = Stream_of_people.objects.filter(place=place,date=date).values()
+        return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

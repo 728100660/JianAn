@@ -31,6 +31,12 @@ def test(request):
     # print(type(pwd),pwd)
     return HttpResponse('asdf')
 
+    for i in range(133):
+        date = datetime.datetime.now()
+        place = Stream_of_people.objects.filter(pk=i+1).get()
+        place.date = date
+        place.save()
+    return HttpResponse('更改成功')
     # 初始化各个场所人流量
     rooms = {'A1', 'B1', 'C1', 'D1', 'A2', 'B2',
              'C2', 'D2', 'A3', 'B3', 'C3', 'D3'}
@@ -50,7 +56,7 @@ def test(request):
                                     nineteen=random.randint(0,80), twenty_one=random.randint(0,80))
             place.save()
     places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
-              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
+              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆','楚枫书院']
     for place in places:
         place = Stream_of_people(place=place, date=date, real_number=random.randint(0,800), max_number=1000,
                                 max_stage=10,seven=random.randint(0,800),nine=random.randint(0,800),
@@ -647,15 +653,35 @@ def get_stream_people(request):
         yesterday = yesterday.strftime('%Y-%m-%d')
         print(date)
         indexs = ['书院','食堂','楼','馆']
+        stages = ['seven','nine','eleven','thirteen','fifteen','seventeen','nineteen','twenty_one']
         for index in indexs:
             if re.search(index,place):
                 # 查询昨天的数据，进行对比
-                yesterday_info=Stream_of_people.objects.filter(place__contains=index,date=yesterday).values('max_number')
+                yesterday_info=Stream_of_people.objects.filter(place__contains=index,date=yesterday).values()
                 place_info = Stream_of_people.objects.filter(place=place,date=date).values()
-                return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'code': 1})
+                # yesterday_data存储昨日该区域（和与之相关的区域，如现在查询贤德食堂，相关区域就是其他食堂）每个时间段的人数，是一个{[]}，data则是存储当日每个时间段的人数
+                data,temp,yesterday_data = 9*[0],9*[0],{}
+                for j in range(len(yesterday_info)):
+                    i = 0
+                    for stage in stages:
+                        data[i] = place_info[0][stage]
+                        temp[i] = yesterday_info[j][stage]
+                        i+=1
+                    key = yesterday_info[j]['place']
+                    # 下标8代表昨日该场所总人流量
+                    temp[8]=max(temp[:8])
+                    yesterday_data[key] = temp.copy()
+                # 下标8代表昨日该场所总人流量
+                data[8] = max(data)
+                return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'yesterdaylist':yesterday_data,'datalist':{place:data},'code': 1})
         # 如果传过来的place都没有包含indexs里面的数据，说明就是查询教室里面的人数
-        yesterday_info=Stream_of_people.objects.filter(place=place,date=yesterday).values('max_number')
+        data,i,yesterday_data = 8*[0],0,8*[0]
+        yesterday_info=Stream_of_people.objects.filter(place=place,date=yesterday).values()
         place_info = Stream_of_people.objects.filter(place=place,date=date).values()
-        return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'code': 1})
+        for stage in stages:
+            data[i] = place_info[0][stage]
+            yesterday_data[i] = yesterday_info[0][stage]
+            i+=1
+        return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'yesterdaylist':{place:yesterday_data},'datalist':{place:data},'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

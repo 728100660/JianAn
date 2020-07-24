@@ -29,7 +29,7 @@ def test(request):
     # print(type(pwd),pwd)
     # pwd = '/'.join(pwd)
     # print(type(pwd),pwd)
-    # return HttpResponse('asdf')
+    return HttpResponse('asdf')
 
     # 初始化各个场所人流量
     rooms = {'A1', 'B1', 'C1', 'D1', 'A2', 'B2',

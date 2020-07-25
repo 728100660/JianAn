@@ -270,11 +270,15 @@ def modify_information(request):
 
 
 def sent_notify(request):
+    print(request)
+    print(request.POST)
+    print(request.POST.get('user_id'))
+    print(request.POST.get('title'))
     if request.POST:
         title = request.POST.get('title')
         content = request.POST.get('content')
         id = request.POST.get('user_id')
-
+        print(request.POST,id,type(id))
         # place = request.POST.get('place')
         # title = 'title'
         # content = 'contentyyy'
@@ -675,13 +679,15 @@ def get_stream_people(request):
                 data[8] = max(data)
                 return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'yesterdaylist':yesterday_data,'datalist':{place:data},'code': 1})
         # 如果传过来的place都没有包含indexs里面的数据，说明就是查询教室里面的人数
-        data,i,yesterday_data = 8*[0],0,8*[0]
+        data,i,yesterday_data = 9*[0],0,9*[0]
         yesterday_info=Stream_of_people.objects.filter(place=place,date=yesterday).values()
         place_info = Stream_of_people.objects.filter(place=place,date=date).values()
         for stage in stages:
             data[i] = place_info[0][stage]
             yesterday_data[i] = yesterday_info[0][stage]
             i+=1
+        yesterday_data[8]=max(yesterday_data)
+        data[8]=max(data)
         return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'yesterdaylist':{place:yesterday_data},'datalist':{place:data},'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

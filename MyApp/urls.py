@@ -20,4 +20,5 @@ urlpatterns = {
     url(r'^bind/',views.bind,name='bind'),
     url(r'^upload_file/',views.upload_file,name='upload_file'),
     url(r'^get_stream_people/',views.get_stream_people,name='get_stream_people'),
+    url(r'^get_stream_people_week/',views.get_stream_people_week,name='get_stream_people_week'),
 }

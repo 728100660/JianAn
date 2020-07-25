@@ -37,34 +37,39 @@ def test(request):
     #     place = Stream_of_people.objects.filter(pk=i).get()
     #     place.date = date
     #     place.save()
+    # places = Stream_of_people.objects.filter(place='岭南咸嘉食堂').values()
+    # for place in places:
+    #     p = Stream_of_people.objects.filter(pk=place['id']).get()
+    #     p.place = '岭南食堂'
+    #     p.save()
     # return HttpResponse('更改成功')
-    # 初始化各个场所人流量
-    rooms = {'A1', 'B1', 'C1', 'D1', 'A2', 'B2',
-             'C2', 'D2', 'A3', 'B3', 'C3', 'D3'}
+    # # 初始化各个场所人流量
+    # rooms = {'A1', 'B1', 'C1', 'D1', 'A2', 'B2',
+    #          'C2', 'D2', 'A3', 'B3', 'C3', 'D3'}
     date = datetime.datetime.now()
-    # 更改日期为昨天
-    # date = date + datetime.timedelta(days=-1)
-    for room in rooms:
-        for i in range(10):
-            i += 1
-            if i < 10:
-                temp_room = room+'0'+str(i)
-            else:
-                temp_room = room+str(i)
-            place = Stream_of_people(place=temp_room, date=date, real_number=random.randint(0, 80), max_number=random.randint(80, 100),
-                                     max_stage=10, seven=random.randint(0, 80), nine=random.randint(0, 80),
-                                     eleven=random.randint(0, 80), thirteen=random.randint(0, 80),
-                                     fifteen=random.randint(0, 80), seventeen=random.randint(0, 80),
-                                     nineteen=random.randint(0, 80), twenty_one=random.randint(0, 80))
-            place.save()
-    places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
-              '楚枫轩食堂', '岭南咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆', '楚枫书院']
+    # # 更改日期为昨天
+    # # date = date + datetime.timedelta(days=-1)
+    # for room in rooms:
+    #     for i in range(10):
+    #         i += 1
+    #         if i < 10:
+    #             temp_room = room+'0'+str(i)
+    #         else:
+    #             temp_room = room+str(i)
+    #         place = Stream_of_people(place=temp_room, date=date, real_number=random.randint(0, 80), max_number=random.randint(80, 100),
+    #                                  max_stage=10, seven=random.randint(0, 80), nine=random.randint(0, 80),
+    #                                  eleven=random.randint(0, 80), thirteen=random.randint(0, 80),
+    #                                  fifteen=random.randint(0, 80), seventeen=random.randint(0, 80),
+    #                                  nineteen=random.randint(0, 80), twenty_one=random.randint(0, 80))
+    #         place.save()
+    # places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+    #           '楚枫轩食堂', '岭南食堂','咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆', '楚枫书院']
     for place in places:
-        place = Stream_of_people(place=place, date=date, real_number=random.randint(0, 800), max_number=random.randint(800, 1000),
-                                 max_stage=10, seven=random.randint(0, 800), nine=random.randint(0, 800),
-                                 eleven=random.randint(0, 800), thirteen=random.randint(0, 800),
-                                 fifteen=random.randint(0, 800), seventeen=random.randint(0, 800),
-                                 nineteen=random.randint(0, 800), twenty_one=random.randint(0, 800))
+        place = Stream_of_people(place=place, date=temp, real_number=random.randint(0, 800), max_number=random.randint(800, 1000),
+                                max_stage=10, seven=random.randint(0, 800), nine=random.randint(0, 800),
+                                eleven=random.randint(0, 800), thirteen=random.randint(0, 800),
+                                fifteen=random.randint(0, 800), seventeen=random.randint(0, 800),
+                                nineteen=random.randint(0, 800), twenty_one=random.randint(0, 800))
         place.save()
     return HttpResponse('成功')
     # 初始化教室人数表
@@ -680,7 +685,7 @@ def get_stream_people(request):
                 data[8] = max(data)
                 return JsonResponse({'data': list(place_info), 'yesterdaylist': yesterday_data, 'datalist': {place: data}, 'code': 1})
         # 如果传过来的place都没有包含indexs里面的数据，说明就是查询教室里面的人数
-        data, i, yesterday_data = 8*[0], 0, 8*[0]
+        data, i, yesterday_data = 9*[0], 0, 9*[0]
         yesterday_info = Stream_of_people.objects.filter(
             place=place, date=yesterday).values()
         place_info = Stream_of_people.objects.filter(
@@ -689,6 +694,8 @@ def get_stream_people(request):
             data[i] = place_info[0][stage]
             yesterday_data[i] = yesterday_info[0][stage]
             i += 1
+        yesterday_data[8]=max(yesterday_data)
+        data[8]=max(data)
         return JsonResponse({'data': list(place_info), 'yesterdaylist': {place: yesterday_data}, 'datalist': {place: data}, 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
@@ -704,14 +711,11 @@ def get_stream_people_week(request):
         for i in range(7):
             temp = date+datetime.timedelta(days=-i-1)
             dates.append(temp.strftime('%Y-%m-%d'))
-        indexs = ['书院', '食堂', '楼', '馆']
+        indexs = ['书院', '食堂', '楼', '馆','医院']
         stages = ['seven', 'nine', 'eleven', 'thirteen',
                   'fifteen', 'seventeen', 'nineteen', 'twenty_one']
         # result{'地点1':[1,2,66,113],'地点2'....}
         result = {}
-        temp = Stream_of_people.objects.filter(place=place,date=date).get()
-        result['real_number']=temp.real_number
-        print(dates)
         # for循环，按天数
         j = 0
         for date in dates:
@@ -721,22 +725,22 @@ def get_stream_people_week(request):
                     # 如果查询的是贤德书院，那么places中应该是所有书院的名字
                     places = PlaceNumber.objects.filter(place__contains=index).values('place')
                     for t_place in places:
-                        print(result)
+                        # print(result)
                         # max_number即代表该场所当日人数,max_stage预计高峰时间段，capacity该场所容量
-                        if t_place['place'] == place:
-                            place_info = Stream_of_people.objects.filter(place=t_place['place'],date=date).values('max_number','max_stage','capacity')
-                            result['max_stage']=place_info[0]['max_stage']
-                            result['capacity']=place_info[0]['capacity']
-                        else:
-                            place_info = Stream_of_people.objects.filter(place=t_place['place'],date=date).values('max_number')
+                        # if t_place['place'] == place:
+                        #     place_info = Stream_of_people.objects.filter(place=t_place['place'],date=date).values('max_number','max_stage','capacity')
+                        #     result['max_stage']=place_info[0]['max_stage']
+                        #     result['capacity']=place_info[0]['capacity']
+                        # else:
+                        place_info = Stream_of_people.objects.filter(place=t_place['place'],date=date).values('max_number')
                         # 如果result中没有当前场所的信息，则，新增该场所的key，key值是个存储了每天人数的列表，如果有则往列表
                         if t_place['place'] in result:
                             result[t_place['place']].append(place_info[0]['max_number'])
                         else:
+                            print(place_info,date,t_place['place'])
                             result[t_place['place']]=[place_info[0]['max_number']]
                         if j==7:
                             result[t_place['place']].append(sum(result[t_place['place']]))
-        result['code']=1
         return JsonResponse(result)
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
@@ -744,16 +748,14 @@ def get_stream_people_week(request):
 
 
 # 哨兵守卫
-def warning_massage(request):
-    date = datetime.datetime.now()
-    date = date.strftime('%Y-%m-%d')
+def warning_message(request):
     place_infos = PlaceNumber.objects.filter().values()
     for place_info in place_infos:
         print(place_info['real_time_number'],place_info['max_people'])
         if place_info['real_time_number']>=place_info['max_people']:
             temp = Temp(place=place_info['place'],administrators=place_info['administrators'],real_time_number=place_info['real_time_number'],is_delete=0)
             temp.save()
-    datas = Temp.objects.filter(is_delete=0).values('place')
+    datas = Temp.objects.filter(is_delete=0).values()
     for data in datas:
         d = Temp.objects.filter(place=data['place'],is_delete=0).get()
         d.is_delete=1

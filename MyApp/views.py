@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment, BuildInfo, ClassroomNumber, LatestNotify
-from .models import Stream_of_people
+from .models import Stream_of_people,Temp
 import time
 import datetime
 from .common import merge_dict_list
@@ -684,7 +684,6 @@ def get_stream_people(request):
                 data[8] = max(data)
                 return JsonResponse({'data': list(place_info), 'yesterdaylist': yesterday_data, 'datalist': {place: data}, 'code': 1})
         # 如果传过来的place都没有包含indexs里面的数据，说明就是查询教室里面的人数
-<<<<<<< HEAD
         data,i,yesterday_data = 9*[0],0,9*[0]
         yesterday_info=Stream_of_people.objects.filter(place=place,date=yesterday).values()
         place_info = Stream_of_people.objects.filter(place=place,date=date).values()
@@ -694,17 +693,6 @@ def get_stream_people(request):
             i+=1
         yesterday_data[8]=max(yesterday_data)
         data[8]=max(data)
-        return JsonResponse({'data': list(place_info), 'yesterday_data':list(yesterday_info),'yesterdaylist':{place:yesterday_data},'datalist':{place:data},'code': 1})
-=======
-        data, i, yesterday_data = 8*[0], 0, 8*[0]
-        yesterday_info = Stream_of_people.objects.filter(
-            place=place, date=yesterday).values()
-        place_info = Stream_of_people.objects.filter(
-            place=place, date=date).values()
-        for stage in stages:
-            data[i] = place_info[0][stage]
-            yesterday_data[i] = yesterday_info[0][stage]
-            i += 1
         return JsonResponse({'data': list(place_info), 'yesterdaylist': {place: yesterday_data}, 'datalist': {place: data}, 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
@@ -754,6 +742,24 @@ def get_stream_people_week(request):
                             result[t_place['place']].append(sum(result[t_place['place']]))
         result['code']=1
         return JsonResponse(result)
->>>>>>> 515fe99fd6ffa42bc444900ab08162dfab442fc3
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
+
+
+
+# 哨兵守卫
+def warning_message(request):
+    date = datetime.datetime.now()
+    date = date.strftime('%Y-%m-%d')
+    place_infos = PlaceNumber.objects.filter().values()
+    for place_info in place_infos:
+        print(place_info['real_time_number'],place_info['max_people'])
+        if place_info['real_time_number']>=place_info['max_people']:
+            temp = Temp(place=place_info['place'],administrators=place_info['administrators'],real_time_number=place_info['real_time_number'],is_delete=0)
+            temp.save()
+    datas = Temp.objects.filter(is_delete=0).values()
+    for data in datas:
+        d = Temp.objects.filter(place=data['place'],is_delete=0).get()
+        d.is_delete=1
+        d.save()
+    return JsonResponse({'data':list(datas),'code':1})

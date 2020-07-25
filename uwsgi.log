@@ -10219,3 +10219,948 @@ Not Found: /
 [pid: 9869|app: 0|req: 78/289] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 06:08:05 2020] GET /MyApp/get_number/?flag=1 => generated 1804 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
 [pid: 9868|app: 0|req: 24/290] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 06:08:32 2020] GET /MyApp/get_number/?flag=1 => generated 1804 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
 [pid: 9866|app: 0|req: 169/291] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 06:12:37 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 170/292] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 06:15:36 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 27 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 9866|app: 0|req: 171/293] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 06:16:12 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 9869|app: 0|req: 79/294] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:16:15 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 172/295] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 06:16:18 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 9869|app: 0|req: 80/296] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 06:16:18 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 748 bytes in 97 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 9866|app: 0|req: 173/297] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 06:17:57 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 174/298] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:18:00 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 9869|app: 0|req: 81/299] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:18:04 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 9868|app: 0|req: 25/300] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:18:04 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 748 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9868|app: 0|req: 26/301] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:18:45 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+2020-07-25
+[pid: 9866|app: 0|req: 175/302] 218.77.56.218 () {48 vars in 897 bytes} [Sat Jul 25 06:19:11 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 1809 bytes in 178 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 0)
+2020-07-25
+[pid: 9866|app: 0|req: 176/303] 218.77.56.218 () {48 vars in 943 bytes} [Sat Jul 25 06:19:32 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 1809 bytes in 165 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 1)
+2020-07-25
+[pid: 9866|app: 0|req: 177/304] 218.77.56.218 () {48 vars in 943 bytes} [Sat Jul 25 06:19:33 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 1809 bytes in 176 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 178/305] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 06:20:01 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 9869|app: 0|req: 82/306] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 06:20:05 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 9868|app: 0|req: 27/307] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 06:20:05 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 748 bytes in 90 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9868|app: 0|req: 28/308] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 06:20:46 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 9866|app: 0|req: 179/309] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:21:52 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 180/310] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 06:22:04 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 9866|app: 0|req: 181/311] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:22:08 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9869|app: 0|req: 83/312] 218.77.44.162 () {54 vars in 1011 bytes} [Sat Jul 25 06:22:11 2020] GET /MyApp/get_appointment_info?user_id=3 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 157 bytes (1 switches on core 0)
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'})
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'})
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': '有呼吸困难症状,', 'user_id': 3, 'state': '1'})
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': 'symptom', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': 'symptom', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': 'symptom', 'user_id': 3, 'state': '1'})
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'})
+[{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'}]
+listmerge [{'id': 3, 'identity_id': '123456755', 'name': '22'}, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'}]
+(0, {'id': 3, 'identity_id': '123456755', 'name': '22'})
+(1, {'symptom': '有呼吸困难症状,有发烧症状,', 'user_id': 3, 'state': '1'})
+[pid: 9869|app: 0|req: 84/313] 218.77.44.162 () {54 vars in 1013 bytes} [Sat Jul 25 06:22:11 2020] GET /MyApp/get_appointment_info/?user_id=3 => generated 881 bytes in 37 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 182/314] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:22:15 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 9868|app: 0|req: 29/315] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:22:15 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 748 bytes in 80 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 9866|app: 0|req: 183/316] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:22:34 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 9869|app: 0|req: 85/317] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:22:38 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 9868|app: 0|req: 30/318] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:22:41 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 9866|app: 0|req: 184/319] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:22:41 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 748 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+2020-07-25
+[pid: 9866|app: 0|req: 185/320] 218.77.56.210 () {48 vars in 937 bytes} [Sat Jul 25 06:23:15 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 1809 bytes in 150 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 1)
+Sat Jul 25 06:24:31 2020 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 06:24:31 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Jul 25 14:24:44 2020] ***
+compiled with version: 7.5.0 on 21 July 2020 03:09:14
+os: Linux-4.15.0-91-generic #92-Ubuntu SMP Fri Feb 28 11:09:48 UTC 2020
+nodename: iZ7vokjgmcinp6Z
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/JianAn
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/JianAn
+your processes number limit is 7796
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8081 fd 3
+uwsgi socket 0 bound to TCP address 0.0.0.0:8888 fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.0 (default, Oct 28 2019, 16:14:01)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5563e3f05be0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5563e3f05be0 pid: 10395 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10395)
+spawned uWSGI worker 1 (pid: 10397, cores: 2)
+spawned uWSGI worker 2 (pid: 10398, cores: 2)
+spawned uWSGI worker 3 (pid: 10399, cores: 2)
+spawned uWSGI worker 4 (pid: 10400, cores: 2)
+spawned uWSGI http 1 (pid: 10401)
+[pid: 10399|app: 0|req: 1/1] 218.77.56.218 () {48 vars in 917 bytes} [Sat Jul 25 06:24:45 2020] GET /MyApp/get_stream_people?place=%E5%9B%BE%E4%B9%A6%E9%A6%86 => generated 0 bytes in 15 msecs (HTTP/1.1 301) 6 headers in 273 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10399|app: 0|req: 2/2] 218.77.56.218 () {48 vars in 919 bytes} [Sat Jul 25 06:24:45 2020] GET /MyApp/get_stream_people/?place=%E5%9B%BE%E4%B9%A6%E9%A6%86 => generated 460 bytes in 80 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 1/3] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:25:03 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 225 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+Not Found: /MyApp/warning_message
+[pid: 10397|app: 0|req: 2/4] 218.77.56.210 () {50 vars in 891 bytes} [Sat Jul 25 06:25:14 2020] GET /MyApp/warning_message => generated 5568 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 143 bytes (1 switches on core 1)
+Not Found: /favicon.ico
+[pid: 10397|app: 0|req: 3/5] 218.77.56.210 () {48 vars in 786 bytes} [Sat Jul 25 06:25:15 2020] GET /favicon.ico => generated 2076 bytes in 4 msecs (HTTP/1.1 404) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 1/6] 218.77.56.210 () {50 vars in 891 bytes} [Sat Jul 25 06:25:34 2020] GET /MyApp/warning_massage => generated 0 bytes in 10 msecs (HTTP/1.1 301) 4 headers in 142 bytes (1 switches on core 0)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10397|app: 0|req: 4/7] 218.77.56.210 () {50 vars in 893 bytes} [Sat Jul 25 06:25:34 2020] GET /MyApp/warning_massage/ => generated 60 bytes in 56 msecs (HTTP/1.1 200) 5 headers in 141 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 2/8] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:12 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 192 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 5/9] 218.77.56.218 () {48 vars in 944 bytes} [Sat Jul 25 06:26:13 2020] GET /MyApp/get_stream_people?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 282 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10398|app: 0|req: 1/10] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:13 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 720 bytes in 196 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10398|app: 0|req: 2/11] 218.77.56.218 () {48 vars in 944 bytes} [Sat Jul 25 06:26:15 2020] GET /MyApp/get_stream_people?place=%E8%90%83%E9%9B%85%E9%A3%9F%E5%A0%82 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 282 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 6/12] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:16 2020] GET /MyApp/get_stream_people/?place=%E8%90%83%E9%9B%85%E9%A3%9F%E5%A0%82 => generated 720 bytes in 156 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 7/13] 218.77.56.218 () {48 vars in 962 bytes} [Sat Jul 25 06:26:17 2020] GET /MyApp/get_stream_people?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 291 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10398|app: 0|req: 3/14] 218.77.56.218 () {48 vars in 964 bytes} [Sat Jul 25 06:26:17 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 734 bytes in 176 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 8/15] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:18 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 139 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 9/16] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:19 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 695 bytes in 178 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 10/17] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:20 2020] GET /MyApp/get_stream_people/?place=%E8%90%83%E9%9B%85%E4%B9%A6%E9%99%A2 => generated 695 bytes in 179 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 11/18] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:22 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 159 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 12/19] 218.77.56.218 () {48 vars in 946 bytes} [Sat Jul 25 06:26:23 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 695 bytes in 177 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 13/20] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:27:10 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 14/21] 218.77.56.210 () {50 vars in 844 bytes} [Sat Jul 25 06:30:54 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 14 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 15/22] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:34:54 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 16/23] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:34:58 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 3/24] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:34:58 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 88 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 17/25] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 06:35:47 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 4/26] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 06:35:51 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10399|app: 0|req: 3/27] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:35:54 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 18/28] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:35:55 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 77 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 19/29] 218.77.44.162 () {48 vars in 919 bytes} [Sat Jul 25 06:36:53 2020] GET /MyApp/get_stream_people/?place=%E5%9B%BE%E4%B9%A6%E9%A6%86 => generated 460 bytes in 57 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 20/30] 218.77.44.162 () {48 vars in 946 bytes} [Sat Jul 25 06:37:05 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 201 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 21/31] 218.77.44.162 () {48 vars in 946 bytes} [Sat Jul 25 06:37:15 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 170 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 22/32] 218.77.44.162 () {48 vars in 946 bytes} [Sat Jul 25 06:37:19 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 182 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 23/33] 218.77.44.162 () {48 vars in 946 bytes} [Sat Jul 25 06:37:26 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 720 bytes in 192 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 24/34] 218.77.44.162 () {48 vars in 964 bytes} [Sat Jul 25 06:37:28 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 734 bytes in 153 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 25/35] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:37:40 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 26/36] 218.77.56.218 () {46 vars in 828 bytes} [Sat Jul 25 06:39:49 2020] GET /MyApp/get_stream_people?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 5/37] 218.77.56.218 () {46 vars in 830 bytes} [Sat Jul 25 06:39:49 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 695 bytes in 175 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 6/38] 218.77.56.218 () {46 vars in 838 bytes} [Sat Jul 25 06:39:50 2020] GET /MyApp/get_stream_people_week?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 267 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 238}
+{'real_number': 238, '贤德书院': [139]}
+{'real_number': 238, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 238, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 238, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 238, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 238, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 238, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10398|app: 0|req: 4/39] 218.77.56.218 () {46 vars in 840 bytes} [Sat Jul 25 06:39:50 2020] GET /MyApp/get_stream_people_week/?place=%E6%A5%9A%E6%9E%AB%E4%B9%A6%E9%99%A2 => generated 262 bytes in 97 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10400|app: 0|req: 7/40] 218.77.56.210 () {50 vars in 992 bytes} [Sat Jul 25 06:39:52 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68850 bytes in 129 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 1)
+[pid: 10398|app: 0|req: 5/41] 218.77.56.218 () {46 vars in 828 bytes} [Sat Jul 25 06:40:07 2020] GET /MyApp/get_stream_people?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 8/42] 218.77.56.218 () {46 vars in 830 bytes} [Sat Jul 25 06:40:08 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 183 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 9/43] 218.77.56.218 () {46 vars in 838 bytes} [Sat Jul 25 06:40:15 2020] GET /MyApp/get_stream_people_week?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 6 headers in 267 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 437}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10398|app: 0|req: 6/44] 218.77.56.218 () {46 vars in 840 bytes} [Sat Jul 25 06:40:15 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 297 bytes in 187 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10400|app: 0|req: 10/45] 218.77.56.218 () {52 vars in 1023 bytes} [Sat Jul 25 06:41:08 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68987 bytes in 96 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 27/46] 218.77.56.218 () {52 vars in 1023 bytes} [Sat Jul 25 06:41:29 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68987 bytes in 123 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 28/47] 218.77.56.218 () {52 vars in 1023 bytes} [Sat Jul 25 06:41:30 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68987 bytes in 93 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 29/48] 218.77.56.218 () {52 vars in 1023 bytes} [Sat Jul 25 06:41:31 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68987 bytes in 79 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 30/49] 218.77.56.210 () {48 vars in 944 bytes} [Sat Jul 25 06:42:30 2020] GET /MyApp/get_stream_people?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 282 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 11/50] 218.77.56.210 () {48 vars in 946 bytes} [Sat Jul 25 06:42:30 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 212 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 31/51] 218.77.56.210 () {48 vars in 946 bytes} [Sat Jul 25 06:42:32 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 161 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 12/52] 218.77.44.162 () {50 vars in 1015 bytes} [Sat Jul 25 06:42:41 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 158 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+Internal Server Error: /MyApp/get_stream_people_week/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 740, in get_stream_people_week
+    result[t_place['place']]=[place_info[0]['max_number']]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 32/53] 218.77.44.162 () {52 vars in 1023 bytes} [Sat Jul 25 06:42:56 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 68987 bytes in 88 msecs (HTTP/1.1 500) 5 headers in 164 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 437}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10397|app: 0|req: 33/54] 218.77.44.162 () {50 vars in 992 bytes} [Sat Jul 25 06:43:08 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 297 bytes in 157 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 34/55] 218.77.56.210 () {48 vars in 928 bytes} [Sat Jul 25 06:43:09 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 131 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 35/56] 218.77.56.210 () {48 vars in 882 bytes} [Sat Jul 25 06:43:12 2020] GET /MyApp/get_stream_people/?place=A101 => generated 388 bytes in 84 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 36/57] 218.77.44.162 () {50 vars in 1033 bytes} [Sat Jul 25 06:46:40 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 734 bytes in 147 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 37/58] 218.77.44.162 () {50 vars in 1015 bytes} [Sat Jul 25 06:47:32 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 150 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 38/59] 218.77.56.218 () {50 vars in 844 bytes} [Sat Jul 25 06:47:51 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 23 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 13/60] 218.77.44.162 () {50 vars in 844 bytes} [Sat Jul 25 06:49:04 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 17 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 39/61] 218.77.56.210 () {50 vars in 844 bytes} [Sat Jul 25 06:51:38 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 20 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 14/62] 218.77.56.210 () {50 vars in 986 bytes} [Sat Jul 25 06:51:41 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 273 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 40/63] 218.77.56.210 () {50 vars in 988 bytes} [Sat Jul 25 06:51:41 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 91 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 41/64] 218.77.44.162 () {50 vars in 844 bytes} [Sat Jul 25 06:53:20 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 18 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 15/65] 218.77.56.210 () {50 vars in 986 bytes} [Sat Jul 25 06:53:25 2020] GET /MyApp/get_stream_people?place=%E5%9B%BE%E4%B9%A6%E9%A6%86 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 273 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 42/66] 218.77.56.210 () {50 vars in 988 bytes} [Sat Jul 25 06:53:25 2020] GET /MyApp/get_stream_people/?place=%E5%9B%BE%E4%B9%A6%E9%A6%86 => generated 460 bytes in 75 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10398|app: 0|req: 7/67] 218.77.56.210 () {50 vars in 1013 bytes} [Sat Jul 25 06:53:31 2020] GET /MyApp/get_stream_people?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 282 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 43/68] 218.77.56.210 () {50 vars in 1015 bytes} [Sat Jul 25 06:53:31 2020] GET /MyApp/get_stream_people/?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 693 bytes in 161 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10398|app: 0|req: 8/69] 218.77.56.210 () {50 vars in 1042 bytes} [Sat Jul 25 06:53:38 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 722 bytes in 161 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 44/70] 218.77.56.218 () {50 vars in 1040 bytes} [Sat Jul 25 06:53:45 2020] GET /MyApp/get_stream_people?place=%E7%AC%AC%E4%B8%80%E6%95%99%E5%AD%A6%E6%A5%BC => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 291 bytes (1 switches on core 0)
+2020-07-25
+Internal Server Error: /MyApp/get_stream_people/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 676, in get_stream_people
+    data[i] = place_info[0][stage]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10399|app: 0|req: 4/71] 218.77.56.218 () {50 vars in 1042 bytes} [Sat Jul 25 06:53:45 2020] GET /MyApp/get_stream_people/?place=%E7%AC%AC%E4%B8%80%E6%95%99%E5%AD%A6%E6%A5%BC => generated 69903 bytes in 79 msecs (HTTP/1.1 500) 7 headers in 259 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10399|app: 0|req: 5/72] 218.77.56.210 () {50 vars in 988 bytes} [Sat Jul 25 06:53:54 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 106 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 45/73] 218.77.56.210 () {50 vars in 942 bytes} [Sat Jul 25 06:54:07 2020] GET /MyApp/get_stream_people/?place=A101 => generated 388 bytes in 83 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 46/74] 218.77.56.210 () {50 vars in 942 bytes} [Sat Jul 25 06:54:14 2020] GET /MyApp/get_stream_people/?place=A102 => generated 392 bytes in 92 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+Internal Server Error: /MyApp/get_stream_people/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 676, in get_stream_people
+    data[i] = place_info[0][stage]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 47/75] 218.77.56.218 () {50 vars in 1042 bytes} [Sat Jul 25 06:54:26 2020] GET /MyApp/get_stream_people/?place=%E7%AC%AC%E4%B8%80%E6%95%99%E5%AD%A6%E6%A5%BC => generated 69903 bytes in 61 msecs (HTTP/1.1 500) 7 headers in 259 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 48/76] 218.77.56.210 () {50 vars in 1042 bytes} [Sat Jul 25 06:54:36 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 722 bytes in 163 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000, 1000, 6380], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000, 1000, 6380], '咸嘉食堂': [912, 838, 808, 994, 843, 875, 818, 6088], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10397|app: 0|req: 49/77] 218.77.44.162 () {50 vars in 992 bytes} [Sat Jul 25 06:56:00 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 451 bytes in 191 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 50/78] 218.77.44.162 () {50 vars in 1042 bytes} [Sat Jul 25 06:56:13 2020] GET /MyApp/get_stream_people/?place=%E6%A5%9A%E6%9E%AB%E8%BD%A9%E9%A3%9F%E5%A0%82 => generated 797 bytes in 214 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 1)
+2020-07-25
+Internal Server Error: /MyApp/get_stream_people/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/dist-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./MyApp/views.py", line 676, in get_stream_people
+    data[i] = place_info[0][stage]
+  File "/usr/local/lib/python3.8/dist-packages/django/db/models/query.py", line 314, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+[pid: 10397|app: 0|req: 51/79] 218.77.56.218 () {50 vars in 1042 bytes} [Sat Jul 25 06:56:19 2020] GET /MyApp/get_stream_people/?place=%E7%AC%AC%E4%B8%80%E6%95%99%E5%AD%A6%E6%A5%BC => generated 69903 bytes in 64 msecs (HTTP/1.1 500) 7 headers in 259 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 695}
+{'real_number': 695, '至诚楼': [564]}
+{'real_number': 695, '至诚楼': [564], '日新楼': [144]}
+{'real_number': 695, '至诚楼': [564], '日新楼': [144], '乐知楼': [372]}
+{'real_number': 695, '至诚楼': [564], '日新楼': [144], '乐知楼': [372], 'max_stage': 10, 'capacity': 1000, '博学楼': [514]}
+{'real_number': 695, '至诚楼': [564, 1000], '日新楼': [144], '乐知楼': [372], 'max_stage': 10, 'capacity': 1000, '博学楼': [514]}
+{'real_number': 695, '至诚楼': [564, 1000], '日新楼': [144, 1000], '乐知楼': [372], 'max_stage': 10, 'capacity': 1000, '博学楼': [514]}
+{'real_number': 695, '至诚楼': [564, 1000], '日新楼': [144, 1000], '乐知楼': [372, 1000], 'max_stage': 10, 'capacity': 1000, '博学楼': [514]}
+{'real_number': 695, '至诚楼': [564, 1000], '日新楼': [144, 1000], '乐知楼': [372, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000], '日新楼': [144, 1000], '乐知楼': [372, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000], '日新楼': [144, 1000, 1000], '乐知楼': [372, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000], '日新楼': [144, 1000, 1000], '乐知楼': [372, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000], '日新楼': [144, 1000, 1000], '乐知楼': [372, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000], '日新楼': [144, 1000, 1000], '乐知楼': [372, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000], '日新楼': [144, 1000, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000, 1000, 6564], '日新楼': [144, 1000, 1000, 1000, 1000, 1000], '乐知楼': [372, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000, 1000, 6564], '日新楼': [144, 1000, 1000, 1000, 1000, 1000, 1000, 6144], '乐知楼': [372, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 695, '至诚楼': [564, 1000, 1000, 1000, 1000, 1000, 1000, 6564], '日新楼': [144, 1000, 1000, 1000, 1000, 1000, 1000, 6144], '乐知楼': [372, 1000, 1000, 1000, 1000, 1000, 1000, 6372], 'max_stage': 10, 'capacity': None, '博学楼': [514, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10397|app: 0|req: 52/80] 218.77.44.162 () {50 vars in 974 bytes} [Sat Jul 25 06:56:22 2020] GET /MyApp/get_stream_people_week/?place=%E5%8D%9A%E5%AD%A6%E6%A5%BC => generated 350 bytes in 155 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 53/81] 218.77.56.218 () {50 vars in 844 bytes} [Sat Jul 25 06:56:27 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 23 msecs (HTTP/1.1 200) 7 headers in 238 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 16/82] 218.77.44.162 () {50 vars in 919 bytes} [Sat Jul 25 06:56:29 2020] GET /MyApp/get_stream_people/?place=A101 => generated 388 bytes in 92 msecs (HTTP/1.1 200) 7 headers in 237 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+[pid: 10397|app: 0|req: 54/83] 218.77.44.162 () {50 vars in 974 bytes} [Sat Jul 25 06:56:31 2020] GET /MyApp/get_stream_people_week/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 31 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 141 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 17/84] 218.77.44.162 () {50 vars in 964 bytes} [Sat Jul 25 06:57:13 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 100 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 55/85] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 06:58:10 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 56/86] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:58:13 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 18/87] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:58:17 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10398|app: 0|req: 9/88] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:58:17 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 94 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10398|app: 0|req: 10/89] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:58:35 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 57/90] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 06:59:03 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 58/91] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 06:59:07 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10399|app: 0|req: 6/92] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 06:59:07 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 79 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10399|app: 0|req: 7/93] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 06:59:44 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 26 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 59/94] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 06:59:46 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 60/95] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 06:59:49 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 19/96] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 06:59:49 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 98 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 61/97] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:00:06 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 20/98] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 07:00:09 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 62/99] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:00:12 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10398|app: 0|req: 11/100] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:00:12 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 69 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10398|app: 0|req: 12/101] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 07:00:43 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 63/102] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 07:00:45 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 64/103] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:00:48 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 21/104] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:00:48 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 86 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 65/105] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:01:04 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 22/106] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 07:01:07 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 66/107] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:01:10 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10398|app: 0|req: 13/108] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:01:10 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 68 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 437}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10398|app: 0|req: 14/109] 218.77.56.218 () {46 vars in 840 bytes} [Sat Jul 25 07:01:11 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 297 bytes in 159 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 23/110] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:01:28 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 24/111] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 07:01:31 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 67/112] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:01:34 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10397|app: 0|req: 68/113] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:01:34 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 87 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 69/114] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:01:54 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 25/115] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 07:01:57 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 26/116] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:02:00 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10399|app: 0|req: 8/117] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:02:00 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 90 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10399|app: 0|req: 9/118] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:02:19 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 70/119] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:02:28 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 27/120] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 07:02:31 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 71/121] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:02:34 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 28/122] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:02:34 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 94 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 29/123] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:02:53 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 72/124] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 07:03:04 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 73/125] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:03:16 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10398|app: 0|req: 15/126] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:03:17 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 88 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 74/127] 218.77.44.162 () {46 vars in 764 bytes} [Sat Jul 25 07:03:55 2020] GET /MyApp/get_stream_people?place=A101 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 230 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10398|app: 0|req: 16/128] 218.77.44.162 () {46 vars in 766 bytes} [Sat Jul 25 07:03:56 2020] GET /MyApp/get_stream_people/?place=A101 => generated 388 bytes in 93 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 75/129] 218.77.44.162 () {46 vars in 774 bytes} [Sat Jul 25 07:04:01 2020] GET /MyApp/get_stream_people_week?place=A101 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 235 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+[pid: 10399|app: 0|req: 10/130] 218.77.44.162 () {46 vars in 776 bytes} [Sat Jul 25 07:04:01 2020] GET /MyApp/get_stream_people_week/?place=A101 => generated 30 bytes in 23 msecs (HTTP/1.1 200) 7 headers in 216 bytes (1 switches on core 0)
+[pid: 10399|app: 0|req: 11/131] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:04:24 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 76/132] 218.77.56.210 () {54 vars in 991 bytes} [Sat Jul 25 07:04:54 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 77/133] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:04:56 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 30/134] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 07:04:59 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 31/135] 218.77.44.162 () {54 vars in 1053 bytes} [Sat Jul 25 07:05:02 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10398|app: 0|req: 17/136] 218.77.44.162 () {54 vars in 1055 bytes} [Sat Jul 25 07:05:02 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 103 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 78/137] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:05:47 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 26 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 32/138] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 07:05:52 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10398|app: 0|req: 18/139] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:05:58 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 79/140] 218.77.56.210 () {54 vars in 999 bytes} [Sat Jul 25 07:06:01 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 80/141] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:06:04 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 33/142] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:06:04 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 91 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 81/143] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:06:15 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10399|app: 0|req: 12/144] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:06:15 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 96 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10399|app: 0|req: 13/145] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:06:57 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 82/146] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:07:06 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 34/147] 218.77.44.162 () {54 vars in 999 bytes} [Sat Jul 25 07:07:10 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 83/148] 218.77.56.210 () {54 vars in 1053 bytes} [Sat Jul 25 07:07:13 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 35/149] 218.77.56.210 () {54 vars in 1055 bytes} [Sat Jul 25 07:07:13 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 101 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 36/150] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:07:44 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 84/151] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:09:29 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 85/152] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:10:09 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10400|app: 0|req: 37/153] 218.76.42.130 () {44 vars in 858 bytes} [Sat Jul 25 07:10:15 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10400|app: 0|req: 38/154] 218.76.42.130 () {48 vars in 922 bytes} [Sat Jul 25 07:10:34 2020] POST /MyApp/login/ => generated 55 bytes in 28 msecs (HTTP/1.1 200) 7 headers in 234 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 86/155] 218.76.42.130 () {44 vars in 858 bytes} [Sat Jul 25 07:11:22 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10397|app: 0|req: 87/156] 218.77.56.218 () {52 vars in 924 bytes} [Sat Jul 25 07:11:40 2020] GET /MyApp/warning_massage/ => generated 60 bytes in 55 msecs (HTTP/1.1 200) 5 headers in 141 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 88/157] 218.76.42.130 () {48 vars in 922 bytes} [Sat Jul 25 07:11:41 2020] POST /MyApp/login/ => generated 55 bytes in 25 msecs (HTTP/1.1 200) 7 headers in 234 bytes (1 switches on core 0)
+listmerge [{'name': 'jjk'}, {'id': 1, 'publisher_id': 2, 'place': None, 'title': 'test', 'release_time': datetime.date(2020, 7, 18), 'content': 'test'}]
+(0, {'name': 'jjk'})
+(1, {'id': 1, 'publisher_id': 2, 'place': None, 'title': 'test', 'release_time': datetime.date(2020, 7, 18), 'content': 'test'})
+listmerge [{'name': 'jjk'}, {'id': 2, 'publisher_id': 3, 'place': None, 'title': '图书馆', 'release_time': datetime.date(2020, 7, 23), 'content': '图书馆今日封楼'}]
+(0, {'name': 'jjk'})
+(1, {'id': 2, 'publisher_id': 3, 'place': None, 'title': '图书馆', 'release_time': datetime.date(2020, 7, 23), 'content': '图书馆今日封楼'})
+listmerge [{'name': '22'}, {'id': 3, 'publisher_id': 1, 'place': None, 'title': None, 'release_time': datetime.date(2020, 7, 25), 'content': None}]
+(0, {'name': '22'})
+(1, {'id': 3, 'publisher_id': 1, 'place': None, 'title': None, 'release_time': datetime.date(2020, 7, 25), 'content': None})
+[pid: 10397|app: 0|req: 89/158] 218.77.56.218 () {54 vars in 988 bytes} [Sat Jul 25 07:11:47 2020] GET /MyApp/get_latest_notify/ => generated 446 bytes in 32 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 90/159] 218.77.56.210 () {46 vars in 828 bytes} [Sat Jul 25 07:12:17 2020] GET /MyApp/get_stream_people?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10400|app: 0|req: 39/160] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:12:17 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 783 bytes in 243 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+Not Found: /MyApp/get_stream_people_lastweek
+[pid: 10400|app: 0|req: 40/161] 218.77.56.210 () {46 vars in 846 bytes} [Sat Jul 25 07:12:19 2020] GET /MyApp/get_stream_people_lastweek?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 5644 bytes in 5 msecs (HTTP/1.1 404) 7 headers in 218 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 278}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912]}
+{'real_number': 278, 'max_stage': 10, 'capacity': 1000, '贤德食堂': [727], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000, 1000, 6380], '咸嘉食堂': [912, 838, 808, 994, 843, 875], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 278, 'max_stage': 10, 'capacity': None, '贤德食堂': [727, 1000, 1000, 1000, 1000, 1000, 1000, 6727], '萃雅食堂': [145, 1000, 1000, 1000, 1000, 1000, 1000, 6145], '楚枫轩食堂': [380, 1000, 1000, 1000, 1000, 1000, 1000, 6380], '咸嘉食堂': [912, 838, 808, 994, 843, 875, 818, 6088], '岭南食堂': [252, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10397|app: 0|req: 91/162] 218.77.56.218 () {50 vars in 992 bytes} [Sat Jul 25 07:12:54 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E9%A3%9F%E5%A0%82 => generated 451 bytes in 182 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 92/163] 218.77.56.210 () {46 vars in 828 bytes} [Sat Jul 25 07:13:00 2020] GET /MyApp/get_stream_people?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10400|app: 0|req: 41/164] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:13:00 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 164 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 437}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10397|app: 0|req: 93/165] 218.77.56.210 () {46 vars in 840 bytes} [Sat Jul 25 07:13:02 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 297 bytes in 127 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10400|app: 0|req: 42/166] 218.77.56.218 () {52 vars in 924 bytes} [Sat Jul 25 07:13:20 2020] GET /MyApp/warning_massage/ => generated 60 bytes in 44 msecs (HTTP/1.1 200) 5 headers in 141 bytes (1 switches on core 1)
+[pid: 10397|app: 0|req: 94/167] 218.77.56.210 () {46 vars in 828 bytes} [Sat Jul 25 07:13:33 2020] GET /MyApp/get_stream_people?place=%E8%90%83%E9%9B%85%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10399|app: 0|req: 14/168] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:13:33 2020] GET /MyApp/get_stream_people/?place=%E8%90%83%E9%9B%85%E4%B9%A6%E9%99%A2 => generated 695 bytes in 169 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+[pid: 10399|app: 0|req: 15/169] 218.77.56.210 () {46 vars in 828 bytes} [Sat Jul 25 07:13:34 2020] GET /MyApp/get_stream_people?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 262 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 95/170] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:13:34 2020] GET /MyApp/get_stream_people/?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 693 bytes in 196 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10399|app: 0|req: 16/171] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:13:35 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 171 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 96/172] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:13:36 2020] GET /MyApp/get_stream_people/?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 693 bytes in 151 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 97/173] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:13:57 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10397|app: 0|req: 98/174] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:14:12 2020] GET /MyApp/get_stream_people/?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 693 bytes in 187 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+[pid: 10397|app: 0|req: 99/175] 218.77.56.210 () {46 vars in 838 bytes} [Sat Jul 25 07:14:14 2020] GET /MyApp/get_stream_people_week?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 6 headers in 267 bytes (1 switches on core 1)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 496}
+{'real_number': 496, '贤德书院': [139]}
+{'real_number': 496, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 496, '贤德书院': [139], '萃雅书院': [209], 'max_stage': 10, 'capacity': 1000, '陌陌书院': [773]}
+{'real_number': 496, '贤德书院': [139, 1000], '萃雅书院': [209], 'max_stage': 10, 'capacity': 1000, '陌陌书院': [773]}
+{'real_number': 496, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], 'max_stage': 10, 'capacity': 1000, '陌陌书院': [773]}
+{'real_number': 496, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 496, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], 'max_stage': 10, 'capacity': None, '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10400|app: 0|req: 43/176] 218.77.56.210 () {46 vars in 840 bytes} [Sat Jul 25 07:14:14 2020] GET /MyApp/get_stream_people_week/?place=%E9%99%8C%E9%99%8C%E4%B9%A6%E9%99%A2 => generated 297 bytes in 153 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+Not Found: /
+[pid: 10397|app: 0|req: 100/177] 209.17.96.34 () {26 vars in 350 bytes} [Sat Jul 25 07:14:17 2020] GET / => generated 2025 bytes in 3 msecs (HTTP/1.1 404) 5 headers in 143 bytes (1 switches on core 1)
+Sat Jul 25 07:14:43 2020 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Jul 25 07:14:43 2020 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Jul 25 15:14:58 2020] ***
+compiled with version: 7.5.0 on 21 July 2020 03:09:14
+os: Linux-4.15.0-91-generic #92-Ubuntu SMP Fri Feb 28 11:09:48 UTC 2020
+nodename: iZ7vokjgmcinp6Z
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /root/JianAn
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/JianAn
+your processes number limit is 7796
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8081 fd 3
+uwsgi socket 0 bound to TCP address 0.0.0.0:8888 fd 6
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.8.0 (default, Oct 28 2019, 16:14:01)  [GCC 8.3.0]
+Python main interpreter initialized at 0x55afd5837be0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55afd5837be0 pid: 10508 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10508)
+spawned uWSGI worker 1 (pid: 10510, cores: 2)
+spawned uWSGI worker 2 (pid: 10511, cores: 2)
+spawned uWSGI worker 3 (pid: 10512, cores: 2)
+spawned uWSGI worker 4 (pid: 10513, cores: 2)
+spawned uWSGI http 1 (pid: 10514)
+2020-07-25
+[pid: 10510|app: 0|req: 1/1] 218.77.44.162 () {52 vars in 995 bytes} [Sat Jul 25 07:15:29 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 122 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10510|app: 0|req: 2/2] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:15:47 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10511|app: 0|req: 1/3] 218.77.56.210 () {46 vars in 830 bytes} [Sat Jul 25 07:15:53 2020] GET /MyApp/get_stream_people/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 695 bytes in 217 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 0)
+['2020-07-24', '2020-07-23', '2020-07-22', '2020-07-21', '2020-07-20', '2020-07-19', '2020-07-18']
+{'real_number': 437}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209]}
+{'real_number': 437, 'max_stage': 10, 'capacity': 1000, '贤德书院': [139], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+{'real_number': 437, 'max_stage': 10, 'capacity': None, '贤德书院': [139, 1000, 1000, 1000, 1000, 1000, 1000, 6139], '萃雅书院': [209, 1000, 1000, 1000, 1000, 1000, 1000, 6209], '陌陌书院': [773, 1000, 1000, 1000, 1000, 1000]}
+[pid: 10511|app: 0|req: 2/4] 218.77.56.210 () {46 vars in 840 bytes} [Sat Jul 25 07:16:03 2020] GET /MyApp/get_stream_people_week/?place=%E8%B4%A4%E5%BE%B7%E4%B9%A6%E9%99%A2 => generated 297 bytes in 154 msecs (HTTP/1.1 200) 7 headers in 217 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 3/5] 61.187.64.82 () {44 vars in 895 bytes} [Sat Jul 25 07:16:12 2020] GET /MyApp/get_number/?place=%E4%B9%A6%E9%99%A2&floor= => generated 409 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+listmerge [{'name': 'jjk'}, {'id': 1, 'publisher_id': 2, 'place': None, 'title': 'test', 'release_time': datetime.date(2020, 7, 18), 'content': 'test'}]
+(0, {'name': 'jjk'})
+(1, {'id': 1, 'publisher_id': 2, 'place': None, 'title': 'test', 'release_time': datetime.date(2020, 7, 18), 'content': 'test'})
+listmerge [{'name': 'jjk'}, {'id': 2, 'publisher_id': 3, 'place': None, 'title': '图书馆', 'release_time': datetime.date(2020, 7, 23), 'content': '图书馆今日封楼'}]
+(0, {'name': 'jjk'})
+(1, {'id': 2, 'publisher_id': 3, 'place': None, 'title': '图书馆', 'release_time': datetime.date(2020, 7, 23), 'content': '图书馆今日封楼'})
+listmerge [{'name': '22'}, {'id': 3, 'publisher_id': 1, 'place': None, 'title': None, 'release_time': datetime.date(2020, 7, 25), 'content': None}]
+(0, {'name': '22'})
+(1, {'id': 3, 'publisher_id': 1, 'place': None, 'title': None, 'release_time': datetime.date(2020, 7, 25), 'content': None})
+[pid: 10510|app: 0|req: 4/6] 218.77.44.162 () {54 vars in 988 bytes} [Sat Jul 25 07:16:23 2020] GET /MyApp/get_latest_notify/ => generated 446 bytes in 27 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 5/7] 61.187.64.82 () {44 vars in 857 bytes} [Sat Jul 25 07:16:25 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10511|app: 0|req: 3/8] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 07:16:32 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10510|app: 0|req: 6/9] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:22:24 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10511|app: 0|req: 4/10] 218.77.56.218 () {54 vars in 991 bytes} [Sat Jul 25 07:22:53 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 7/11] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:23:11 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 30 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10510|app: 0|req: 8/12] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:24:42 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 9/13] 218.77.56.210 () {54 vars in 991 bytes} [Sat Jul 25 07:24:43 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10511|app: 0|req: 5/14] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 07:24:46 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10511|app: 0|req: 6/15] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:25:02 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 10/16] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 07:25:35 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 11/17] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:25:38 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 2 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 0)
+2020-07-25
+[pid: 10512|app: 0|req: 1/18] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:25:38 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 105 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10512|app: 0|req: 2/19] 218.77.44.162 () {54 vars in 984 bytes} [Sat Jul 25 07:26:34 2020] GET /MyApp/warning_message/ => generated 133 bytes in 117 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10510|app: 0|req: 12/20] 218.77.44.162 () {54 vars in 984 bytes} [Sat Jul 25 07:27:02 2020] GET /MyApp/warning_message/ => generated 133 bytes in 44 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10510|app: 0|req: 13/21] 218.77.44.162 () {54 vars in 987 bytes} [Sat Jul 25 07:27:03 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 19 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10511|app: 0|req: 7/22] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 07:27:09 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 0)
+[pid: 10511|app: 0|req: 8/23] 218.77.56.218 () {54 vars in 987 bytes} [Sat Jul 25 07:27:57 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)
+[pid: 10510|app: 0|req: 14/24] 218.77.56.218 () {54 vars in 999 bytes} [Sat Jul 25 07:28:00 2020] GET /MyApp/get_user_info/?user_id=3 => generated 318 bytes in 20 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+[pid: 10510|app: 0|req: 15/25] 218.77.56.218 () {54 vars in 1053 bytes} [Sat Jul 25 07:28:02 2020] GET /MyApp/get_stream_people?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 178 bytes (1 switches on core 1)
+2020-07-25
+[pid: 10511|app: 0|req: 9/26] 218.77.56.218 () {54 vars in 1055 bytes} [Sat Jul 25 07:28:03 2020] GET /MyApp/get_stream_people/?place=%E6%A0%A1%E5%8C%BB%E9%99%A2 => generated 460 bytes in 104 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 0)
+38 100
+11 100
+11 100
+100 100
+56 100
+33 100
+45 100
+78 100
+11 100
+11 100
+11 100
+11 100
+11 100
+11 111
+[pid: 10510|app: 0|req: 16/27] 218.77.56.210 () {54 vars in 984 bytes} [Sat Jul 25 07:28:29 2020] GET /MyApp/warning_message/ => generated 133 bytes in 52 msecs (HTTP/1.1 200) 5 headers in 142 bytes (1 switches on core 1)
+[pid: 10511|app: 0|req: 10/28] 218.77.56.210 () {54 vars in 987 bytes} [Sat Jul 25 07:28:30 2020] GET /MyApp/get_number/?flag=1 => generated 1805 bytes in 26 msecs (HTTP/1.1 200) 5 headers in 143 bytes (1 switches on core 1)

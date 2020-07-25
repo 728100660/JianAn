@@ -158,3 +158,13 @@ class Stream_of_people(models.Model):
     nineteen = models.IntegerField(blank=True, null=True, default=0)
     # twenty = models.IntegerField(blank=True, null=True, default=0)
     twenty_one = models.IntegerField(blank=True, null=True, default=0)
+
+
+# placeNumber临时表
+class Temp(models.Model):
+    id = models.AutoField(db_column='ID',
+                          primary_key=True)
+    place = models.CharField(max_length=10,blank=True, null=True)
+    real_time_number = models.IntegerField(blank=True, null=True)
+    is_delete = models.IntegerField(blank=True, null=True)
+    administrators = models.CharField(max_length=10,blank=True,null=True)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospitalAppointment, BuildInfo, ClassroomNumber, LatestNotify
-from .models import Stream_of_people
+from .models import Stream_of_people,Temp
 import time
 import datetime
 from .common import merge_dict_list
@@ -740,3 +740,22 @@ def get_stream_people_week(request):
         return JsonResponse(result)
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
+
+
+
+# 哨兵守卫
+def warning_massage(request):
+    date = datetime.datetime.now()
+    date = date.strftime('%Y-%m-%d')
+    place_infos = PlaceNumber.objects.filter().values()
+    for place_info in place_infos:
+        print(place_info['real_time_number'],place_info['max_people'])
+        if place_info['real_time_number']>=place_info['max_people']:
+            temp = Temp(place=place_info['place'],administrators=place_info['administrators'],real_time_number=place_info['real_time_number'],is_delete=0)
+            temp.save()
+    datas = Temp.objects.filter(is_delete=0).values('place')
+    for data in datas:
+        d = Temp.objects.filter(place=data['place'],is_delete=0).get()
+        d.is_delete=1
+        d.save()
+    return JsonResponse({'data':list(datas),'code':1})

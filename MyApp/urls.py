@@ -22,4 +22,5 @@ urlpatterns = {
     url(r'^get_stream_people/',views.get_stream_people,name='get_stream_people'),
     url(r'^get_stream_people_week/',views.get_stream_people_week,name='get_stream_people_week'),
     url(r'^warning_message/',views.warning_message,name='warning_message'),
+    url(r'^change/',views.change,name='change'),
 }

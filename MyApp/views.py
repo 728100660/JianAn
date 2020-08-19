@@ -288,11 +288,15 @@ def modify_information(request):
 
 
 def sent_notify(request):
+    print(request)
+    print(request.POST)
+    print(request.POST.get('user_id'))
+    print(request.POST.get('title'))
     if request.POST:
         title = request.POST.get('title')
         content = request.POST.get('content')
         id = request.POST.get('user_id')
-
+        print(request.POST,id,type(id))
         # place = request.POST.get('place')
         # title = 'title'
         # content = 'contentyyy'
@@ -757,20 +761,18 @@ def get_stream_people_week(request):
                 # 校医院预约表中，time=7-25表示的是7.24号的预约信息
                 temp = date+datetime.timedelta(days=-i)
                 dates.append(temp.strftime('%Y-%m-%d'))
-            symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0}
             counts = []
+            symptoms = {'呼吸困难':0,'干咳':0,'乏力':0,'发烧':0}
             for date in dates:
                 # count是当天患者总人数
                 # count = 0
-                count = SchoolHospitalAppointment.objects.filter(
-                    time=date).count()
+                count = SchoolHospitalAppointment.objects.filter(time=date).count()
                 counts.append(count)
                 for symptom in symptoms.keys():
-                    num = SchoolHospitalAppointment.objects.filter(
-                        symptom__contains=symptom, time=date).count()
+                    num = SchoolHospitalAppointment.objects.filter(symptom__contains=symptom,time=date).count()
                     symptoms[symptom] += num
             result.append(symptoms)
-            return JsonResponse({'data': result, '校医院': counts})
+            return JsonResponse({'data':result,'校医院':counts})
         else:
             for i in range(7):
                 temp = date+datetime.timedelta(days=-i-1)

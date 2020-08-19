@@ -2,13 +2,16 @@ from django.db import models
 
 # Create your models here.
 # 用户表
+
+
 class User(models.Model):
     id = models.AutoField(db_column='ID',
                           primary_key=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     identity_id = models.CharField(max_length=15, blank=True, null=True)
     password = models.CharField(max_length=15, blank=True, null=True)
-    authority = models.CharField(max_length=1, blank=True, null=True, default=1)
+    authority = models.CharField(
+        max_length=1, blank=True, null=True, default=1)
     name = models.CharField(max_length=5, blank=True, null=True)
     classes = models.CharField(max_length=20, blank=True, null=True)
     sex = models.CharField(max_length=1, blank=True, null=True)
@@ -30,47 +33,57 @@ class User(models.Model):
 #     academy = models.CharField(max_length=20, blank=True, null=True)
 
 # 场所人数表
+
+
 class PlaceNumber(models.Model):
     id = models.AutoField(db_column='ID',
                           primary_key=True)
-    place = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)
     state = models.BooleanField(default=True)
-    administrators = models.CharField(max_length=10,blank=True,null=True)
+    administrators = models.CharField(max_length=10, blank=True, null=True)
 
 # test
+
+
 class test(models.Model):
-    name = models.CharField(max_length=10,blank=True, null=True)
-    name1 = models.CharField(max_length=10,blank=True, null=True)
+    name = models.CharField(max_length=10, blank=True, null=True)
+    name1 = models.CharField(max_length=10, blank=True, null=True)
 # 场所信息表
+
+
 class PlaceInfo(models.Model):
     id = models.AutoField(db_column='ID',
                           primary_key=True)
-    place = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
     service = models.CharField(max_length=10, blank=True, null=True)
 
 # 通知表
+
+
 class Notify(models.Model):
     # publisher = models.CharField(max_length=10, blank=True, null=True)
     id = models.AutoField(db_column='id',
                           primary_key=True)
     publisher = models.ForeignKey('User',
-                             models.DO_NOTHING,
-                             db_column='publisher')
+                                  models.DO_NOTHING,
+                                  db_column='publisher')
 
     # place = models.ForeignKey('PlaceInfo',
     #                          models.DO_NOTHING,
     #                          db_column='Place',
     #                          primary_key=True)
-    place = models.CharField(max_length=10,blank=True, null=True)
-    title = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
+    title = models.CharField(max_length=10, blank=True, null=True)
     release_time = models.DateField(blank=True, null=True)
     content = models.CharField(max_length=200, blank=True, null=True)
 
 # 教室表
+
+
 class ClassRoom(models.Model):
-    classroom = models.CharField(max_length=10,primary_key=True)
+    classroom = models.CharField(max_length=10, primary_key=True)
     build = models.CharField(max_length=10, blank=True, null=True)
     day = models.CharField(max_length=5, blank=True, null=True)
     class1_2 = models.BooleanField(default=False)
@@ -87,13 +100,13 @@ class SchoolHospitalAppointment(models.Model):
     #                          db_column='ID',
     #                          primary_key=True)
     user_id = models.ForeignKey('User',
-                             models.DO_NOTHING,
-                             db_column='user_id')
+                                models.DO_NOTHING,
+                                db_column='user_id')
     symptom = models.CharField(max_length=200, blank=True, null=True)
     time = models.DateField(blank=True, null=True)
     state = models.CharField(max_length=2, blank=True, null=True)
     version = models.CharField(max_length=4, blank=True, null=True)
-    
+
 
 # 建筑信息表
 class BuildInfo(models.Model):
@@ -107,10 +120,9 @@ class BuildInfo(models.Model):
     index = models.CharField(max_length=4, blank=True, null=True)
 
 
-
 # 教室人数表
 class ClassroomNumber(models.Model):
-    place = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)
     state = models.BooleanField(default=True)
@@ -121,22 +133,22 @@ class LatestNotify(models.Model):
     id = models.AutoField(db_column='id',
                           primary_key=True)
     publisher = models.ForeignKey('User',
-                             models.DO_NOTHING,
-                             db_column='publisher')
+                                  models.DO_NOTHING,
+                                  db_column='publisher')
 
     # place = models.ForeignKey('PlaceInfo',
     #                          models.DO_NOTHING,
     #                          db_column='Place',
     #                          primary_key=True)
-    place = models.CharField(max_length=10,blank=True, null=True)
-    title = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
+    title = models.CharField(max_length=10, blank=True, null=True)
     release_time = models.DateField(blank=True, null=True)
     content = models.CharField(max_length=200, blank=True, null=True)
 
 
 # 各个场所人流量表
 class Stream_of_people(models.Model):
-    place = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     capacity = models.IntegerField(blank=True, null=True)
     real_number = models.IntegerField(blank=True, null=True)
@@ -164,7 +176,18 @@ class Stream_of_people(models.Model):
 class Temp(models.Model):
     id = models.AutoField(db_column='ID',
                           primary_key=True)
-    place = models.CharField(max_length=10,blank=True, null=True)
+    place = models.CharField(max_length=10, blank=True, null=True)
     real_time_number = models.IntegerField(blank=True, null=True)
     is_delete = models.IntegerField(blank=True, null=True)
-    administrators = models.CharField(max_length=10,blank=True,null=True)
+    administrators = models.CharField(max_length=10, blank=True, null=True)
+
+
+# 存放用户路径信息
+class UserPath(models.Model):
+    time = models.IntegerField(blank=True, null=True)
+    user_id = models.ForeignKey('User',
+                                models.DO_NOTHING,
+                                db_column='user_id')
+    x = models.FloatField()
+    y = models.FloatField()
+    name = models.CharField(max_length=5, blank=True, null=True)

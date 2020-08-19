@@ -25,6 +25,7 @@ def change(request):
     ps = Stream_of_people.objects.filter(max_number=100).values()
     for p in ps:
         p = Stream_of_people.objects.filter(pk=p['id']).get()
+        # p.max_number = random.randint(80, 100)
         p.max_number = random.randint(80, 100)
         p.save()
     return HttpResponse('更改成功')

@@ -847,13 +847,12 @@ def warning_message(request):
 def save_path(request):
     if request.GET:
         user_id = request.GET.get('user_id')
-        x = request.GET.get('x')
-        y = request.GET.get('y')
+        lat = request.GET.get('lat')
+        lng = request.GET.get('lng')
         name = request.GET.get('name')
         # t_time = request.GET.get('time')
         t_time = int(time.time())
-        user = User.objects.filter(id=user_id).get()
-        path = UserPath(user_id=user, x=x, y=y, name=name, time=t_time)
+        path = UserPath(lat=lat, lng=lng, name=name, time=t_time)
 
         try:
             path.save()
@@ -873,7 +872,7 @@ def get_path(request):
         name = request.GET.get('name')
         user_id = request.GET.get('user_id')
         data = UserPath.objects.filter(
-            time__lt=right_time, time__gt=left_time, user_id=user_id).values()
+            time__lt=right_time, time__gt=left_time, name=name).values()
         return JsonResponse({'data': list(data), 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

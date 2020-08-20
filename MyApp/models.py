@@ -185,9 +185,9 @@ class Temp(models.Model):
 # 存放用户路径信息
 class UserPath(models.Model):
     time = models.IntegerField(blank=True, null=True)
-    user_id = models.ForeignKey('User',
-                                models.DO_NOTHING,
-                                db_column='user_id')
-    x = models.FloatField()
-    y = models.FloatField()
+    # user_id = models.ForeignKey('User',
+    #                             models.DO_NOTHING,
+    #                             db_column='user_id')
+    lat = models.FloatField()
+    lng = models.FloatField()
     name = models.CharField(max_length=5, blank=True, null=True)

@@ -20,6 +20,7 @@ class User(models.Model):
     school = models.CharField(max_length=15, blank=True, null=True)
     src = models.CharField(max_length=200, blank=True, null=True)
     openid = models.CharField(max_length=20, blank=True, null=True)
+    mail = models.CharField(max_length=50, blank=True, null=True)
 
 # 用户信息表
 # class UserInfo(models.Model):

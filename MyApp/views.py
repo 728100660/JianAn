@@ -876,3 +876,14 @@ def get_path(request):
         return JsonResponse({'data': list(data), 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
+
+
+def get_user_info_by_mail(request):
+    if request.GET:
+        mail = request.GET.get('mail')
+        # id = '1'
+        user = User.objects.filter(mail=mail).values(
+            'name', 'school', 'authority', 'src', 'major', 'classes', 'academy', 'sex', 'identity_id', 'mail')
+        # 返回格式
+        # {user：[{}{}{}{}]}
+        return JsonResponse({'data': list(user), 'code': 1})

@@ -28,4 +28,5 @@ urlpatterns = {
     url(r'^change/', views.change, name='change'),
     url(r'^save_path/', views.save_path, name='save_path'),
     url(r'^get_path/', views.get_path, name='get_path'),
+    url(r'^get_user_info_by_mail/', views.get_user_info_by_mail, name='get_user_info_by_mail'),
 }

@@ -14,6 +14,32 @@ import os
 # Create your views here.
 
 
+def make_path(request):
+    paths = [[112.924665, 28.228095, 112.923767, 28.228143, 112.92383, 28.227912, 112.924225, 28.227848, 112.924315,
+              28.225024, 112.924585, 28.224626, 112.926094, 28.224753, 112.926157, 28.22461, 112.926615, 28.224618],
+             [112.926741, 28.22749, 112.927136, 28.227498, 112.927073, 28.227618, 112.926381, 28.227713, 112.926309, 28.227872,
+              112.925654, 28.227896, 112.925366, 28.227785, 112.925591, 28.227228, 112.924917, 28.227005, 112.924935, 28.226806, 112.925124, 28.226822],
+             [112.927962, 28.223774, 112.927387, 28.22379, 112.92719, 28.224809, 112.924567, 28.224626, 112.924674, 28.224355, 112.924863, 28.224459]]
+    user_names = ['jjk','王小明','李小勇']
+    t_time = int(time.time())
+    for index,path in enumerate(paths):
+        n = len(path)
+        i = 0
+        user_name = user_names[index]
+        while(i<n):
+            lng = path[i]
+            i += 1
+            lat = path[i]
+            i += 1
+            p = UserPath(lat=lat, lng=lng, name=user_name, time=t_time)
+            try:
+                p.save()
+                print({'data': '存储路径成功', 'code': 1})
+            except Exception as e:
+                print(e)
+                return JsonResponse({'data': '存储路径失败', 'code': 0})
+    return JsonResponse({'data': '存储路径成功', 'code': 1})
+
 def change(request):
     indexs = {'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1',
               'D2', 'D3'}
@@ -297,7 +323,7 @@ def sent_notify(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         id = request.POST.get('user_id')
-        print(request.POST,id,type(id))
+        print(request.POST, id, type(id))
         # place = request.POST.get('place')
         # title = 'title'
         # content = 'contentyyy'
@@ -763,17 +789,19 @@ def get_stream_people_week(request):
                 temp = date+datetime.timedelta(days=-i)
                 dates.append(temp.strftime('%Y-%m-%d'))
             counts = []
-            symptoms = {'呼吸困难':0,'干咳':0,'乏力':0,'发烧':0}
+            symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0}
             for date in dates:
                 # count是当天患者总人数
                 # count = 0
-                count = SchoolHospitalAppointment.objects.filter(time=date).count()
+                count = SchoolHospitalAppointment.objects.filter(
+                    time=date).count()
                 counts.append(count)
                 for symptom in symptoms.keys():
-                    num = SchoolHospitalAppointment.objects.filter(symptom__contains=symptom,time=date).count()
+                    num = SchoolHospitalAppointment.objects.filter(
+                        symptom__contains=symptom, time=date).count()
                     symptoms[symptom] += num
             result.append(symptoms)
-            return JsonResponse({'data':result,'校医院':counts})
+            return JsonResponse({'data': result, '校医院': counts})
         else:
             for i in range(7):
                 temp = date+datetime.timedelta(days=-i-1)
@@ -872,7 +900,7 @@ def get_path(request):
         name = request.GET.get('name')
         user_id = request.GET.get('user_id')
         data = UserPath.objects.filter(
-            time__lt=right_time, time__gt=left_time, name=name).values()
+            time__lt=right_time, time__gt=left_time, name=name).values('lat', 'lng')
         return JsonResponse({'data': list(data), 'code': 1})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})

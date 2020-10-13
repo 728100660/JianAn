@@ -1,4 +1,5 @@
 
+import time,datetime
 
 def merge_dict_list(listmerge):
     """ 
@@ -18,3 +19,9 @@ def merge_dict_list(listmerge):
     #将合并的dict插入list中，数据格式为：[{},{},{}]
     data.append(temp_dict)
     return data
+
+
+def unix_to_datetime(unixTime):
+    dataArray = datetime.datetime.fromtimestamp(unixTime)
+    result = dataArray.strftime("%Y--%m--%d %H:%M:%S")
+    return result

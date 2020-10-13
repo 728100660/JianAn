@@ -30,4 +30,5 @@ urlpatterns = {
     url(r'^get_path/', views.get_path, name='get_path'),
     url(r'^get_user_info_by_mail/', views.get_user_info_by_mail, name='get_user_info_by_mail'),
     url(r'^make_path/', views.make_path, name='make_path'),
+    url(r'^make_data_for_classroomnumber/', views.make_data_for_classroomnumber, name='make_data_for_classroomnumber'),
 }

@@ -4,7 +4,7 @@ from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospi
 from .models import Stream_of_people, Temp, UserPath
 import time
 import datetime
-from .common import merge_dict_list
+from .common import merge_dict_list, unix_to_datetime
 
 import random
 import re
@@ -20,13 +20,13 @@ def make_path(request):
              [112.926741, 28.22749, 112.927136, 28.227498, 112.927073, 28.227618, 112.926381, 28.227713, 112.926309, 28.227872,
               112.925654, 28.227896, 112.925366, 28.227785, 112.925591, 28.227228, 112.924917, 28.227005, 112.924935, 28.226806, 112.925124, 28.226822],
              [112.927962, 28.223774, 112.927387, 28.22379, 112.92719, 28.224809, 112.924567, 28.224626, 112.924674, 28.224355, 112.924863, 28.224459]]
-    user_names = ['jjk','王小明','李小勇']
+    user_names = ['jjk', '王小明', '李小勇']
     t_time = int(time.time())
-    for index,path in enumerate(paths):
+    for index, path in enumerate(paths):
         n = len(path)
         i = 0
         user_name = user_names[index]
-        while(i<n):
+        while(i < n):
             lng = path[i]
             i += 1
             lat = path[i]
@@ -39,6 +39,7 @@ def make_path(request):
                 print(e)
                 return JsonResponse({'data': '存储路径失败', 'code': 0})
     return JsonResponse({'data': '存储路径成功', 'code': 1})
+
 
 def change(request):
     indexs = {'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1',
@@ -58,6 +59,7 @@ def change(request):
 
 
 def test(request):
+    return JsonResponse([1, 2, 3], safe=False)
     # data = User.objects.filter(name='pxz').aggregate(Max('id'))
     # user_infor = User.objects.filter(name='pxz').values()
     # return JsonResponse({'user_info':list(user_infor)})
@@ -131,6 +133,33 @@ def test(request):
     #                         max_people=100, state=1, administrators=1)
     #     place.save()
     return HttpResponse('添加成功')
+
+
+def make_data_for_classroomnumber(request):
+    if request.GET:
+        flag = request.GET.get('flag')
+        a = locals()
+        print(a)
+        if flag == '1':
+            rooms = {'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1',
+                     'D2', 'D3'}
+            max_people = [100, 200]
+            for room in rooms:
+                for i in range(10):
+                    i += 1
+                    if i < 10:
+                        temp_room = room+'0'+str(i)
+                    else:
+                        temp_room = room+str(i)
+                    print(temp_room)
+                    index = random.randint(0, 1)
+                    number = random.randint(5, 70)
+                    place = ClassroomNumber(
+                        place=temp_room, real_time_number=number, max_people=max_people[index], state=1)
+                    # place.save()
+            return HttpResponse('ok')
+        return HttpResponse('do nothing')
+    return HttpResponse('get nothing')
 
 # 注册账户信息
 
@@ -898,10 +927,26 @@ def get_path(request):
         right_time = request.GET.get('right_time')
         # t_time = 1597651766
         name = request.GET.get('name')
-        user_id = request.GET.get('user_id')
+        # user_id = request.GET.get('user_id')
+        LIMIT_DISTANCE = 0.001  # 在该范围内则视为被接触
         data = UserPath.objects.filter(
-            time__lt=right_time, time__gt=left_time, name=name).values('lat', 'lng')
-        return JsonResponse({'data': list(data), 'code': 1})
+            time__lt=right_time, time__gt=left_time, name=name).values('lat', 'lng', 'time')
+        print(data)
+        contacted_peoples = {}
+        for d in data:
+            tp_ltime = d['time'] - 24 * 60 * 60 
+            tp_rtime = d['time'] + 24 * 60 * 60  # tp_ltime,tp_rtime构成一个时间段，前后24小时
+            print(unix_to_datetime(tp_ltime),unix_to_datetime(tp_rtime))
+            lng = d['lng']
+            lat = d['lat']
+            # 查询一定时间范围内，可能接触到的人
+            infos = UserPath.objects.filter(time__lt=tp_rtime, time__gt=tp_ltime, lng__lt=lng + LIMIT_DISTANCE,
+                                           lng__gt=lng - LIMIT_DISTANCE, lat__lt=lat + LIMIT_DISTANCE, lat__gt=lat - LIMIT_DISTANCE).values()
+            for info in infos:
+                if info['name']==name: # 接触到的人之中不包括自己
+                    continue
+                contacted_peoples[info['name']] = info['time']
+        return JsonResponse({'data': list(data), 'code': 1, 'contacted_proples': contacted_peoples})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
 

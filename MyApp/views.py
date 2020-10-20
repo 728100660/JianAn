@@ -515,18 +515,46 @@ def set_status(request):
         authority = user.authority
         # print(type(authority))
         for place in places:
+            flag = 0
             print(place)
             print(type(place), place)
+            if '至诚楼' in place:
+                flag = 1
+                rooms = make_room(['A1', 'A2', 'A3', 'B1', 'B2', 'B3'])
+            if '日新楼' in place:
+                flag = 1
+                rooms = make_room(['C1', 'C2', 'C3', 'D1', 'D2', 'D3'])
+            if '乐知楼' in place:
+                flag = 1
+                rooms = make_room(['E1', 'E2', 'E3', 'F1', 'F2', 'F3'])
             temp_place = PlaceNumber.objects.filter(place=place).get()
             # print('state',state==temp_place.state)
             if authority == '0':
                 # print(temp_place.state)
                 temp_place.state = state
                 temp_place.save()
+                try:
+                    if flag:
+                        for room in rooms:
+                            c = ClassroomNumber.objects.filter(place=room).get()
+                            c.state = state
+                            c.save()
+                except Exception as e:
+                    print(e)
+                    return JsonResponse({'data':'未知错误', 'code':0})
             elif temp_place.administrators == authority:
                 # print(temp_place.state)
                 temp_place.state = state
                 temp_place.save()
+                try:
+                    if flag:
+                        for room in rooms:
+                            c = ClassroomNumber.objects.filter(place=room).get()
+                            c.state = state
+                            c.save()
+                except Exception as e:
+                    print(e)
+                    return JsonResponse({'data':'未知错误', 'code':0})
             else:
                 return JsonResponse({'data': '没有权限!', 'code': 0})
             # try:

@@ -4,7 +4,7 @@ from .models import User, PlaceInfo, PlaceNumber, Notify, ClassRoom, SchoolHospi
 from .models import Stream_of_people, Temp, UserPath
 import time
 import datetime
-from .common import merge_dict_list, unix_to_datetime
+from .common import merge_dict_list, unix_to_datetime, make_stage_number_for_dict,get_number_stage,tongtai_encrypt,make_room,decode
 
 import random
 import re
@@ -135,7 +135,53 @@ def test(request):
     return HttpResponse('添加成功')
 
 
+def change_stream_of_people(request):
+    # 造数据！
+    if request.GET:
+        if request.GET.get('flag') == '1':
+            places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+                    '楚枫轩食堂', '岭南食堂', '咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
+            date = datetime.datetime.now()
+            for i in range(31):
+                temp = date
+                tpDate = -i # 偏移日期量
+                temp = date + datetime.timedelta(days=tpDate)
+                temp = temp.strftime('%Y-%m-%d')
+                for place in places:
+                    print(f'============正在修改{temp}时间的{place}场所=============')
+                    streamInfo = Stream_of_people.objects.filter(place=place,date = temp).get()
+                    capacity = streamInfo.capacity
+                    tpStreamDict = make_stage_number_for_dict(streamInfo.place, capacity)
+                    print(tpStreamDict)
+                    streamInfo.seven = tpStreamDict['seven']
+                    streamInfo.nine = tpStreamDict['nine']
+                    streamInfo.eleven = tpStreamDict['eleven']
+                    streamInfo.thirteen = tpStreamDict['thirteen']
+                    streamInfo.fifteen = tpStreamDict['fifteen']
+                    streamInfo.seventeen = tpStreamDict['seventeen']
+                    streamInfo.nineteen = tpStreamDict['nineteen']
+                    streamInfo.twenty_one = tpStreamDict['twenty_one']
+                    maxNumber = max(tpStreamDict.values())
+                    streamInfo.max_number = maxNumber
+                    for key in tpStreamDict:
+                        if tpStreamDict[key]==maxNumber:
+                            num = get_number_stage(key)
+                            max_stage = num
+                            break
+                    streamInfo.real_number = tpStreamDict['real_number']
+                    streamInfo.max_stage = max_stage
+                    streamInfo.save()
+                    print(f'修改{temp}时间的{place}场所成功')
+                    print('=========')
+            return HttpResponse('全部修改成功！')
+        return HttpResponse('do nothing')
+    return HttpResponse('方法错误')
+
+        
+
+
 def make_data_for_classroomnumber(request):
+    # 造教室里面的数据
     if request.GET:
         flag = request.GET.get('flag')
         a = locals()
@@ -143,7 +189,7 @@ def make_data_for_classroomnumber(request):
         if flag == '1':
             rooms = {'A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'D1',
                      'D2', 'D3'}
-            max_people = [100, 200]
+            max_people = [80, 80]
             for room in rooms:
                 for i in range(10):
                     i += 1
@@ -153,10 +199,10 @@ def make_data_for_classroomnumber(request):
                         temp_room = room+str(i)
                     print(temp_room)
                     index = random.randint(0, 1)
-                    number = random.randint(5, 70)
+                    number = random.randint(5, 50)
                     place = ClassroomNumber(
                         place=temp_room, real_time_number=number, max_people=max_people[index], state=1)
-                    # place.save()
+                    place.save()
             return HttpResponse('ok')
         return HttpResponse('do nothing')
     return HttpResponse('get nothing')
@@ -910,7 +956,6 @@ def save_path(request):
         # t_time = request.GET.get('time')
         t_time = int(time.time())
         path = UserPath(lat=lat, lng=lng, name=name, time=t_time)
-
         try:
             path.save()
             return JsonResponse({'data': '存储路径成功', 'code': 1})
@@ -931,6 +976,7 @@ def get_path(request):
         LIMIT_DISTANCE = 0.001  # 在该范围内则视为被接触
         data = UserPath.objects.filter(
             time__lt=right_time, time__gt=left_time, name=name).values('lat', 'lng', 'time')
+        # data = decode(data)
         print(data)
         contacted_peoples = {}
         for d in data:
@@ -946,6 +992,7 @@ def get_path(request):
                 if info['name']==name: # 接触到的人之中不包括自己
                     continue
                 contacted_peoples[info['name']] = info['time']
+        # print('我是data',data)
         return JsonResponse({'data': list(data), 'code': 1, 'contacted_proples': contacted_peoples})
     else:
         return JsonResponse({'data': '请求方式错误,或未传输数据', 'code': 0})
@@ -960,3 +1007,27 @@ def get_user_info_by_mail(request):
         # 返回格式
         # {user：[{}{}{}{}]}
         return JsonResponse({'data': list(user), 'code': 1})
+
+def set_class_status(request):
+    if request.GET:
+        place = request.GET.get('place')
+        state = request.GET.get('state')
+        id = request.POST.get('user_id')
+        user = User.objects.filter(pk=id).get()
+        authority = user.authority
+        try:
+            temp_place = ClassroomNumber.objects.filter(place=place).get()
+            # print('state',state==temp_place.state)
+            if authority == '0':
+                # print(temp_place.state)
+                temp_place.state = state
+                temp_place.save()
+            elif temp_place.administrators == authority:
+                # print(temp_place.state)
+                temp_place.state = state
+                temp_place.save()
+            else:
+                return JsonResponse({'data': '没有权限!', 'code': 0})
+            return JsonResponse({'data': '成功', 'code': 1})
+        except Exception as e:
+            return JsonResponse({'data': '未知错误', 'code': 0})

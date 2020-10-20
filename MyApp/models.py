@@ -127,6 +127,7 @@ class ClassroomNumber(models.Model):
     real_time_number = models.IntegerField(blank=True, null=True)
     max_people = models.IntegerField(blank=True, null=True)
     state = models.BooleanField(default=True)
+    administrators = models.CharField(max_length=10, blank=True, null=True)
 
 
 # 各个管理员的最新版本的通知表
@@ -189,6 +190,7 @@ class UserPath(models.Model):
     # user_id = models.ForeignKey('User',
     #                             models.DO_NOTHING,
     #                             db_column='user_id')
-    lat = models.FloatField()
-    lng = models.FloatField()
+    lat = models.CharField(max_length=500, blank=True, null=True)
+    lng = models.CharField(max_length=500, blank=True, null=True)
     name = models.CharField(max_length=5, blank=True, null=True)
+    publicKey = models.CharField(max_length=500, blank=True, null=True)

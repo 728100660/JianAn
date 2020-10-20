@@ -804,9 +804,10 @@ def get_stream_people(request):
             dates, j, data = [], 0, []
             result, result2 = {}, {}
             for i in range(2):
-                temp = date + datetime.timedelta(days=-i+1)
+                temp = date + datetime.timedelta(days=-i)
                 dates.append(temp.strftime('%Y-%m-%d'))
             for date in dates:
+                print('date',date)
                 j += 1
                 counts = PlaceNumber.objects.filter(
                     place='校医院').values('max_people')
@@ -824,7 +825,7 @@ def get_stream_people(request):
                 else:
                     result2['校医院'] = number
                     result2['capacity'] = counts[0]['max_people']
-                symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0}
+                symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0,'其它':0}
                 for symptom in symptoms.keys():
                     num = SchoolHospitalAppointment.objects.filter(
                         symptom__contains=symptom, time=date).count()
@@ -892,7 +893,7 @@ def get_stream_people_week(request):
                 temp = date+datetime.timedelta(days=-i)
                 dates.append(temp.strftime('%Y-%m-%d'))
             counts = []
-            symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0}
+            symptoms = {'呼吸困难': 0, '干咳': 0, '乏力': 0, '发烧': 0, '其他':0}
             for date in dates:
                 # count是当天患者总人数
                 # count = 0
@@ -1059,3 +1060,18 @@ def set_class_status(request):
             return JsonResponse({'data': '成功', 'code': 1})
         except Exception as e:
             return JsonResponse({'data': '未知错误', 'code': 0})
+
+def make_data_for_school_hospital(request):
+    for _ in range(random.randint(0,10)):
+        date = datetime.datetime.now()
+        user = User.objects.filter(pk = 1).get()
+        for i in range(31):
+            temp = date
+            tpDate = -i # 偏移日期量
+            temp = date + datetime.timedelta(days=tpDate)
+            temp = temp.strftime('%Y-%m-%d')
+            symptom = ['有干咳症状','其它','其他','其他','其他','其他','其他']
+            index = random.randint(0,6)
+            place = SchoolHospitalAppointment(symptom = symptom[index], time = temp, state = 1, version = 0, user_id = user)
+            place.save()
+    return HttpResponse('ok')

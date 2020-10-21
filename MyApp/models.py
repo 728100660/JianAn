@@ -190,7 +190,7 @@ class UserPath(models.Model):
     # user_id = models.ForeignKey('User',
     #                             models.DO_NOTHING,
     #                             db_column='user_id')
-    lat = models.CharField(max_length=500, blank=True, null=True)
-    lng = models.CharField(max_length=500, blank=True, null=True)
+    lat = models.FloatField()
+    lng = models.FloatField()
     name = models.CharField(max_length=5, blank=True, null=True)
     publicKey = models.CharField(max_length=500, blank=True, null=True)

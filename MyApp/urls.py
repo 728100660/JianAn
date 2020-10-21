@@ -34,4 +34,5 @@ urlpatterns = {
     url(r'^change_stream_of_people/', views.change_stream_of_people, name='change_stream_of_people'),
     url(r'^set_class_status/', views.set_class_status, name='set_class_status'),
     url(r'^make_data_for_school_hospital/', views.make_data_for_school_hospital, name='make_data_for_school_hospital'),
+    url(r'^change_real_people/', views.change_real_people, name='change_real_people'),
 }

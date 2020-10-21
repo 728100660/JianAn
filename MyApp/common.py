@@ -30,6 +30,17 @@ def unix_to_datetime(unixTime):
 
 def make_stage_number_for_dict(place, capacity):
     tpStreamList = {} # 其实是dict的
+    if '贤德书院' in place:
+        real_number = random.randint(int(capacity * 0.5),int(capacity * 0.7))
+        print(capacity,real_number,place)
+    elif '萃雅书院' in place:
+        real_number = random.randint(int(capacity * 0.8),int(capacity * 0.9))
+        print(capacity,real_number,place)
+    elif '陌陌书院' in place:
+        real_number = random.randint(int(capacity * 0.3),int(capacity * 0.5))
+        print(capacity,real_number,place)
+    else:
+        real_number = random.randint(int(capacity * 0.3),int(capacity * 0.7))
     if "食堂" in place:
         gaoFengNumber = random.randint(int(capacity * 0.5),int(capacity * 0.7))
         normalNumber = random.randint(int(capacity * 0.1),int(capacity * 0.3))
@@ -41,7 +52,7 @@ def make_stage_number_for_dict(place, capacity):
         tpStreamList['seventeen'] = random.randint(int(capacity * 0.5),int(capacity * 0.7))
         tpStreamList['nineteen'] = random.randint(int(capacity * 0.5),int(capacity * 0.7))
         tpStreamList['twenty_one'] = random.randint(int(capacity * 0.1),int(capacity * 0.3))
-        tpStreamList['real_number'] = random.randint(int(capacity * 0.3),int(capacity * 0.5))
+        tpStreamList['real_number'] = real_number
     else:
         tpStreamList['seven'] = random.randint(int(capacity * 0.5),int(capacity * 0.7))
         tpStreamList['nine'] = random.randint(int(capacity * 0.5),int(capacity * 0.7))
@@ -51,7 +62,7 @@ def make_stage_number_for_dict(place, capacity):
         tpStreamList['seventeen'] = random.randint(int(capacity * 0.1),int(capacity * 0.3))
         tpStreamList['nineteen'] = random.randint(int(capacity * 0.5),int(capacity * 0.7))
         tpStreamList['twenty_one'] = random.randint(int(capacity * 0.1),int(capacity * 0.3))
-        tpStreamList['real_number'] = random.randint(int(capacity * 0.3),int(capacity * 0.5))
+        tpStreamList['real_number'] = real_number
     return tpStreamList
 
 

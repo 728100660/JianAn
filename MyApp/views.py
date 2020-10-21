@@ -59,6 +59,7 @@ def change(request):
 
 
 def test(request):
+    print(request.GET.get('flag'))
     return JsonResponse([1, 2, 3], safe=False)
     # data = User.objects.filter(name='pxz').aggregate(Max('id'))
     # user_infor = User.objects.filter(name='pxz').values()
@@ -142,7 +143,7 @@ def change_stream_of_people(request):
             places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
                     '楚枫轩食堂', '岭南食堂', '咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
             date = datetime.datetime.now()
-            for i in range(31):
+            for i in range(1):
                 temp = date
                 tpDate = -i # 偏移日期量
                 temp = date + datetime.timedelta(days=tpDate)
@@ -163,6 +164,7 @@ def change_stream_of_people(request):
                     streamInfo.twenty_one = tpStreamDict['twenty_one']
                     maxNumber = max(tpStreamDict.values())
                     streamInfo.max_number = maxNumber
+                    max_stage = 11
                     for key in tpStreamDict:
                         if tpStreamDict[key]==maxNumber:
                             num = get_number_stage(key)
@@ -173,9 +175,9 @@ def change_stream_of_people(request):
                     streamInfo.save()
                     print(f'修改{temp}时间的{place}场所成功')
                     print('=========')
-            return HttpResponse('全部修改成功！')
-        return HttpResponse('do nothing')
-    return HttpResponse('方法错误')
+            return JsonResponse({'data':'全部修改成功！'})
+        return HttpResponse({'data':'do nothing'})
+    return HttpResponse({'data':'方法错误'})
 
         
 
@@ -1062,10 +1064,10 @@ def set_class_status(request):
             return JsonResponse({'data': '未知错误', 'code': 0})
 
 def make_data_for_school_hospital(request):
-    for _ in range(random.randint(0,10)):
+    for _ in range(random.randint(3,10)):
         date = datetime.datetime.now()
         user = User.objects.filter(pk = 1).get()
-        for i in range(31):
+        for i in range(1):
             temp = date
             tpDate = -i # 偏移日期量
             temp = date + datetime.timedelta(days=tpDate)
@@ -1075,3 +1077,45 @@ def make_data_for_school_hospital(request):
             place = SchoolHospitalAppointment(symptom = symptom[index], time = temp, state = 1, version = 0, user_id = user)
             place.save()
     return HttpResponse('ok')
+
+def change_real_people(request):
+    # 改变实时人数
+    if request.GET:
+        if request.GET.get('flag') == '1':
+            places = ['校医院', '贤德书院', '萃雅书院', '陌陌书院', '贤德食堂', '萃雅食堂',
+                    '楚枫轩食堂', '岭南食堂', '咸嘉食堂', '至诚楼', '日新楼', '乐知楼', '博学楼', '图书馆']
+            date = datetime.datetime.now()
+            for i in range(1):
+                temp = date
+                tpDate = -i # 偏移日期量
+                temp = date + datetime.timedelta(days=tpDate)
+                temp = temp.strftime('%Y-%m-%d')
+                for place in places:
+                    print(f'============正在修改{temp}时间的{place}场所=============')
+                    streamInfo = Stream_of_people.objects.filter(place=place,date = temp).get()
+                    capacity = streamInfo.capacity
+                    tpStreamDict = make_stage_number_for_dict(streamInfo.place, capacity)
+                    print(tpStreamDict)
+                    # streamInfo.seven = tpStreamDict['seven']
+                    # streamInfo.nine = tpStreamDict['nine']
+                    # streamInfo.eleven = tpStreamDict['eleven']
+                    # streamInfo.thirteen = tpStreamDict['thirteen']
+                    # streamInfo.fifteen = tpStreamDict['fifteen']
+                    # streamInfo.seventeen = tpStreamDict['seventeen']
+                    # streamInfo.nineteen = tpStreamDict['nineteen'] 
+                    # streamInfo.twenty_one = tpStreamDict['twenty_one']
+                    maxNumber = max(max(tpStreamDict.values()),tpStreamDict['real_number'])# 每次更新最大人数
+                    streamInfo.max_number = maxNumber
+                    # for key in tpStreamDict:
+                    #     if tpStreamDict[key]==maxNumber:
+                    #         num = get_number_stage(key)
+                    #         max_stage = num
+                    #         break
+                    streamInfo.real_number = tpStreamDict['real_number']
+                    # streamInfo.max_stage = max_stage
+                    streamInfo.save()
+                    print(f'修改{temp}时间的{place}场所成功')
+                    print('=========')
+            return JsonResponse({'data':1})
+        return JsonResponse({'data':1})
+    return JsonResponse({'data':1})
